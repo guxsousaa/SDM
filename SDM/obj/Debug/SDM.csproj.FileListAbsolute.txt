@@ -1,0 +1,16 @@
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\bin\Debug\SDM.exe.config
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\bin\Debug\SDM.exe
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\bin\Debug\SDM.pdb
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.csproj.AssemblyReference.cache
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.csproj.SuggestedBindingRedirects.cache
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.Properties.Resources.resources
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.csproj.GenerateResource.cache
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.csproj.CoreCompileInputs.cache
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.exe
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.pdb
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\bin\Debug\SplashScreen.dll
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.FRM_Splash.resources
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.csproj.CopyComplete
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\obj\Debug\SDM.FRM_Auth.resources
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\bin\Debug\log4net.dll
+C:\Users\kauav\Desktop\WindowsForms\SDM\SDM\bin\Debug\log4net.xml
