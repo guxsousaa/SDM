@@ -16,11 +16,13 @@ using log4net.Appender;
 using log4net.Layout;
 using log4net.Repository.Hierarchy;
 using System.IO;
+using SDM.AuthUsers;
 
 namespace SDM
 {
     public partial class FRM_Splash : Form
     {
+        private static string currentUser = Environment.UserName;
 
         public FRM_Splash()
         {
@@ -31,7 +33,17 @@ namespace SDM
 
             // System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
 
+            timer_splash.Stop();
+            if (!AccessUsers.canAccess.Contains(currentUser))
+            {
+                MessageBox.Show("You do not have access to use this application, please contact the system administrator (Kauã Vitorio).\n\n" +
+                    "Warning code: " + ErrorHelper.ACCESS_DENIED,
+                    "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Environment.Exit(1);
 
+            }
+            else
+                timer_splash.Start();
         }
 
         private void timer_splash_Tick(object sender, EventArgs e)
@@ -45,9 +57,8 @@ namespace SDM
                 FRM_Auth fRM_Auth = new FRM_Auth();
 
                 LogHelper.doLog("\nError 8\n");
-
-                /*fRM_Auth.Show();
-                this.Hide();*/
+                fRM_Auth.Show();
+                this.Hide();
             }
         }
 

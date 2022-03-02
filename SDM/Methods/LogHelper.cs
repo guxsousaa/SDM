@@ -33,7 +33,7 @@ namespace SDM.Methods
             sb.Append(msg);
             sb.Append(MARK);
             // flush every 20 seconds as you do it
-            File.AppendAllText(filePath + Date + ".txt", sb.ToString());
+            File.AppendAllText(filePath + Date + ".log", sb.ToString());
             sb.Clear();
         }
     }
