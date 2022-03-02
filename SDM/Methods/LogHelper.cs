@@ -15,7 +15,7 @@ namespace SDM.Methods
 {
     internal class LogHelper
     {
-        private static string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SDM\\";
+        private static string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SDM\\Logs\\";
         private static string MARK = "\n=============================================\n";
 
         public static void doLog(string msg)
@@ -23,17 +23,19 @@ namespace SDM.Methods
             //  Get current day and time
             DateTime today = DateTime.Today;
             string Date = today.ToString("dd-MM-yyyy");
-            string Time = MARK + string.Format("{0:HH:mm:ss tt}", DateTime.Now) + " - IP: " +NetworkHelper.GetLocalIPAddress() + "\n";
+            string Time = MARK + string.Format("{0:HH:mm:ss tt}", DateTime.Now) + " - IP: " + NetworkHelper.GetLocalIPAddress() + "\n";
 
-            Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SDM"));
+            Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SDM\\Logs"));
 
             StringBuilder sb = new StringBuilder();
             sb.Append(Time);
             sb.Append("User: " + Environment.UserName);
             sb.Append(msg);
             sb.Append(MARK);
+
             // flush every 20 seconds as you do it
             File.AppendAllText(filePath + Date + ".log", sb.ToString());
+
             sb.Clear();
         }
     }

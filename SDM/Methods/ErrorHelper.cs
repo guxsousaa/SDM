@@ -8,6 +8,8 @@ namespace SDM.Methods
 {
     internal class ErrorHelper
     {
-        public static string ACCESS_DENIED = "ACCDEx01"; 
+        public static string ACCESS_DENIED = "ACCDEx01";
+
+        public static string NO_INTERNET = "NNET";
     }
 }

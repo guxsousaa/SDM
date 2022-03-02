@@ -68,7 +68,6 @@
             // 
             // timer_splash
             // 
-            this.timer_splash.Enabled = true;
             this.timer_splash.Interval = 15;
             this.timer_splash.Tick += new System.EventHandler(this.timer_splash_Tick);
             // 
@@ -76,10 +75,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(162)))), ((int)(((byte)(164)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(182)))), ((int)(((byte)(184)))));
             this.label2.Location = new System.Drawing.Point(4, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 16);
+            this.label2.Size = new System.Drawing.Size(163, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Created by Kauã Vitorio";
             // 
@@ -87,10 +87,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(162)))), ((int)(((byte)(164)))));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(182)))), ((int)(((byte)(184)))));
             this.label3.Location = new System.Drawing.Point(4, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
+            this.label3.Size = new System.Drawing.Size(82, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "Version 1.0";
             // 

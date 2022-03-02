@@ -31,19 +31,30 @@ namespace SDM
             //  Set the initial width of the progress bar
             progress_splash.Width = 1;
 
-            // System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
-
-            timer_splash.Stop();
-            if (!AccessUsers.canAccess.Contains(currentUser))
+            //  Validate if user is connected to a internet connection
+            bool networkStatus = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+            if (networkStatus)
             {
-                MessageBox.Show("You do not have access to use this application, please contact the system administrator (Kauã Vitorio).\n\n" +
-                    "Warning code: " + ErrorHelper.ACCESS_DENIED,
-                    "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Environment.Exit(1);
 
+                timer_splash.Stop();
+                if (!AccessUsers.canAccess.Contains(currentUser))
+                {
+                    MessageBox.Show("You do not have access to use this application, please contact the system administrator (Kauã Vitorio).\n\n" +
+                        "Warning code: " + ErrorHelper.ACCESS_DENIED,
+                        "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Environment.Exit(1);
+
+                }
+                else
+                    timer_splash.Start();
             }
             else
-                timer_splash.Start();
+            {
+                MessageBox.Show("You have no internet connection, please connect to a network and reopen the application.\n\n" +
+                        "Warning code: " + ErrorHelper.NO_INTERNET,
+                        "No Internet Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Environment.Exit(1);
+            }
         }
 
         private void timer_splash_Tick(object sender, EventArgs e)
@@ -54,12 +65,42 @@ namespace SDM
             if (progress_splash.Width >= 100)
             {
                 timer_splash.Stop();
-                FRM_Auth fRM_Auth = new FRM_Auth();
+                FRM_Main fRM_Main = new FRM_Main();
 
-                LogHelper.doLog("\nError 8\n");
-                fRM_Auth.Show();
+                //OpenPowerShell();
+
+                fRM_Main.Show();
                 this.Hide();
             }
+        }
+
+        static void OpenPowerShell()
+        {
+            //execute powershell cmdlets or scripts using command arguments as process
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = @"powershell.exe";
+            //execute powershell script using script file
+            //processInfo.Arguments = @"& {c:\temp\Get-EventLog.ps1}";
+            //execute powershell command
+            processInfo.Arguments = @"& {Get-NetIPAddress}";
+            processInfo.Verb = "runas";
+            processInfo.RedirectStandardError = true;
+            processInfo.RedirectStandardOutput = true;
+            processInfo.UseShellExecute = false;
+            processInfo.CreateNoWindow = true;
+
+            //start powershell process using process start info
+            Process process = new Process();
+            process.StartInfo = processInfo;
+            process.Start();
+
+
+
+            MessageBox.Show(process.StandardOutput.ReadToEnd(), "Out", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            MessageBox.Show(process.StandardError.ReadToEnd(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+
+            Console.Read();
         }
 
 

@@ -63,8 +63,14 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Json.Net, Version=1.0.33.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Json.Net.1.0.33\lib\netstandard2.0\Json.Net.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SplashScreen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SplashScreen.Winforms.1.0.0\lib\SplashScreen.dll</HintPath>
@@ -84,7 +90,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthUsers\AccessUsers.cs" />
+    <Compile Include="ConfigHelper\ConfigurationAss.cs" />
+    <Compile Include="FRM_Ad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Ad.Designer.cs">
+      <DependentUpon>FRM_Ad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Main.Designer.cs">
+      <DependentUpon>FRM_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersHelper\AccessUsers.cs" />
     <Compile Include="FRM_Auth.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,8 +122,14 @@
     <Compile Include="Methods\PowerShellHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FRM_Ad.resx">
+      <DependentUpon>FRM_Ad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRM_Auth.resx">
       <DependentUpon>FRM_Auth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Main.resx">
+      <DependentUpon>FRM_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Splash.resx">
       <DependentUpon>FRM_Splash.cs</DependentUpon>
