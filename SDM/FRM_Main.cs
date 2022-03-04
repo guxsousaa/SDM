@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using SDM.Methods;
 
 namespace SDM
 {
@@ -26,6 +27,8 @@ namespace SDM
             changePnlNav(btn_dash_main);
 
             txt_username_main.Text = currentUser;
+
+            //AdHelper.GetComputers();
         }
 
         private void FRM_Main_Load(object sender, EventArgs e)
@@ -80,6 +83,7 @@ namespace SDM
         private void btn_tiemprest_main_Click(object sender, EventArgs e)
         {
             changePnlNav(btn_tiemprest_main);
+            openWindown(new FRM_TiEmprest());
         }
         private void btn_settings_main_Click(object sender, EventArgs e)
         {
@@ -134,6 +138,11 @@ namespace SDM
         private void close_btn_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void FRM_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

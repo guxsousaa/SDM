@@ -53,17 +53,17 @@
             // 
             // container_progress
             // 
-            this.container_progress.Location = new System.Drawing.Point(-2, 328);
+            this.container_progress.Location = new System.Drawing.Point(0, 340);
             this.container_progress.Name = "container_progress";
-            this.container_progress.Size = new System.Drawing.Size(610, 22);
+            this.container_progress.Size = new System.Drawing.Size(616, 10);
             this.container_progress.TabIndex = 1;
             // 
             // progress_splash
             // 
             this.progress_splash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(222)))), ((int)(((byte)(228)))));
-            this.progress_splash.Location = new System.Drawing.Point(-2, 328);
+            this.progress_splash.Location = new System.Drawing.Point(-3, 340);
             this.progress_splash.Name = "progress_splash";
-            this.progress_splash.Size = new System.Drawing.Size(83, 22);
+            this.progress_splash.Size = new System.Drawing.Size(92, 10);
             this.progress_splash.TabIndex = 2;
             // 
             // timer_splash
@@ -79,7 +79,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(182)))), ((int)(((byte)(184)))));
             this.label2.Location = new System.Drawing.Point(4, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 18);
+            this.label2.Size = new System.Drawing.Size(134, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Created by Kauã Vitorio";
             // 
@@ -91,7 +91,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(182)))), ((int)(((byte)(184)))));
             this.label3.Location = new System.Drawing.Point(4, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 18);
+            this.label3.Size = new System.Drawing.Size(68, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Version 1.0";
             // 

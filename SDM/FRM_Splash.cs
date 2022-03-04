@@ -22,7 +22,7 @@ namespace SDM
 {
     public partial class FRM_Splash : Form
     {
-        private static string currentUser = Environment.UserName;
+        private static string currentUser = Environment.UserName.ToLower();
 
         public FRM_Splash()
         {
@@ -37,7 +37,7 @@ namespace SDM
             {
 
                 timer_splash.Stop();
-                if (!AccessUsers.canAccess.Contains(currentUser))
+                if (!AccessUsers.canAccess(currentUser))
                 {
                     MessageBox.Show("You do not have access to use this application, please contact the system administrator (Kauã Vitorio).\n\n" +
                         "Warning code: " + ErrorHelper.ACCESS_DENIED,
@@ -60,9 +60,18 @@ namespace SDM
         private void timer_splash_Tick(object sender, EventArgs e)
         {
 
-            progress_splash.Width += 3;
+            if(progress_splash.Width <= 100)
+                progress_splash.Width += 2;
+            else if (progress_splash.Width <= 200)
+                progress_splash.Width += 3;
+            else if (progress_splash.Width <= 250)
+                progress_splash.Width += 1;
+            else if (progress_splash.Width <= 400)
+                progress_splash.Width += 5;
+            else
+                progress_splash.Width += 9;
 
-            if (progress_splash.Width >= 100)
+            if (progress_splash.Width >= 600)
             {
                 timer_splash.Stop();
                 FRM_Main fRM_Main = new FRM_Main();
@@ -102,7 +111,6 @@ namespace SDM
 
             Console.Read();
         }
-
 
     }
 

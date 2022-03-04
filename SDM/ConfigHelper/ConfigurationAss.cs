@@ -31,7 +31,7 @@ namespace SDM.ConfigHelper
                 using (StreamReader r = new StreamReader(filePath + ConfigFile))
                 {
                     //  Review it later
-                    LogHelper.doLog("\nReading Config Json file...");
+                    LogHelper.doLog("\nReading Config Json file...", null);
 
                     jsonObj = JsonConvert.DeserializeObject(r.ReadToEnd());
 
@@ -43,7 +43,7 @@ namespace SDM.ConfigHelper
             }
             catch (Exception ex)
             {
-                LogHelper.doLog("\nCreate a new Config Json file \nThere is no current file\n\n" + ex.ToString());
+                LogHelper.doLog("\nCreate a new Config Json file \nThere is no current file\n", null);
 
                 var obj = new
                 {

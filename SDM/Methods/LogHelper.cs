@@ -18,7 +18,7 @@ namespace SDM.Methods
         private static string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SDM\\Logs\\";
         private static string MARK = "\n=============================================\n";
 
-        public static void doLog(string msg)
+        public static void doLog(string msg, string ERROR_CODE)
         {
             //  Get current day and time
             DateTime today = DateTime.Today;
@@ -31,6 +31,9 @@ namespace SDM.Methods
             sb.Append(Time);
             sb.Append("User: " + Environment.UserName);
             sb.Append(msg);
+
+            if(ERROR_CODE != null)
+                sb.Append("\nError code: " + ERROR_CODE);
             sb.Append(MARK);
 
             // flush every 20 seconds as you do it

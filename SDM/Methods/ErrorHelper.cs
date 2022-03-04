@@ -11,5 +11,7 @@ namespace SDM.Methods
         public static string ACCESS_DENIED = "ACCDEx01";
 
         public static string NO_INTERNET = "NNET";
+
+        public static string USER_ACCESS_FILE_MISSING = "UCFM-M";
     }
 }
