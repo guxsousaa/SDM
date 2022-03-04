@@ -38,5 +38,30 @@ namespace SDM.Methods
 
             Console.Read();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_ARGUMENT"></param>
+        /// <returns></returns>
+        public static Process executeCommand(string _ARGUMENT)
+        {
+            //execute powershell cmdlets or scripts using command arguments as process
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = @"powershell.exe";
+            processInfo.Arguments = _ARGUMENT;
+            processInfo.Verb = "runas";
+            processInfo.RedirectStandardError = true;
+            processInfo.RedirectStandardOutput = true;
+            processInfo.UseShellExecute = false;
+            processInfo.CreateNoWindow = true;
+
+            //start powershell process using process start info
+            Process process = new Process();
+            process.StartInfo = processInfo;
+            process.Start();
+
+            return process;
+        }
     }
 }

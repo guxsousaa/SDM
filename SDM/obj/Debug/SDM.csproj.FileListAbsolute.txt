@@ -28,4 +28,5 @@ D:\DEVELOPMENT\SDM\SDM\bin\Debug\System.Security.Permissions.xml
 D:\DEVELOPMENT\SDM\SDM\bin\Debug\System.Security.Principal.Windows.xml
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_TiEmprest.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_newComp.resources
-D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.csproj.SuggestedBindingRedirects.cache
+D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Printer.resources
+D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Settings.resources

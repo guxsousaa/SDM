@@ -21,7 +21,6 @@ namespace SDM
 
         private void FRM_Ad_Load(object sender, EventArgs e)
         {
-
             //list_computer_ad.Items.Add(new ListViewItem(AdHelper.GetComputers().ToArray()));
         }
 

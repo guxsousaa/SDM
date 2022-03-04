@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using SDM.Methods;
+using SDM.AuthUsers;
 
 namespace SDM
 {
@@ -26,7 +27,7 @@ namespace SDM
             //  Change nav for the start position
             changePnlNav(btn_dash_main);
 
-            txt_username_main.Text = currentUser;
+            txt_username_main.Text = currentUser.Replace("-otimtz", "");
 
             //AdHelper.GetComputers();
         }
@@ -78,16 +79,29 @@ namespace SDM
         private void btn_printer_main_Click(object sender, EventArgs e)
         {
             changePnlNav(btn_printer_main);
+            openWindown(new FRM_Printer());
         }
 
         private void btn_tiemprest_main_Click(object sender, EventArgs e)
         {
-            changePnlNav(btn_tiemprest_main);
-            openWindown(new FRM_TiEmprest());
+            if (!AccessUsers.canAccessTiEmprest.Contains(currentUser.ToLower()))
+            {
+                MessageBox.Show("You do not have access to access TiEmprest section, please contact the system administrator (Kauã Vitorio).\n\n" +
+                    "Warning code: " + ErrorHelper.ACCESS_DENIED_TIEMPREST,
+                    "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                openWindown(new FRM_TiEmprest());
+                changePnlNav(btn_tiemprest_main);
+            }
         }
         private void btn_settings_main_Click(object sender, EventArgs e)
         {
             changePnlNav(btn_settings_main);
+
+            FRM_Settings frm_settings = new FRM_Settings();
+            frm_settings.ShowDialog();
         }
 
         // ---------- End Click Event ----------

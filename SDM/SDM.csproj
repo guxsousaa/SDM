@@ -128,6 +128,18 @@
     <Compile Include="FRM_Main.Designer.cs">
       <DependentUpon>FRM_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRM_Printer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Printer.Designer.cs">
+      <DependentUpon>FRM_Printer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Settings.Designer.cs">
+      <DependentUpon>FRM_Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_TiEmprest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +147,7 @@
       <DependentUpon>FRM_TiEmprest.cs</DependentUpon>
     </Compile>
     <Compile Include="Methods\AdHelper.cs" />
+    <Compile Include="Methods\ToolsHelper.cs" />
     <Compile Include="UsersHelper\AccessUsers.cs" />
     <Compile Include="FRM_Auth.cs">
       <SubType>Form</SubType>
@@ -165,6 +178,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Main.resx">
       <DependentUpon>FRM_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Printer.resx">
+      <DependentUpon>FRM_Printer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Settings.resx">
+      <DependentUpon>FRM_Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Splash.resx">
       <DependentUpon>FRM_Splash.cs</DependentUpon>
@@ -214,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FRM_Printer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
