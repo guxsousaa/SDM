@@ -17,9 +17,9 @@ namespace SDM.AuthUsers
         private static string UsersFolder = "Users";
         private static string UsersAccessFile = "\\access.json";
 
-        public static string[] canUpdateBase = { "kaualima-mtz", "43333349850-otimtz" };
+        public static string[] canUpdateBase = { "kauav", "kaualima-mtz", "43333349850-otimtz" };
 
-        public static string[] canAccessTiEmprest = { "kaualima-mtz", "43333349850-otimtz" };
+        public static string[] canAccessTiEmprest = { "kauav", "kaualima-mtz", "43333349850-otimtz" };
 
 
         public static void cretateUsersFile()

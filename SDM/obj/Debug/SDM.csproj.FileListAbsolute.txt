@@ -30,3 +30,4 @@ D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_TiEmprest.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_newComp.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Printer.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Settings.resources
+D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.csproj.SuggestedBindingRedirects.cache

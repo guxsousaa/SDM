@@ -60,15 +60,17 @@ namespace SDM
                     // Set cursor as hourglass
                     Cursor.Current = Cursors.WaitCursor;
 
-                    AdHelper.updateAdBaseFile();
+                    if (AdHelper.updateAdBaseFile())
+                    {
+                        MessageBox.Show("Active directory base updated successfully!\n\n",
+                            "Updated successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
 
                     // Set cursor as default arrow
                     Cursor.Current = Cursors.Default;
 
                     checkLastBaseCompChange();
 
-                    MessageBox.Show("Active directory base updated successfully!\n\n",
-                        "Updated successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
