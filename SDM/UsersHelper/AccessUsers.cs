@@ -38,15 +38,25 @@ namespace SDM.AuthUsers
         public static bool canAccess(string USERNAME)
         {
             List<UserInfo> usersList = LoadJson();
-            foreach(UserInfo user in usersList)
+            foreach (UserInfo user in usersList)
             {
                 if (user.username.ToLower() == USERNAME.ToLower())
                     return true;
             }
             return false;
         }
+        public static string getUserImageUrl(string USERNAME)
+        {
+            List<UserInfo> usersList = LoadJson();
+            foreach (UserInfo user in usersList)
+            {
+                if (user.username.ToLower() == USERNAME.ToLower())
+                    return user.imageUrl;
+            }
+            return null;
+        }
 
-        
+
         /// <summary>
         /// Load Json file that is in user documents
         /// </summary>
@@ -106,12 +116,14 @@ namespace Users_DTO
         public string username { get; set; }
         public int type { get; set; }
         public int access { get; set; }
+        public string imageUrl { get; set; }
 
-        public UserInfo(string username, int type, int access)
+        public UserInfo(string username, int type, int access, string imageUrl)
         {
             this.username = username;
             this.type = type;
             this.access = access;
+            this.imageUrl = imageUrl;
         }
 
         public UserInfo() { }

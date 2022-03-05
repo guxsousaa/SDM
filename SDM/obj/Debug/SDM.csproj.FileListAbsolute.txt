@@ -64,3 +64,4 @@ E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.csproj.CoreCompileInputs.cache
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.csproj.CopyComplete
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.exe
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.pdb
+E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Dashboard.resources

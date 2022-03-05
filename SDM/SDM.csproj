@@ -123,6 +123,12 @@
     <Compile Include="FRM_Ad.Designer.cs">
       <DependentUpon>FRM_Ad.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRM_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Dashboard.Designer.cs">
+      <DependentUpon>FRM_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Auth.resx">
       <DependentUpon>FRM_Auth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Dashboard.resx">
+      <DependentUpon>FRM_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Main.resx">
       <DependentUpon>FRM_Main.cs</DependentUpon>

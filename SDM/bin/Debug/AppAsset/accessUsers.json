@@ -1,8 +1,32 @@
 [
-  { "username": "kauav", "type": 2, "access": 2 },
-  { "username": "kaualima-mtz", "type": 2, "access": 2 },
-  { "username": "Administrator", "type": 2, "access": 2 },
-  { "username": "43333349850-otimtz", "type": 2, "access": 2 },
-  { "username": "42318850879-otimtz", "type": 2, "access": 2 },
-  { "username": "11971516724-otimtz", "type": 2, "access": 2 }
+  {
+    "username": "kauav",
+    "type": 2,
+    "access": 2,
+    "imageUrl": "https://avatars.githubusercontent.com/u/64799699"
+  },
+  {
+    "username": "43333349850-otimtz",
+    "type": 2,
+    "access": 2,
+    "imageUrl": "https://avatars.githubusercontent.com/u/64799699"
+  },
+  {
+    "username": "Administrator",
+    "type": 2,
+    "access": 2,
+    "imageUrl": "https://uspery.com/url/vamp"
+  },
+  {
+    "username": "42318850879-otimtz",
+    "type": 2,
+    "access": 2,
+    "imageUrl": "https://uspery.com/url/vamp"
+  },
+  {
+    "username": "11971516724-otimtz",
+    "type": 2,
+    "access": 2,
+    "imageUrl": "https://uspery.com/url/vamp"
+  }
 ]

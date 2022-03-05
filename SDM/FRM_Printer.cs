@@ -20,25 +20,6 @@ namespace SDM
 
         private void btn_ping_computer_Click(object sender, EventArgs e)
         {
-            if(input_compName.Text == null || input_compName.Text.Length <= 0)
-            {
-                MessageBox.Show("Cannot search for a computer with empty search field",
-                    "SDM - Empty search!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                string hostName = input_compName.Text.ToString();
-                if (ToolsHelper.PingHost(hostName))
-                {
-                    MessageBox.Show("ON",
-                        "SDM - Empty search!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    MessageBox.Show("OFF",
-                        "SDM - Empty search!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace SDM
 {
     public partial class FRM_Main : Form
     {
-        private static string currentUser = Environment.UserName;
+        private static string currentUser = Environment.UserName.ToLower();
 
         public FRM_Main()
         {
@@ -30,37 +30,25 @@ namespace SDM
 
             txt_username_main.Text = currentUser.Replace("-otimtz", "");
 
-            //AdHelper.GetComputers();
+            openWindown(new FRM_Dashboard());
+
+            loadUserImage();
+        }
+
+        void loadUserImage()
+        {
+            //  Make picturebox rounded
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, user_profile_pic_main.Width - 3, user_profile_pic_main.Height - 3);
+            Region rg = new Region(gp);
+            user_profile_pic_main.Region = rg;
+
+            string imgUrl = AccessUsers.getUserImageUrl(currentUser);
+            if(imgUrl != null) user_profile_pic_main.ImageLocation = imgUrl;
         }
 
         private void FRM_Main_Load(object sender, EventArgs e)
         {
-            //reset your chart series and legends
-            chart_ad_status.Series.Clear();
-            chart_ad_status.Legends.Clear();
-            chart_ad_status.Legends.Add("Computers");
-
-            //Add a new chart-series
-            string seriesname = "Computers";
-            chart_ad_status.Series.Add(seriesname);
-
-            //set the chart-type to "Column"
-            chart_ad_status.Series[seriesname].ChartType = SeriesChartType.Column;
-            chart_ad_status.ChartAreas[0].AxisX.LineColor = Color.White;
-            chart_ad_status.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.White;
-            chart_ad_status.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
-
-            chart_ad_status.ChartAreas[0].AxisY.LineColor = Color.White;
-            chart_ad_status.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.White;
-            chart_ad_status.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
-
-            long[] statusResult = AdHelper.getStatus();
-
-            chart_ad_status.Series[seriesname].Points.AddXY("MTZNTB", statusResult[0]);
-            chart_ad_status.Series[seriesname].Points.AddXY("TIEMPREST", statusResult[1]);
-            chart_ad_status.Series[seriesname].Points.AddXY("Bloked", statusResult[2]);
-            chart_ad_status.Series[seriesname].Points.AddXY("Relocation", statusResult[3]);
-
         }
         private void openWindown(object nextForm)
         {
@@ -94,6 +82,7 @@ namespace SDM
         private void btn_dash_main_Click(object sender, EventArgs e)
         {
             changePnlNav(btn_dash_main);
+            openWindown(new FRM_Dashboard());
         }
 
         private void btn_ad_main_Click(object sender, EventArgs e)

@@ -17,6 +17,8 @@ namespace SDM.Methods
     {
 
         private static string AD_NAME = "corporate";
+        public static string OU_HOSTNAME_BLOCK = "OU=Bloqueio,OU=Hostname,OU=Quarentena";
+        public static string OU_NOTEBOOK_MTZ = "OU=OU Notebook,OU=Matriz";
 
         public static ADInfo searchComputer(string COMPUTER_NAME)
         {
@@ -142,11 +144,11 @@ namespace SDM.Methods
                     numberList.Add(val);
                 }
 
-                return getMissingNumber1(numberList.ToArray()).ToString();
+                return getMissingNumber(numberList.ToArray()).ToString();
             }
         }
 
-        public static int getMissingNumber1(int[] selectedNumbers)
+        public static int getMissingNumber(int[] selectedNumbers)
         {
             Array.Sort(selectedNumbers);
 

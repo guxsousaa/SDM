@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Main));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.container_base_left_main = new System.Windows.Forms.Panel();
             this.PnlNav = new System.Windows.Forms.Panel();
             this.btn_settings_main = new System.Windows.Forms.Button();
@@ -44,7 +41,6 @@
             this.user_profile_pic_main = new System.Windows.Forms.PictureBox();
             this.panel_container_main = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.chart_ad_status = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel_win_btns_main = new System.Windows.Forms.Panel();
             this.minimize_btn = new System.Windows.Forms.PictureBox();
             this.close_btn = new System.Windows.Forms.PictureBox();
@@ -52,8 +48,6 @@
             this.container_user_info_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.user_profile_pic_main)).BeginInit();
             this.panel_container_main.SuspendLayout();
-            this.panel_main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_ad_status)).BeginInit();
             this.panel_win_btns_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimize_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn)).BeginInit();
@@ -189,21 +183,21 @@
             // 
             this.txt_username_main.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_username_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(149)))));
-            this.txt_username_main.Location = new System.Drawing.Point(3, 98);
+            this.txt_username_main.Location = new System.Drawing.Point(3, 102);
             this.txt_username_main.Name = "txt_username_main";
-            this.txt_username_main.Size = new System.Drawing.Size(177, 20);
+            this.txt_username_main.Size = new System.Drawing.Size(177, 46);
             this.txt_username_main.TabIndex = 1;
             this.txt_username_main.Text = "User Name";
-            this.txt_username_main.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txt_username_main.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // user_profile_pic_main
             // 
             this.user_profile_pic_main.Image = ((System.Drawing.Image)(resources.GetObject("user_profile_pic_main.Image")));
-            this.user_profile_pic_main.Location = new System.Drawing.Point(55, 22);
+            this.user_profile_pic_main.Location = new System.Drawing.Point(48, 20);
             this.user_profile_pic_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_profile_pic_main.Name = "user_profile_pic_main";
-            this.user_profile_pic_main.Size = new System.Drawing.Size(63, 63);
-            this.user_profile_pic_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.user_profile_pic_main.Size = new System.Drawing.Size(80, 80);
+            this.user_profile_pic_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.user_profile_pic_main.TabIndex = 0;
             this.user_profile_pic_main.TabStop = false;
             // 
@@ -220,38 +214,12 @@
             // 
             // panel_main
             // 
-            this.panel_main.Controls.Add(this.chart_ad_status);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 30);
             this.panel_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(729, 571);
             this.panel_main.TabIndex = 1;
-            // 
-            // chart_ad_status
-            // 
-            this.chart_ad_status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.chart_ad_status.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.chart_ad_status.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.ForeColor = System.Drawing.Color.White;
-            legend2.Name = "Legend1";
-            this.chart_ad_status.Legends.Add(legend2);
-            this.chart_ad_status.Location = new System.Drawing.Point(6, 240);
-            this.chart_ad_status.Name = "chart_ad_status";
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.White;
-            series2.LabelBackColor = System.Drawing.Color.Transparent;
-            series2.LabelForeColor = System.Drawing.Color.White;
-            series2.Legend = "Legend1";
-            series2.Name = "Total";
-            series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
-            this.chart_ad_status.Series.Add(series2);
-            this.chart_ad_status.Size = new System.Drawing.Size(434, 303);
-            this.chart_ad_status.TabIndex = 0;
-            this.chart_ad_status.Text = "chart1";
             // 
             // panel_win_btns_main
             // 
@@ -309,8 +277,6 @@
             this.container_user_info_main.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.user_profile_pic_main)).EndInit();
             this.panel_container_main.ResumeLayout(false);
-            this.panel_main.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart_ad_status)).EndInit();
             this.panel_win_btns_main.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.minimize_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn)).EndInit();
@@ -335,6 +301,5 @@
         private System.Windows.Forms.Panel panel_win_btns_main;
         private System.Windows.Forms.PictureBox close_btn;
         private System.Windows.Forms.PictureBox minimize_btn;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_ad_status;
     }
 }
