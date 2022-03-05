@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using SDM.Methods;
 using SDM.AuthUsers;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SDM
 {
@@ -34,6 +35,31 @@ namespace SDM
 
         private void FRM_Main_Load(object sender, EventArgs e)
         {
+            //reset your chart series and legends
+            chart_ad_status.Series.Clear();
+            chart_ad_status.Legends.Clear();
+            chart_ad_status.Legends.Add("Computers");
+
+            //Add a new chart-series
+            string seriesname = "Computers";
+            chart_ad_status.Series.Add(seriesname);
+
+            //set the chart-type to "Column"
+            chart_ad_status.Series[seriesname].ChartType = SeriesChartType.Column;
+            chart_ad_status.ChartAreas[0].AxisX.LineColor = Color.White;
+            chart_ad_status.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.White;
+            chart_ad_status.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
+
+            chart_ad_status.ChartAreas[0].AxisY.LineColor = Color.White;
+            chart_ad_status.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.White;
+            chart_ad_status.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+
+            long[] statusResult = AdHelper.getStatus();
+
+            chart_ad_status.Series[seriesname].Points.AddXY("MTZNTB", statusResult[0]);
+            chart_ad_status.Series[seriesname].Points.AddXY("TIEMPREST", statusResult[1]);
+            chart_ad_status.Series[seriesname].Points.AddXY("Bloked", statusResult[2]);
+            chart_ad_status.Series[seriesname].Points.AddXY("Relocation", statusResult[3]);
 
         }
         private void openWindown(object nextForm)

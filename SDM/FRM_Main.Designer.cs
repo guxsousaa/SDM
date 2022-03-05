@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Main));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.container_base_left_main = new System.Windows.Forms.Panel();
             this.PnlNav = new System.Windows.Forms.Panel();
             this.btn_settings_main = new System.Windows.Forms.Button();
@@ -41,6 +44,7 @@
             this.user_profile_pic_main = new System.Windows.Forms.PictureBox();
             this.panel_container_main = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.chart_ad_status = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel_win_btns_main = new System.Windows.Forms.Panel();
             this.minimize_btn = new System.Windows.Forms.PictureBox();
             this.close_btn = new System.Windows.Forms.PictureBox();
@@ -48,6 +52,8 @@
             this.container_user_info_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.user_profile_pic_main)).BeginInit();
             this.panel_container_main.SuspendLayout();
+            this.panel_main.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_ad_status)).BeginInit();
             this.panel_win_btns_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimize_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn)).BeginInit();
@@ -65,18 +71,18 @@
             this.container_base_left_main.Controls.Add(this.container_user_info_main);
             this.container_base_left_main.Dock = System.Windows.Forms.DockStyle.Left;
             this.container_base_left_main.Location = new System.Drawing.Point(0, 0);
-            this.container_base_left_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.container_base_left_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.container_base_left_main.Name = "container_base_left_main";
-            this.container_base_left_main.Size = new System.Drawing.Size(135, 488);
+            this.container_base_left_main.Size = new System.Drawing.Size(180, 601);
             this.container_base_left_main.TabIndex = 0;
             // 
             // PnlNav
             // 
             this.PnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.PnlNav.Location = new System.Drawing.Point(0, 157);
-            this.PnlNav.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PnlNav.Location = new System.Drawing.Point(0, 193);
+            this.PnlNav.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PnlNav.Name = "PnlNav";
-            this.PnlNav.Size = new System.Drawing.Size(2, 81);
+            this.PnlNav.Size = new System.Drawing.Size(3, 100);
             this.PnlNav.TabIndex = 7;
             // 
             // btn_settings_main
@@ -86,10 +92,10 @@
             this.btn_settings_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_settings_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_settings_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btn_settings_main.Location = new System.Drawing.Point(0, 452);
-            this.btn_settings_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_settings_main.Location = new System.Drawing.Point(0, 557);
+            this.btn_settings_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_settings_main.Name = "btn_settings_main";
-            this.btn_settings_main.Size = new System.Drawing.Size(135, 36);
+            this.btn_settings_main.Size = new System.Drawing.Size(180, 44);
             this.btn_settings_main.TabIndex = 6;
             this.btn_settings_main.Text = "Settings";
             this.btn_settings_main.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -103,10 +109,10 @@
             this.btn_tiemprest_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_tiemprest_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_tiemprest_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btn_tiemprest_main.Location = new System.Drawing.Point(0, 230);
-            this.btn_tiemprest_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_tiemprest_main.Location = new System.Drawing.Point(0, 282);
+            this.btn_tiemprest_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_tiemprest_main.Name = "btn_tiemprest_main";
-            this.btn_tiemprest_main.Size = new System.Drawing.Size(135, 36);
+            this.btn_tiemprest_main.Size = new System.Drawing.Size(180, 44);
             this.btn_tiemprest_main.TabIndex = 5;
             this.btn_tiemprest_main.Text = "TIEMPREST";
             this.btn_tiemprest_main.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -121,10 +127,10 @@
             this.btn_printer_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_printer_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_printer_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btn_printer_main.Location = new System.Drawing.Point(0, 194);
-            this.btn_printer_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_printer_main.Location = new System.Drawing.Point(0, 238);
+            this.btn_printer_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_printer_main.Name = "btn_printer_main";
-            this.btn_printer_main.Size = new System.Drawing.Size(135, 36);
+            this.btn_printer_main.Size = new System.Drawing.Size(180, 44);
             this.btn_printer_main.TabIndex = 4;
             this.btn_printer_main.Text = "Printer";
             this.btn_printer_main.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -139,10 +145,10 @@
             this.btn_ad_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ad_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ad_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btn_ad_main.Location = new System.Drawing.Point(0, 158);
-            this.btn_ad_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ad_main.Location = new System.Drawing.Point(0, 194);
+            this.btn_ad_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ad_main.Name = "btn_ad_main";
-            this.btn_ad_main.Size = new System.Drawing.Size(135, 36);
+            this.btn_ad_main.Size = new System.Drawing.Size(180, 44);
             this.btn_ad_main.TabIndex = 3;
             this.btn_ad_main.Text = "Active Directory";
             this.btn_ad_main.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,10 +163,10 @@
             this.btn_dash_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dash_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_dash_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btn_dash_main.Location = new System.Drawing.Point(0, 122);
-            this.btn_dash_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_dash_main.Location = new System.Drawing.Point(0, 150);
+            this.btn_dash_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_dash_main.Name = "btn_dash_main";
-            this.btn_dash_main.Size = new System.Drawing.Size(135, 36);
+            this.btn_dash_main.Size = new System.Drawing.Size(180, 44);
             this.btn_dash_main.TabIndex = 2;
             this.btn_dash_main.Text = "Dashboard";
             this.btn_dash_main.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,19 +180,18 @@
             this.container_user_info_main.Controls.Add(this.user_profile_pic_main);
             this.container_user_info_main.Dock = System.Windows.Forms.DockStyle.Top;
             this.container_user_info_main.Location = new System.Drawing.Point(0, 0);
-            this.container_user_info_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.container_user_info_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.container_user_info_main.Name = "container_user_info_main";
-            this.container_user_info_main.Size = new System.Drawing.Size(135, 122);
+            this.container_user_info_main.Size = new System.Drawing.Size(180, 150);
             this.container_user_info_main.TabIndex = 0;
             // 
             // txt_username_main
             // 
             this.txt_username_main.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_username_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(149)))));
-            this.txt_username_main.Location = new System.Drawing.Point(2, 80);
-            this.txt_username_main.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txt_username_main.Location = new System.Drawing.Point(3, 98);
             this.txt_username_main.Name = "txt_username_main";
-            this.txt_username_main.Size = new System.Drawing.Size(133, 16);
+            this.txt_username_main.Size = new System.Drawing.Size(177, 20);
             this.txt_username_main.TabIndex = 1;
             this.txt_username_main.Text = "User Name";
             this.txt_username_main.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -194,10 +199,10 @@
             // user_profile_pic_main
             // 
             this.user_profile_pic_main.Image = ((System.Drawing.Image)(resources.GetObject("user_profile_pic_main.Image")));
-            this.user_profile_pic_main.Location = new System.Drawing.Point(41, 18);
-            this.user_profile_pic_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.user_profile_pic_main.Location = new System.Drawing.Point(55, 22);
+            this.user_profile_pic_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_profile_pic_main.Name = "user_profile_pic_main";
-            this.user_profile_pic_main.Size = new System.Drawing.Size(47, 51);
+            this.user_profile_pic_main.Size = new System.Drawing.Size(63, 63);
             this.user_profile_pic_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.user_profile_pic_main.TabIndex = 0;
             this.user_profile_pic_main.TabStop = false;
@@ -207,20 +212,46 @@
             this.panel_container_main.Controls.Add(this.panel_main);
             this.panel_container_main.Controls.Add(this.panel_win_btns_main);
             this.panel_container_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_container_main.Location = new System.Drawing.Point(135, 0);
-            this.panel_container_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_container_main.Location = new System.Drawing.Point(180, 0);
+            this.panel_container_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_container_main.Name = "panel_container_main";
-            this.panel_container_main.Size = new System.Drawing.Size(547, 488);
+            this.panel_container_main.Size = new System.Drawing.Size(729, 601);
             this.panel_container_main.TabIndex = 1;
             // 
             // panel_main
             // 
+            this.panel_main.Controls.Add(this.chart_ad_status);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(0, 24);
-            this.panel_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_main.Location = new System.Drawing.Point(0, 30);
+            this.panel_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(547, 464);
+            this.panel_main.Size = new System.Drawing.Size(729, 571);
             this.panel_main.TabIndex = 1;
+            // 
+            // chart_ad_status
+            // 
+            this.chart_ad_status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.chart_ad_status.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chart_ad_status.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.Name = "Legend1";
+            this.chart_ad_status.Legends.Add(legend2);
+            this.chart_ad_status.Location = new System.Drawing.Point(6, 240);
+            this.chart_ad_status.Name = "chart_ad_status";
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.White;
+            series2.LabelBackColor = System.Drawing.Color.Transparent;
+            series2.LabelForeColor = System.Drawing.Color.White;
+            series2.Legend = "Legend1";
+            series2.Name = "Total";
+            series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            this.chart_ad_status.Series.Add(series2);
+            this.chart_ad_status.Size = new System.Drawing.Size(434, 303);
+            this.chart_ad_status.TabIndex = 0;
+            this.chart_ad_status.Text = "chart1";
             // 
             // panel_win_btns_main
             // 
@@ -228,19 +259,19 @@
             this.panel_win_btns_main.Controls.Add(this.close_btn);
             this.panel_win_btns_main.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_win_btns_main.Location = new System.Drawing.Point(0, 0);
-            this.panel_win_btns_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_win_btns_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_win_btns_main.Name = "panel_win_btns_main";
-            this.panel_win_btns_main.Size = new System.Drawing.Size(547, 24);
+            this.panel_win_btns_main.Size = new System.Drawing.Size(729, 30);
             this.panel_win_btns_main.TabIndex = 0;
             // 
             // minimize_btn
             // 
             this.minimize_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minimize_btn.Image = ((System.Drawing.Image)(resources.GetObject("minimize_btn.Image")));
-            this.minimize_btn.Location = new System.Drawing.Point(498, 3);
-            this.minimize_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minimize_btn.Location = new System.Drawing.Point(664, 4);
+            this.minimize_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minimize_btn.Name = "minimize_btn";
-            this.minimize_btn.Size = new System.Drawing.Size(15, 16);
+            this.minimize_btn.Size = new System.Drawing.Size(20, 20);
             this.minimize_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.minimize_btn.TabIndex = 1;
             this.minimize_btn.TabStop = false;
@@ -250,10 +281,10 @@
             // 
             this.close_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.close_btn.Image = ((System.Drawing.Image)(resources.GetObject("close_btn.Image")));
-            this.close_btn.Location = new System.Drawing.Point(518, 3);
-            this.close_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.close_btn.Location = new System.Drawing.Point(691, 4);
+            this.close_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.close_btn.Name = "close_btn";
-            this.close_btn.Size = new System.Drawing.Size(15, 16);
+            this.close_btn.Size = new System.Drawing.Size(20, 20);
             this.close_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.close_btn.TabIndex = 0;
             this.close_btn.TabStop = false;
@@ -261,14 +292,14 @@
             // 
             // FRM_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(682, 488);
+            this.ClientSize = new System.Drawing.Size(909, 601);
             this.Controls.Add(this.panel_container_main);
             this.Controls.Add(this.container_base_left_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FRM_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_Main";
@@ -278,6 +309,8 @@
             this.container_user_info_main.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.user_profile_pic_main)).EndInit();
             this.panel_container_main.ResumeLayout(false);
+            this.panel_main.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart_ad_status)).EndInit();
             this.panel_win_btns_main.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.minimize_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn)).EndInit();
@@ -302,5 +335,6 @@
         private System.Windows.Forms.Panel panel_win_btns_main;
         private System.Windows.Forms.PictureBox close_btn;
         private System.Windows.Forms.PictureBox minimize_btn;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_ad_status;
     }
 }

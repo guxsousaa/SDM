@@ -1,4 +1,5 @@
-﻿using SDM.Methods;
+﻿using DTO_AD;
+using SDM.Methods;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,39 +26,49 @@ namespace SDM.FRMs_AD
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
-        // Method that uses a dll to round the window
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nWidthEllipse,
-            int nHeightEllipse
-        );
-
         private void btn_search_Computer_Click(object sender, EventArgs e)
         {
             string computerName = input_computerName_ad.Text.ToString();
             if (computerName.Length <= 0)
                 MessageBox.Show("Cannot search for a computer with empty search field",
                     "SDM - Empty search!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (computerName.Length <= 3)
+                MessageBox.Show("Need to further specify the computer name.\n\nEx: " + "\"MTZ\" - Unit + " + "\"NTB\" - Computer Type",
+                    "SDM - Specify name!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                DirectoryContext dirCtx = new DirectoryContext(DirectoryContextType.Domain, "corporate.ad");
-                using (Domain usersDomain = Domain.GetDomain(dirCtx))
-                using (DirectorySearcher adsearcher = new DirectorySearcher(usersDomain.GetDirectoryEntry()))
+                ADInfo computerInfo = AdHelper.searchComputer(computerName);
+                if(computerInfo == null && computerName.Where(c => char.IsNumber(c)).Count() <= 0)
                 {
-                    adsearcher.Filter = "(&(objectClass=computer) (cn=" + computerName + "))";
-                    adsearcher.SearchScope = SearchScope.Subtree;
-                    adsearcher.PropertiesToLoad.Add("description");
-                    SearchResultCollection searchResults = adsearcher.FindAll();
+                    string number = AdHelper.getNextComputerName(computerName);
 
-                    foreach (SearchResult searchResult in searchResults)
+                    string suggestionMachine = string.Empty;
+                    if (Int32.Parse(number) < 10) suggestionMachine = computerName + "0" + number;
+                    else suggestionMachine = computerName + number;
+
+                    DialogResult result = MessageBox.Show($"{{ The computer with the following name \"{suggestionMachine}\" is available.\n" +
+                        $"Would you like to accept the suggestion? }}",
+                    "SDM - Name suggestion!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
                     {
-                        Console.WriteLine(searchResult.Properties["adspath"][0]);
+                        input_computerName_ad.Text = suggestionMachine;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please inform the number available for the creation of the machine",
+                            "SDM - Waiting for number!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    if (computerName.Where(c => char.IsNumber(c)).Count() > 0 || computerInfo != null)
+                    {
+                        txt_comp_desc.Text = AdHelper.buildOu(computerInfo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Name available for creation",
+                            "SDM - OK!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -92,6 +103,18 @@ namespace SDM.FRMs_AD
             }
         }
 
+        private void input_computerName_ad_TextChanged(object sender, EventArgs e)
+        {
+            string COMPUTER_NAME = input_computerName_ad.Text.ToString();
+            txt_comp_desc.Text = "Typing: " + COMPUTER_NAME;
+
+            if (COMPUTER_NAME.Length <= 0) txt_comp_desc.Text = "Waiting...";
+            else
+            {
+                
+            }
+        }
+
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -108,6 +131,19 @@ namespace SDM.FRMs_AD
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        // Method that uses a dll to round the window
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nWidthEllipse,
+            int nHeightEllipse
+        );
 
         /// Close window click event
         private void close_btn_newComp_AD_Click(object sender, EventArgs e)

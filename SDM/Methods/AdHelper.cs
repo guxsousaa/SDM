@@ -6,6 +6,7 @@ using System.DirectoryServices;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,50 +18,194 @@ namespace SDM.Methods
 
         private static string AD_NAME = "corporate";
 
-        public static List<string> GetComputersTest()
+        public static ADInfo searchComputer(string COMPUTER_NAME)
         {
-            List<string> ComputerNames = new List<string>();
+            string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
+            ADInfo comp = null;
 
-            //DirectoryEntry entry = new DirectoryEntry("LDAP://" + AD_NAME);
-            DirectoryEntry entry = new DirectoryEntry("LDAP://OU=OU Notebook, OU=Matriz,DC=" + AD_NAME + ",DC=ad");
-            DirectorySearcher mySearcher = new DirectorySearcher(entry);
-            mySearcher.Filter = ("(objectClass=computer)");
-            mySearcher.SizeLimit = int.MaxValue;
-            mySearcher.PageSize = int.MaxValue;
+            // Set cursor as hourglass
+            Cursor.Current = Cursors.WaitCursor;
 
-            foreach (SearchResult resEnt in mySearcher.FindAll())
+            using (StreamReader r = new StreamReader(mainPath + "AD\\CompBase.json"))
             {
-                //"OU=SGSVG007DC"
-                string ComputerName = resEnt.GetDirectoryEntry().Name;
-                if (ComputerName.StartsWith("OU="))
-                    ComputerName = ComputerName.Remove(0, "OU=".Length);
-                ComputerNames.Add(ComputerName);
+                List<ADInfo> allInfo = JsonConvert.DeserializeObject<List<ADInfo>>(r.ReadToEnd());
+                foreach(ADInfo info in allInfo)
+                {
+                    if(info.CN == COMPUTER_NAME)
+                    {
+
+                        // Set cursor as default arrow
+                        Cursor.Current = Cursors.Default;
+                        return info;
+                    }
+                }
             }
 
-            mySearcher.Dispose();
-            entry.Dispose();
+            // Set cursor as default arrow
+            Cursor.Current = Cursors.Default;
+            return comp;
 
-            return ComputerNames;
+        }
+
+        internal static string buildOu(ADInfo computerInfo)
+        {
+            if (computerInfo != null)
+            {
+                string[] OUs = computerInfo.OU.ToArray();
+                Array.Reverse(OUs);
+
+                StringBuilder generatedOu = new StringBuilder();
+                foreach (string OU in OUs)
+                {
+                    if (generatedOu.Length > 0)
+                        generatedOu.Append(", " + OU);
+                    else
+                        generatedOu.Append(OU);
+                }
+                return generatedOu.ToString();
+            }
+            else return null;
+        }
+
+        public static long[] getStatus()
+        {
+            string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
+
+            long bloked = 0;
+            long relocation = 0;
+            long TIEMPREST = 0;
+            long MTZNTB = 0;
+
+            // Set cursor as hourglass
+            Cursor.Current = Cursors.WaitCursor;
+
+            using (StreamReader r = new StreamReader(mainPath + "AD\\CompBase.json"))
+            {
+                List<ADInfo> allInfo = JsonConvert.DeserializeObject<List<ADInfo>>(r.ReadToEnd());
+
+                foreach (ADInfo info in allInfo)
+                {
+                    foreach (string ou in info.OU)
+                    {
+                        if (ou == "Bloqueio") bloked++;
+                        else if (ou == "Realocacao") relocation++;
+                    }
+
+                    if (info.CN != null && info.CN.Length > 8 && info.CN.Contains("TIEMPREST")) TIEMPREST++;
+                    else if (info.CN != null && info.CN.Length > 5 && info.CN.Contains("MTZNTB")) MTZNTB++;
+                }
+            }
+
+            // Set cursor as default arrow
+            Cursor.Current = Cursors.Default;
+
+            long[] result = { MTZNTB, TIEMPREST, bloked, relocation };
+            return result;
+        }
+
+        public static string getNextComputerName(string input)
+        {
+            string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
+            List<string> allComp = new List<string>();
+
+            // Set cursor as hourglass
+            Cursor.Current = Cursors.WaitCursor;
+
+            using (StreamReader r = new StreamReader(mainPath + "AD\\CompBase.json"))
+            {
+                List<ADInfo> allInfo = JsonConvert.DeserializeObject<List<ADInfo>>(r.ReadToEnd());
+                foreach (ADInfo info in allInfo)
+                {
+                    string compName = info.CN;
+                    if (compName != null && compName.Length >= 3 && compName.Contains(input))
+                        allComp.Add(compName);
+                }
+            }
+
+            //  Returns 1 because there is no computer with the given name
+            if (allComp.Count <= 0) return "1";
+            else
+            {
+                List<int> numberList = new List<int>();
+                foreach (string comp in allComp)
+                {
+                    string str2 = string.Empty;
+                    int val = 0;
+                    for (int i = 0; i < comp.Length; i++)
+                    {
+                        if (Char.IsDigit(comp[i]))
+                            str2 += comp[i];
+                    }
+                    if (str2.Length > 0)
+                        val = int.Parse(str2);
+
+                    numberList.Add(val);
+                }
+
+                return getMissingNumber1(numberList.ToArray()).ToString();
+            }
+        }
+
+        public static int getMissingNumber1(int[] selectedNumbers)
+        {
+            Array.Sort(selectedNumbers);
+
+            int firstNumber = selectedNumbers.OrderBy(i => i).First();
+            int lastNumber = selectedNumbers.OrderBy(i => i).Last();
+
+            List<int> allNumbers = Enumerable.Range(firstNumber, lastNumber - firstNumber + 1).ToList();
+
+            List<int> missingNumbers = allNumbers.Except(selectedNumbers).ToList();
+
+            foreach (int i in missingNumbers)
+            {
+                return i;
+            }
+
+            return lastNumber + 1;
+        }
+
+        internal static string buildOuPath(ADInfo computerInfo)
+        {
+            string[] OUs = computerInfo.OU.ToArray();
+            Array.Reverse(OUs);
+
+            StringBuilder generatedOu = new StringBuilder();
+            foreach (string OU in OUs)
+            {
+                if (generatedOu.Length > 0)
+                    generatedOu.Append(",OU= " + OU);
+                else
+                    generatedOu.Append("OU=" + OU);
+            }
+            return generatedOu.ToString();
         }
 
         public static List<string> GetAllComputers()
         {
             List<string> ComputerPath = new List<string>();
 
-            DirectoryEntry entry = new DirectoryEntry("LDAP://corporate.ad");
-            DirectorySearcher mySearcher = new DirectorySearcher(entry);
-            mySearcher.Filter = ("(objectClass=computer)");
-            mySearcher.SizeLimit = int.MaxValue;
-            mySearcher.PageSize = int.MaxValue;
-
-            foreach (SearchResult resEnt in mySearcher.FindAll())
+            try
             {
-                string ComputerName = resEnt.Path;
-                ComputerPath.Add(ComputerName.Replace("LDAP://corporate.ad/", ""));
-            }
+                DirectoryEntry entry = new DirectoryEntry("LDAP://corporate.ad");
+                DirectorySearcher mySearcher = new DirectorySearcher(entry);
+                mySearcher.Filter = ("(objectClass=computer)");
+                mySearcher.SizeLimit = int.MaxValue;
+                mySearcher.PageSize = int.MaxValue;
 
-            mySearcher.Dispose();
-            entry.Dispose();
+                foreach (SearchResult resEnt in mySearcher.FindAll())
+                {
+                    string ComputerName = resEnt.Path;
+                    ComputerPath.Add(ComputerName.Replace("LDAP://corporate.ad/", ""));
+                }
+
+                mySearcher.Dispose();
+                entry.Dispose();
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return ComputerPath;
+            }
 
             return ComputerPath;
         }
@@ -78,10 +223,13 @@ namespace SDM.Methods
             Directory.CreateDirectory(Path.Combine(mainPath, "AD\\Base-Backup"));
 
 
-            //List<string> adList = GetAllComputers();
-            string backBackupFileName = "CompBase-" + Date + ".json";
-            //File.WriteAllText(mainPath + "AD\\Base-Backup\\" + backBackupFileName, JsonConvert.SerializeObject(adList));
+            List<string> adList = GetAllComputers();
 
+            //  If it returns, there is an error communicating with the server
+            if (adList.Count <= 0) return false;
+
+            string backBackupFileName = "CompBase-" + Date + ".json";
+            File.WriteAllText(mainPath + "AD\\Base-Backup\\" + backBackupFileName, JsonConvert.SerializeObject(adList));
 
             try
             {
