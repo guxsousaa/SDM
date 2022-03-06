@@ -29,42 +29,31 @@ namespace SDM
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_ping_computer = new System.Windows.Forms.Button();
-            this.input_compName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btn_ping_computer
+            // label1
             // 
-            this.btn_ping_computer.FlatAppearance.BorderSize = 0;
-            this.btn_ping_computer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ping_computer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ping_computer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btn_ping_computer.Location = new System.Drawing.Point(372, 12);
-            this.btn_ping_computer.Name = "btn_ping_computer";
-            this.btn_ping_computer.Size = new System.Drawing.Size(147, 33);
-            this.btn_ping_computer.TabIndex = 1;
-            this.btn_ping_computer.Text = "Is online?";
-            this.btn_ping_computer.UseVisualStyleBackColor = true;
-            this.btn_ping_computer.Click += new System.EventHandler(this.btn_ping_computer_Click);
-            // 
-            // input_compName
-            // 
-            this.input_compName.Location = new System.Drawing.Point(12, 12);
-            this.input_compName.Name = "input_compName";
-            this.input_compName.Size = new System.Drawing.Size(100, 20);
-            this.input_compName.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(134, 242);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(448, 54);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Under development";
             // 
             // FRM_Printer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(531, 425);
-            this.Controls.Add(this.input_compName);
-            this.Controls.Add(this.btn_ping_computer);
+            this.ClientSize = new System.Drawing.Size(708, 523);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FRM_Printer";
-            this.Text = "FRM_Printer";
+            this.Text = "SDM - Printer";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,7 +61,6 @@ namespace SDM
 
         #endregion
 
-        private System.Windows.Forms.Button btn_ping_computer;
-        private System.Windows.Forms.TextBox input_compName;
+        private System.Windows.Forms.Label label1;
     }
 }

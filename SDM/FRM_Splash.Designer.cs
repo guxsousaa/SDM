@@ -36,6 +36,7 @@
             this.timer_splash = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.container_progress.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_text_splash
@@ -53,15 +54,16 @@
             // 
             // container_progress
             // 
-            this.container_progress.Location = new System.Drawing.Point(0, 340);
+            this.container_progress.Controls.Add(this.progress_splash);
+            this.container_progress.Location = new System.Drawing.Point(-7, 343);
             this.container_progress.Name = "container_progress";
-            this.container_progress.Size = new System.Drawing.Size(616, 10);
+            this.container_progress.Size = new System.Drawing.Size(630, 7);
             this.container_progress.TabIndex = 1;
             // 
             // progress_splash
             // 
             this.progress_splash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(222)))), ((int)(((byte)(228)))));
-            this.progress_splash.Location = new System.Drawing.Point(-3, 340);
+            this.progress_splash.Location = new System.Drawing.Point(0, 0);
             this.progress_splash.Name = "progress_splash";
             this.progress_splash.Size = new System.Drawing.Size(92, 10);
             this.progress_splash.TabIndex = 2;
@@ -104,7 +106,6 @@
             this.ClientSize = new System.Drawing.Size(599, 350);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.progress_splash);
             this.Controls.Add(this.container_progress);
             this.Controls.Add(this.main_text_splash);
             this.DoubleBuffered = true;
@@ -114,6 +115,7 @@
             this.Name = "FRM_Splash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SDM - Splash";
+            this.container_progress.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

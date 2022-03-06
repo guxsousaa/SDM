@@ -192,12 +192,6 @@
     <Compile Include="Methods\AdHelper.cs" />
     <Compile Include="Methods\ToolsHelper.cs" />
     <Compile Include="UsersHelper\AccessUsers.cs" />
-    <Compile Include="FRM_Auth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FRM_Auth.Designer.cs">
-      <DependentUpon>FRM_Auth.cs</DependentUpon>
-    </Compile>
     <Compile Include="FRM_Splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,10 +204,16 @@
     <Compile Include="Methods\PowerShellHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsersHelper\FRM_UsersAccess.cs">
+    <Compile Include="UsersHelper\Actions\FRM_NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsersHelper\FRM_UsersAccess.Designer.cs">
+    <Compile Include="UsersHelper\Actions\FRM_NewUser.Designer.cs">
+      <DependentUpon>FRM_NewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersHelper\Actions\FRM_UsersAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersHelper\Actions\FRM_UsersAccess.Designer.cs">
       <DependentUpon>FRM_UsersAccess.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FRMs_AD\FRM_AD_Move.resx">
@@ -233,9 +233,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Ad.resx">
       <DependentUpon>FRM_Ad.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Auth.resx">
-      <DependentUpon>FRM_Auth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Dashboard.resx">
       <DependentUpon>FRM_Dashboard.cs</DependentUpon>
@@ -264,7 +261,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UsersHelper\FRM_UsersAccess.resx">
+    <EmbeddedResource Include="UsersHelper\Actions\FRM_NewUser.resx">
+      <DependentUpon>FRM_NewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersHelper\Actions\FRM_UsersAccess.resx">
       <DependentUpon>FRM_UsersAccess.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />

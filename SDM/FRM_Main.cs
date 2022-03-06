@@ -88,16 +88,16 @@ namespace SDM
 
         private void btn_tiemprest_main_Click(object sender, EventArgs e)
         {
-            if (!AccessUsers.canAccessTiEmprest.Contains(currentUser.ToLower()))
+            if (AccessUsers.getMyAccess().ti_emprest || AccessUsers.getMyAccess().full)
+            {
+                openWindown(new FRM_TiEmprest());
+                changePnlNav(btn_tiemprest_main);
+            }
+            else
             {
                 MessageBox.Show("You do not have access to access TiEmprest section, please contact the system administrator (Kauã Vitorio).\n\n" +
                     "Warning code: " + ErrorHelper.ACCESS_DENIED_TIEMPREST,
                     "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                openWindown(new FRM_TiEmprest());
-                changePnlNav(btn_tiemprest_main);
             }
         }
         private void btn_settings_main_Click(object sender, EventArgs e)
@@ -130,6 +130,11 @@ namespace SDM
         private void btn_tiemprest_main_Leave(object sender, EventArgs e)
         {
             leaveClick(btn_tiemprest_main);
+        }
+
+        private void btn_settings_main_Leave(object sender, EventArgs e)
+        {
+            leaveClick(btn_settings_main);
         }
         //  --------- End Leave event ---------
 

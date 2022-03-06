@@ -46,6 +46,20 @@ namespace SDM.AuthUsers
             return false;
         }
 
+        public static UserInfo getMyAccess()
+        {
+            string USERNAME = Environment.UserName.ToLower();
+            List<UserInfo> usersList = LoadJson();
+            foreach (UserInfo user in usersList)
+            {
+                if (user.username.ToLower() == USERNAME.ToLower())
+                {
+                    return user;
+                }
+            }
+            return null;
+        }
+
         public static string getUser_Name(string USERNAME)
         {
             List<UserInfo> usersList = LoadJson();
@@ -87,7 +101,7 @@ namespace SDM.AuthUsers
             }
             catch(Exception ex)
             {
-                LogHelper.doLog("\nCreate a new Json file for user access\nThere is no current file\n", null);
+                LogHelper.doLog("\nCreate a new Json file for user access\nThere is no current file\n\n" + ex.ToString(), null);
                 return new List<UserInfo>();
             }
         }
@@ -128,16 +142,18 @@ namespace Users_DTO
     {
         public string username { get; set; }
         public string name { get; set; }
-        public int type { get; set; }
-        public int access { get; set; }
+        public bool full { get; set; }
+        public bool op { get; set; }
+        public bool ti_emprest { get; set; }
         public string imageUrl { get; set; }
 
-        public UserInfo(string username, string name, int type, int access, string imageUrl)
+        public UserInfo(string name, string username, bool full, bool op, bool ti_emprest, string imageUrl)
         {
-            this.username = username;
             this.name = name;
-            this.type = type;
-            this.access = access;
+            this.username = username;
+            this.full = full;
+            this.op = op;
+            this.ti_emprest = ti_emprest;
             this.imageUrl = imageUrl;
         }
 

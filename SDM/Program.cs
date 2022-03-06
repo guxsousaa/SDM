@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using SDM.AuthUsers;
 using SDM.ConfigHelper;
+using SDM.Methods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,9 @@ namespace SDM
             }
             catch (System.Security.SecurityException ex)
             {
+                LogHelper.doLog("\nApplication not started as administrator\n\n" + ex.ToString(),
+                    ErrorHelper.NOT_ADM_EXECUTE);
+
                 MessageBox.Show("Please run as administrator");
                 Environment.Exit(1);
             }

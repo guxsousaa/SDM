@@ -25,7 +25,7 @@ namespace SDM
             DateTime dt = DateTime.Now.Date;
             DateTime dtAD = ToolsHelper.checkLastBaseCompChange();
             if (dt.Day == dtAD.Day)
-                txt_details_from_ad.Text = "Details of last " + dtAD.ToString().Split(' ')[1];
+                txt_details_from_ad.Text = "Details of " + dtAD.ToString().Split(' ')[1];
             else
                 txt_details_from_ad.Text = "Details of last " + dtAD.ToString();
         }

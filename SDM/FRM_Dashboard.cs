@@ -36,8 +36,6 @@ namespace SDM
             chart_ad_status.Series.Add(Bloked);
             chart_ad_status.Series.Add(Relocation);
 
-            //set the chart-type to "Column"
-            //chart_ad_status.Series[seriesname].ChartType = SeriesChartType.Column;
             chart_ad_status.ChartAreas[0].AxisX.LineColor = Color.White;
             chart_ad_status.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Transparent;
             chart_ad_status.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
@@ -52,6 +50,13 @@ namespace SDM
             chart_ad_status.Series[TIEMPREST].Points.AddXY("TIEMPREST", statusResult[1]);
             chart_ad_status.Series[Bloked].Points.AddXY("Bloked", statusResult[2]);
             chart_ad_status.Series[Relocation].Points.AddXY("Relocation", statusResult[3]);
+        }
+
+        private void btn_notify_loan_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, this page is under development.\n\n" +
+                "If you have any questions, please contact the Administrator(Kauã Vitorio)",
+                "SDM - Under development", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

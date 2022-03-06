@@ -88,6 +88,9 @@ namespace SDM
                 }
                 catch (PingException ex)
                 {
+                    LogHelper.doLog("\nTry ping a computer error\n\n" + ex.ToString() + "\n\n" + "Computer name: " + NTBNAME,
+                        ErrorHelper.PING_OTHER_COMPUTER);
+
                     setOfflineStatus();
                 }
 
@@ -113,6 +116,8 @@ namespace SDM
                     txt_response_status.Text = "Does not exist";
                     txt_response_status.ForeColor = Color.Red;
                 }
+
+                //panel_container.Size = new Size(panel_container.Width + 50, 0);
 
                 Cursor.Current = Cursors.Default;
             }

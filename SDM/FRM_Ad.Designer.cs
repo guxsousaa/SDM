@@ -319,9 +319,9 @@
             this.txt_details_from_ad.ForeColor = System.Drawing.Color.Gainsboro;
             this.txt_details_from_ad.Location = new System.Drawing.Point(17, 104);
             this.txt_details_from_ad.Name = "txt_details_from_ad";
-            this.txt_details_from_ad.Size = new System.Drawing.Size(87, 16);
+            this.txt_details_from_ad.Size = new System.Drawing.Size(66, 16);
             this.txt_details_from_ad.TabIndex = 2;
-            this.txt_details_from_ad.Text = "Details of last";
+            this.txt_details_from_ad.Text = "Details of ";
             // 
             // txt_allComputer_ad
             // 

@@ -97,6 +97,7 @@
             this.btn_settings_main.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_settings_main.UseVisualStyleBackColor = true;
             this.btn_settings_main.Click += new System.EventHandler(this.btn_settings_main_Click);
+            this.btn_settings_main.Leave += new System.EventHandler(this.btn_settings_main_Leave);
             // 
             // btn_tiemprest_main
             // 

@@ -19,6 +19,9 @@ namespace SDM.FRMs_AD
         {
             InitializeComponent();
             panel_options.Visible = false;
+
+            //  Make the window round
+            Region = Region.FromHrgn(ToolsHelper.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
         private void btn_search_Computer_Click(object sender, EventArgs e)

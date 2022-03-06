@@ -190,6 +190,8 @@ namespace SDM.Methods
 
             try
             {
+                LogHelper.doLog("\nGetting all machines from AD", null);
+
                 DirectoryEntry entry = new DirectoryEntry("LDAP://corporate.ad");
                 DirectorySearcher mySearcher = new DirectorySearcher(entry);
                 mySearcher.Filter = ("(objectClass=computer)");
@@ -206,7 +208,9 @@ namespace SDM.Methods
                 entry.Dispose();
             }catch (Exception ex)
             {
-                if(!isTest)
+                LogHelper.doLog("\nError getting all machines from AD\n\n" + ex.ToString(), ErrorHelper.GET_COMPUTER_IN_AD);
+
+                if (!isTest)
                     MessageBox.Show(ex.Message.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return ComputerPath;
             }
@@ -296,6 +300,8 @@ namespace SDM.Methods
             }
             catch (Exception ex)
             {
+                LogHelper.doLog("\nError creating AD base file\n\n" + ex.ToString(), ErrorHelper.CREATE_AD_BASE_FILE);
+
                 MessageBox.Show(ex.Message.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }

@@ -35,15 +35,14 @@ namespace SDM.ConfigHelper
 
                     jsonObj = JsonConvert.DeserializeObject(r.ReadToEnd());
 
-                    jsonObj["Main"][0]["version"] = "OKAY";
-
                     string output = JsonConvert.SerializeObject(jsonObj, Formatting.Indented);
                     File.WriteAllText(filePath + ConfigFile, output);
                 }
             }
             catch (Exception ex)
             {
-                LogHelper.doLog("\nCreate a new Config Json file \nThere is no current file\n", null);
+                LogHelper.doLog("\nMethod: updateVersion()\nThere is a error\n\n" + ex.ToString(),
+                    ErrorHelper.CREATE_CONFIG_FILE);
 
                 var obj = new
                 {

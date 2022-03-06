@@ -76,6 +76,8 @@ namespace SDM
         {
             txt_lastUpdateTime_CompBase.Text = "Last update: " + ToolsHelper.checkLastBaseCompChange();
             txt_file_size.Text = "Size: " + ToolsHelper.getBaseCompSize();
+
+            
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -92,8 +94,17 @@ namespace SDM
 
         private void btn_users_Click(object sender, EventArgs e)
         {
-            FRM_UsersAccess frmUsers = new FRM_UsersAccess();
-            frmUsers.ShowDialog();
+            if (AccessUsers.getMyAccess().full)
+            {
+                FRM_UsersAccess frmUsers = new FRM_UsersAccess();
+                frmUsers.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("You do not have access to manage a user, please contact the system administrator (Kauã Vitorio).\n\n" +
+                    "Warning code: " + ErrorHelper.ACCESS_DENIED_MANAGE_USER,
+                    "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

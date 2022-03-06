@@ -31,16 +31,16 @@ namespace SDM
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Settings));
             this.panel_win_btns_main = new System.Windows.Forms.Panel();
+            this.txt_title_frm = new System.Windows.Forms.Label();
             this.minimize_btn = new System.Windows.Forms.PictureBox();
             this.close_btn = new System.Windows.Forms.PictureBox();
             this.btn_update_BaseComp = new System.Windows.Forms.Button();
             this.txt_lastUpdateTime_CompBase = new System.Windows.Forms.Label();
             this.txt_file_size = new System.Windows.Forms.Label();
             this.panel_container_main = new System.Windows.Forms.Panel();
-            this.panel_container_base_comp = new System.Windows.Forms.Panel();
-            this.txt_shortcuts_title = new System.Windows.Forms.Label();
             this.btn_users = new System.Windows.Forms.Button();
-            this.txt_title_frm = new System.Windows.Forms.Label();
+            this.txt_shortcuts_title = new System.Windows.Forms.Label();
+            this.panel_container_base_comp = new System.Windows.Forms.Panel();
             this.panel_win_btns_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimize_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn)).BeginInit();
@@ -61,6 +61,19 @@ namespace SDM
             this.panel_win_btns_main.Size = new System.Drawing.Size(533, 30);
             this.panel_win_btns_main.TabIndex = 1;
             this.panel_win_btns_main.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_win_btns_main_MouseDown);
+            // 
+            // txt_title_frm
+            // 
+            this.txt_title_frm.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txt_title_frm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_title_frm.ForeColor = System.Drawing.Color.White;
+            this.txt_title_frm.Location = new System.Drawing.Point(0, 0);
+            this.txt_title_frm.Name = "txt_title_frm";
+            this.txt_title_frm.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.txt_title_frm.Size = new System.Drawing.Size(150, 30);
+            this.txt_title_frm.TabIndex = 4;
+            this.txt_title_frm.Text = "SDM - Settings";
+            this.txt_title_frm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // minimize_btn
             // 
@@ -92,7 +105,7 @@ namespace SDM
             // 
             this.btn_update_BaseComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_update_BaseComp.Location = new System.Drawing.Point(4, 4);
-            this.btn_update_BaseComp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_update_BaseComp.Margin = new System.Windows.Forms.Padding(4);
             this.btn_update_BaseComp.Name = "btn_update_BaseComp";
             this.btn_update_BaseComp.Size = new System.Drawing.Size(131, 54);
             this.btn_update_BaseComp.TabIndex = 2;
@@ -133,28 +146,6 @@ namespace SDM
             this.panel_container_main.Size = new System.Drawing.Size(533, 614);
             this.panel_container_main.TabIndex = 6;
             // 
-            // panel_container_base_comp
-            // 
-            this.panel_container_base_comp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(81)))), ((int)(((byte)(103)))));
-            this.panel_container_base_comp.Controls.Add(this.btn_update_BaseComp);
-            this.panel_container_base_comp.Controls.Add(this.txt_lastUpdateTime_CompBase);
-            this.panel_container_base_comp.Controls.Add(this.txt_file_size);
-            this.panel_container_base_comp.Location = new System.Drawing.Point(19, 45);
-            this.panel_container_base_comp.Name = "panel_container_base_comp";
-            this.panel_container_base_comp.Size = new System.Drawing.Size(500, 65);
-            this.panel_container_base_comp.TabIndex = 6;
-            // 
-            // txt_shortcuts_title
-            // 
-            this.txt_shortcuts_title.AutoSize = true;
-            this.txt_shortcuts_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_shortcuts_title.ForeColor = System.Drawing.Color.White;
-            this.txt_shortcuts_title.Location = new System.Drawing.Point(15, 11);
-            this.txt_shortcuts_title.Name = "txt_shortcuts_title";
-            this.txt_shortcuts_title.Size = new System.Drawing.Size(95, 22);
-            this.txt_shortcuts_title.TabIndex = 8;
-            this.txt_shortcuts_title.Text = "Shortcuts";
-            // 
             // btn_users
             // 
             this.btn_users.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(81)))), ((int)(((byte)(103)))));
@@ -170,18 +161,27 @@ namespace SDM
             this.btn_users.UseVisualStyleBackColor = false;
             this.btn_users.Click += new System.EventHandler(this.btn_users_Click);
             // 
-            // txt_title_frm
+            // txt_shortcuts_title
             // 
-            this.txt_title_frm.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txt_title_frm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_title_frm.ForeColor = System.Drawing.Color.White;
-            this.txt_title_frm.Location = new System.Drawing.Point(0, 0);
-            this.txt_title_frm.Name = "txt_title_frm";
-            this.txt_title_frm.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.txt_title_frm.Size = new System.Drawing.Size(150, 30);
-            this.txt_title_frm.TabIndex = 4;
-            this.txt_title_frm.Text = "SDM - Settings";
-            this.txt_title_frm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_shortcuts_title.AutoSize = true;
+            this.txt_shortcuts_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_shortcuts_title.ForeColor = System.Drawing.Color.White;
+            this.txt_shortcuts_title.Location = new System.Drawing.Point(15, 11);
+            this.txt_shortcuts_title.Name = "txt_shortcuts_title";
+            this.txt_shortcuts_title.Size = new System.Drawing.Size(95, 22);
+            this.txt_shortcuts_title.TabIndex = 8;
+            this.txt_shortcuts_title.Text = "Shortcuts";
+            // 
+            // panel_container_base_comp
+            // 
+            this.panel_container_base_comp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(81)))), ((int)(((byte)(103)))));
+            this.panel_container_base_comp.Controls.Add(this.btn_update_BaseComp);
+            this.panel_container_base_comp.Controls.Add(this.txt_lastUpdateTime_CompBase);
+            this.panel_container_base_comp.Controls.Add(this.txt_file_size);
+            this.panel_container_base_comp.Location = new System.Drawing.Point(19, 45);
+            this.panel_container_base_comp.Name = "panel_container_base_comp";
+            this.panel_container_base_comp.Size = new System.Drawing.Size(500, 65);
+            this.panel_container_base_comp.TabIndex = 6;
             // 
             // FRM_Settings
             // 
@@ -193,7 +193,7 @@ namespace SDM
             this.Controls.Add(this.panel_win_btns_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FRM_Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SDM - Settings";

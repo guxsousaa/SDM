@@ -2,34 +2,25 @@
   {
     "username": "kauav",
     "name": "Kaua Lima",
-    "type": 2,
-    "access": 2,
+    "full": true,
+    "op": false,
+    "ti_emprest": false,
     "imageUrl": "https://avatars.githubusercontent.com/u/64799699"
   },
   {
     "username": "43333349850-otimtz",
     "name": "Kaua Lima",
-    "type": 2,
-    "access": 2,
+    "full": true,
+    "op": false,
+    "ti_emprest": false,
     "imageUrl": "https://avatars.githubusercontent.com/u/64799699"
   },
   {
     "username": "Administrator",
     "name": "Kaua Lima",
-    "type": 2,
-    "access": 2,
-    "imageUrl": "https://uspery.com/url/vamp"
-  },
-  {
-    "username": "42318850879-otimtz",
-    "type": 2,
-    "access": 2,
-    "imageUrl": "https://uspery.com/url/vamp"
-  },
-  {
-    "username": "11971516724-otimtz",
-    "type": 2,
-    "access": 2,
+    "full": true,
+    "op": false,
+    "ti_emprest": false,
     "imageUrl": "https://uspery.com/url/vamp"
   }
 ]

@@ -84,7 +84,10 @@ namespace SDM.FRMs_AD
             else
             {
                 ADInfo computerInfo = AdHelper.searchComputer(computerName.ToUpper());
-                if(computerName.Where(c => char.IsNumber(c)).Count() <= 0)
+
+                LogHelper.doLog("\nComputer search performed\nCN= " + computerName, null);
+
+                if (computerName.Where(c => char.IsNumber(c)).Count() <= 0)
                 {
                     string number = AdHelper.getNextComputerName(computerName.ToUpper());
 
@@ -92,15 +95,21 @@ namespace SDM.FRMs_AD
                     if (Int32.Parse(number) < 10) suggestionMachine = computerName + "0" + number;
                     else suggestionMachine = computerName + number;
 
+                    LogHelper.doLog("\nComputer suggestion\nCN= " + suggestionMachine, null);
+
                     DialogResult result = MessageBox.Show($"{{ The computer with the following name \"{suggestionMachine}\" is available.\n" +
                         $"Would you like to accept the suggestion? }}",
                     "SDM - Name suggestion!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
                     {
                         input_computerName_ad.Text = suggestionMachine;
+
+                        LogHelper.doLog("\nSuggestion accepted\nCN= " + suggestionMachine, null);
                     }
                     else
                     {
+                        LogHelper.doLog("\nSuggestion declined\nCN= " + suggestionMachine, null);
+
                         MessageBox.Show("Please inform the number available for the creation of the machine",
                             "SDM - Waiting for number!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -136,20 +145,34 @@ namespace SDM.FRMs_AD
                     "SDM - Max characters!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
+                LogHelper.doLog("\nRequest to create a new computer\nCN= " + COMPUTER_NAME, null);
+
                 ADInfo computerInfo = AdHelper.searchComputer(COMPUTER_NAME);
                 if(computerInfo != null)
+                {
+                    LogHelper.doLog("\nComputer already exists\nCN= " + COMPUTER_NAME, null);
+
                     MessageBox.Show("The informed computer already exists!!",
                         "SDM - Already exists!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 else
                 {
+                    LogHelper.doLog("\nRunning create new computer\nCN= " + COMPUTER_NAME, null);
+
                     Process process = PowerShellHelper.executeCommand(Argument, true);
 
                     var command_result = process.StandardError.ReadToEnd();
                     if (command_result == null || command_result == "")
+                    {
+                        LogHelper.doLog("\nComputer created successfully", null);
+
                         MessageBox.Show("Machine created successfully!",
                             "SDM - Successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     else
                     {
+                        LogHelper.doLog("\nError creating a new computer\n\n" + command_result, ErrorHelper.CREATING_NEW_COMPUTER_AD);
+
                         MessageBox.Show(command_result, "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -171,17 +194,12 @@ namespace SDM.FRMs_AD
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
         private void header_panel_newComp_ad_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                ToolsHelper.ReleaseCapture();
+                ToolsHelper.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 

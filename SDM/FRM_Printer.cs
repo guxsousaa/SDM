@@ -17,9 +17,5 @@ namespace SDM
         {
             InitializeComponent();
         }
-
-        private void btn_ping_computer_Click(object sender, EventArgs e)
-        {
-        }
     }
 }

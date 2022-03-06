@@ -24,7 +24,7 @@ namespace SDM.Methods
                 PingReply pingresult = ping.Send(NAME);
                 bool pingResult = pingresult.Status.ToString() == "Success";
 
-                //  Wait 2 seconds before shutdown
+                //  Wait few milliseconds before shutdown
                 Thread.Sleep(500);
 
                 var command_result = PowerShellHelper.executeCommand(Argument, true).StandardError.ReadToEnd();
@@ -40,6 +40,9 @@ namespace SDM.Methods
             }
             catch (PingException ex)
             {
+                LogHelper.doLog("\nTry ping a computer error\n\n" + ex.ToString() + "\n\n" + "Computer name: " + NAME,
+                    ErrorHelper.PING_OTHER_COMPUTER);
+
                 MessageBox.Show("The computer is currently not turned on!!", "SDM - Turned On!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             Cursor.Current = Cursors.Default;
@@ -52,7 +55,7 @@ namespace SDM.Methods
 
         public static string getBaseCompSize()
         {
-            return SizeSuffix(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\AD\\CompBase.json").Length);
+            return SizeSuffix(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\AD\\CompBase.json").Length);
         }
 
         static readonly string[] SizeSuffixes =

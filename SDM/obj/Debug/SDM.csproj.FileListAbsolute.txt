@@ -52,7 +52,6 @@ E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.csproj.AssemblyReference.cache
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.csproj.SuggestedBindingRedirects.cache
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_newComp.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Ad.resources
-E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Auth.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Main.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Printer.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Settings.resources
@@ -70,3 +69,4 @@ E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Remove.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Password.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Move.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.FRM_UsersAccess.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.Actions.FRM_NewUser.resources
