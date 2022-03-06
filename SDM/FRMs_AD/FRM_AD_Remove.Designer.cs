@@ -34,6 +34,7 @@
             this.input_computerName_ad = new System.Windows.Forms.TextBox();
             this.btn_Delete_Computer = new System.Windows.Forms.Button();
             this.header_panel_newComp_ad = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.close_btn_DeleteAd_AD = new System.Windows.Forms.PictureBox();
             this.panel_container.SuspendLayout();
             this.panel_container_search.SuspendLayout();
@@ -48,7 +49,7 @@
             this.panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_container.Location = new System.Drawing.Point(0, 30);
             this.panel_container.Name = "panel_container";
-            this.panel_container.Size = new System.Drawing.Size(343, 79);
+            this.panel_container.Size = new System.Drawing.Size(362, 73);
             this.panel_container.TabIndex = 8;
             // 
             // panel_container_search
@@ -58,7 +59,7 @@
             this.panel_container_search.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_container_search.Location = new System.Drawing.Point(0, 0);
             this.panel_container_search.Name = "panel_container_search";
-            this.panel_container_search.Size = new System.Drawing.Size(343, 62);
+            this.panel_container_search.Size = new System.Drawing.Size(362, 67);
             this.panel_container_search.TabIndex = 6;
             // 
             // input_computerName_ad
@@ -73,8 +74,11 @@
             // btn_Delete_Computer
             // 
             this.btn_Delete_Computer.AutoSize = true;
-            this.btn_Delete_Computer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_Delete_Computer.Location = new System.Drawing.Point(243, 0);
+            this.btn_Delete_Computer.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
+            this.btn_Delete_Computer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Delete_Computer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete_Computer.ForeColor = System.Drawing.Color.White;
+            this.btn_Delete_Computer.Location = new System.Drawing.Point(252, 5);
             this.btn_Delete_Computer.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Delete_Computer.Name = "btn_Delete_Computer";
             this.btn_Delete_Computer.Size = new System.Drawing.Size(100, 62);
@@ -86,20 +90,34 @@
             // header_panel_newComp_ad
             // 
             this.header_panel_newComp_ad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(83)))));
+            this.header_panel_newComp_ad.Controls.Add(this.label1);
             this.header_panel_newComp_ad.Controls.Add(this.close_btn_DeleteAd_AD);
             this.header_panel_newComp_ad.Dock = System.Windows.Forms.DockStyle.Top;
             this.header_panel_newComp_ad.Location = new System.Drawing.Point(0, 0);
             this.header_panel_newComp_ad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.header_panel_newComp_ad.Name = "header_panel_newComp_ad";
-            this.header_panel_newComp_ad.Size = new System.Drawing.Size(343, 30);
+            this.header_panel_newComp_ad.Size = new System.Drawing.Size(362, 30);
             this.header_panel_newComp_ad.TabIndex = 7;
             this.header_panel_newComp_ad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_panel_newComp_ad_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(316, 30);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "AD - Delete Computer";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // close_btn_DeleteAd_AD
             // 
             this.close_btn_DeleteAd_AD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.close_btn_DeleteAd_AD.Image = ((System.Drawing.Image)(resources.GetObject("close_btn_DeleteAd_AD.Image")));
-            this.close_btn_DeleteAd_AD.Location = new System.Drawing.Point(313, 2);
+            this.close_btn_DeleteAd_AD.Location = new System.Drawing.Point(332, 2);
             this.close_btn_DeleteAd_AD.Margin = new System.Windows.Forms.Padding(3, 2, 10, 2);
             this.close_btn_DeleteAd_AD.Name = "close_btn_DeleteAd_AD";
             this.close_btn_DeleteAd_AD.Size = new System.Drawing.Size(20, 30);
@@ -113,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(343, 109);
+            this.ClientSize = new System.Drawing.Size(362, 103);
             this.Controls.Add(this.panel_container);
             this.Controls.Add(this.header_panel_newComp_ad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -138,5 +156,6 @@
         private System.Windows.Forms.Button btn_Delete_Computer;
         private System.Windows.Forms.Panel header_panel_newComp_ad;
         private System.Windows.Forms.PictureBox close_btn_DeleteAd_AD;
+        private System.Windows.Forms.Label label1;
     }
 }

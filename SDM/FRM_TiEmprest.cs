@@ -66,7 +66,7 @@ namespace SDM
 
                         //  Get the current user who is logged in
                         string Argument = $"&{{ Get-WmiObject –ComputerName {NTBNAME} –Class Win32_ComputerSystem | Select-Object UserName }}";
-                        Process process = PowerShellHelper.executeCommand(Argument);
+                        Process process = PowerShellHelper.executeCommand(Argument, true);
 
                         string responseError = process.StandardError.ReadToEnd();
                         if (responseError != null && responseError != "")
@@ -192,7 +192,7 @@ namespace SDM
                         else
                         {
                             string Argument = $"&{{ Get-ADComputer '{NTBNAME}' |Move-ADObject -TargetPath '{AdHelper.OU_HOSTNAME_BLOCK}' }}";
-                            Process process = PowerShellHelper.executeCommand(Argument);
+                            Process process = PowerShellHelper.executeCommand(Argument, true);
 
                             var command_result = process.StandardError.ReadToEnd();
                             if (command_result == null || command_result == "")

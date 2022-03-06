@@ -17,8 +17,11 @@ namespace SDM.Methods
     {
         public static List<ADInfo> AD = new List<ADInfo> ();
         private static string AD_NAME = "corporate";
-        public static string OU_HOSTNAME_BLOCK = "OU=Bloqueio,OU=Hostname,OU=Quarentena";
-        public static string OU_NOTEBOOK_MTZ = "OU=OU Notebook,OU=Matriz";
+        private static string DC_AD_NAME = "DC=corporate,DC=ad";
+        public static string OU_HOSTNAME_BLOCK = "OU=Bloqueio,OU=Hostname,OU=Quarentena" + "," + DC_AD_NAME;
+        public static string OU_NOTEBOOK_MTZ = "OU=OUNotebook,OU=Matriz" + "," + DC_AD_NAME;
+        public static string OU_COMPUETRS_MTZ = "OU=OUComputers,OU=Matriz" + "," + DC_AD_NAME;
+        public static string OU_WSUS_WIN10_MTZ = "OU=ValidaWin10,OU=Wsus,OU=Matriz" + "," + DC_AD_NAME;
 
         public static ADInfo searchComputer(string COMPUTER_NAME)
         {
@@ -181,7 +184,7 @@ namespace SDM.Methods
             return generatedOu.ToString();
         }
 
-        public static List<string> GetAllComputers()
+        public static List<string> GetAllComputers(bool isTest)
         {
             List<string> ComputerPath = new List<string>();
 
@@ -203,7 +206,8 @@ namespace SDM.Methods
                 entry.Dispose();
             }catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(!isTest)
+                    MessageBox.Show(ex.Message.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return ComputerPath;
             }
 
@@ -236,7 +240,7 @@ namespace SDM.Methods
             Directory.CreateDirectory(Path.Combine(mainPath, "AD\\Base-Backup"));
 
 
-            List<string> adList = GetAllComputers();
+            List<string> adList = GetAllComputers(false);
 
             //  If it returns, there is an error communicating with the server
             if (adList.Count <= 0) return false;

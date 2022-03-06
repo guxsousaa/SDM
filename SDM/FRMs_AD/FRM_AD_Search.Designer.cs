@@ -37,6 +37,7 @@
             this.panel_container = new System.Windows.Forms.Panel();
             this.panel_container_result = new System.Windows.Forms.Panel();
             this.panel_container_search = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.header_panel_newComp_ad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn_SearchAd_AD)).BeginInit();
             this.panel_container.SuspendLayout();
@@ -70,6 +71,7 @@
             // header_panel_newComp_ad
             // 
             this.header_panel_newComp_ad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(83)))));
+            this.header_panel_newComp_ad.Controls.Add(this.label1);
             this.header_panel_newComp_ad.Controls.Add(this.close_btn_SearchAd_AD);
             this.header_panel_newComp_ad.Dock = System.Windows.Forms.DockStyle.Top;
             this.header_panel_newComp_ad.Location = new System.Drawing.Point(0, 0);
@@ -137,6 +139,19 @@
             this.panel_container_search.Size = new System.Drawing.Size(522, 62);
             this.panel_container_search.TabIndex = 6;
             // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(316, 30);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "AD - Search Computer";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FRM_AD_Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -172,5 +187,6 @@
         private System.Windows.Forms.Panel panel_container;
         private System.Windows.Forms.Panel panel_container_result;
         private System.Windows.Forms.Panel panel_container_search;
+        private System.Windows.Forms.Label label1;
     }
 }

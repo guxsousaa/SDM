@@ -68,12 +68,12 @@ namespace SDM
                 if (AdHelper.AD.Count <= 0)
                     AdHelper.initList();
 
-                progress_splash.Width += 3;
+                progress_splash.Width += 6;
             }
             else if (progress_splash.Width <= 400)
-                progress_splash.Width += 5;
+                progress_splash.Width += 20;
             else
-                progress_splash.Width += 9;
+                progress_splash.Width += 35;
 
             if (progress_splash.Width >= 600)
             {

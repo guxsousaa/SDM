@@ -11,12 +11,15 @@ using System.Runtime.InteropServices;
 using SDM.Methods;
 using SDM.AuthUsers;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Threading;
+using System.DirectoryServices;
 
 namespace SDM
 {
     public partial class FRM_Main : Form
     {
         private static string currentUser = Environment.UserName.ToLower();
+        Thread updateThread;
 
         public FRM_Main()
         {
@@ -28,7 +31,7 @@ namespace SDM
             //  Change nav for the start position
             changePnlNav(btn_dash_main);
 
-            txt_username_main.Text = currentUser.Replace("-otimtz", "");
+            txt_username_main.Text = AccessUsers.getUser_Name(currentUser);
 
             openWindown(new FRM_Dashboard());
 
@@ -168,6 +171,32 @@ namespace SDM
             {
                 ToolsHelper.ReleaseCapture();
                 ToolsHelper.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void timer_checkup_Tick(object sender, EventArgs e)
+        {
+            //  This will only be called every 5 minutes
+            if (updateThread == null || !updateThread.IsAlive)
+            {
+                updateThread = new Thread(delegate ()
+                {
+                    //  Check if there is connection with AD
+                    if (AdHelper.GetAllComputers(true).Count >= 1)
+                    {
+                        //  Wait before updating the file
+                        //  Wait because if you can't make a conflict
+                        //  Waiting time will be between 50 to 2 minutes
+                        Thread.Sleep(new Random().Next(50000, 120005));
+
+                        AdHelper.updateAdBaseFile();
+                        return;
+                    }
+                    else
+                        return;
+                });
+                updateThread.IsBackground = true;
+                updateThread.Start();
             }
         }
     }

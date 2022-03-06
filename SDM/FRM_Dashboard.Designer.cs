@@ -43,12 +43,14 @@
             chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chart_ad_status.ChartAreas.Add(chartArea1);
+            this.chart_ad_status.Cursor = System.Windows.Forms.Cursors.SizeAll;
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.ForeColor = System.Drawing.Color.White;
             legend1.Name = "Legend1";
             this.chart_ad_status.Legends.Add(legend1);
             this.chart_ad_status.Location = new System.Drawing.Point(12, 256);
             this.chart_ad_status.Name = "chart_ad_status";
+            this.chart_ad_status.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series1.ChartArea = "ChartArea1";
             series1.Color = System.Drawing.Color.White;
             series1.LabelBackColor = System.Drawing.Color.Transparent;
@@ -57,7 +59,7 @@
             series1.Name = "Total";
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
             this.chart_ad_status.Series.Add(series1);
-            this.chart_ad_status.Size = new System.Drawing.Size(434, 303);
+            this.chart_ad_status.Size = new System.Drawing.Size(705, 303);
             this.chart_ad_status.TabIndex = 1;
             this.chart_ad_status.Text = "chart1";
             // 

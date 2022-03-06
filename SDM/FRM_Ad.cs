@@ -20,7 +20,7 @@ namespace SDM
         {
             InitializeComponent();
 
-            txt_allComputer_ad.Text = AdHelper.AD.Count.ToString();
+            txt_allComputer_ad.Text = AdHelper.AD.Count.ToString().Insert(2, "."); ;
 
             DateTime dt = DateTime.Now.Date;
             DateTime dtAD = ToolsHelper.checkLastBaseCompChange();
@@ -48,8 +48,11 @@ namespace SDM
             chart_ad_status.Series.Add(NTB);
             chart_ad_status.Series.Add(DSK);
             chart_ad_status.Series.Add(SVM);
-            chart_ad_status.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.White;
+
+            chart_ad_status.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Transparent;
             chart_ad_status.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
+            chart_ad_status.ChartAreas[0].AxisX.LineColor = Color.White;
+
             chart_ad_status.ChartAreas[0].AxisY.LineColor = Color.White;
             chart_ad_status.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.White;
             chart_ad_status.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
@@ -95,6 +98,12 @@ namespace SDM
         {
             FRM_AD_Remove frm_delete = new FRM_AD_Remove();
             frm_delete.Show();
+        }
+
+        private void btn_move_ad_Click(object sender, EventArgs e)
+        {
+            FRM_AD_Move frm_move = new FRM_AD_Move();
+            frm_move.Show();
         }
     }
 }

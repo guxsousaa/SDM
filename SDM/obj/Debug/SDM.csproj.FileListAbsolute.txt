@@ -67,3 +67,6 @@ E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.pdb
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Dashboard.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Search.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Remove.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Password.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Move.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.FRM_UsersAccess.resources

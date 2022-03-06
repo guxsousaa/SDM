@@ -142,7 +142,7 @@ namespace SDM.FRMs_AD
                         "SDM - Already exists!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {
-                    Process process = PowerShellHelper.executeCommand(Argument);
+                    Process process = PowerShellHelper.executeCommand(Argument, true);
 
                     var command_result = process.StandardError.ReadToEnd();
                     if (command_result == null || command_result == "")

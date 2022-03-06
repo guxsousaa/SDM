@@ -39,7 +39,7 @@ namespace SDM
             //set the chart-type to "Column"
             //chart_ad_status.Series[seriesname].ChartType = SeriesChartType.Column;
             chart_ad_status.ChartAreas[0].AxisX.LineColor = Color.White;
-            chart_ad_status.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.White;
+            chart_ad_status.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Transparent;
             chart_ad_status.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
 
             chart_ad_status.ChartAreas[0].AxisY.LineColor = Color.White;

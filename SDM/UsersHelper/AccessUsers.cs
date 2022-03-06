@@ -45,6 +45,19 @@ namespace SDM.AuthUsers
             }
             return false;
         }
+
+        public static string getUser_Name(string USERNAME)
+        {
+            List<UserInfo> usersList = LoadJson();
+            foreach (UserInfo user in usersList)
+            {
+                if (user.username.ToLower() == USERNAME.ToLower())
+                {
+                    if (user.name != null) return user.name;
+                }
+            }
+            return USERNAME.Replace("-otimtz", "");
+        }
         public static string getUserImageUrl(string USERNAME)
         {
             List<UserInfo> usersList = LoadJson();
@@ -114,13 +127,15 @@ namespace Users_DTO
     public class UserInfo
     {
         public string username { get; set; }
+        public string name { get; set; }
         public int type { get; set; }
         public int access { get; set; }
         public string imageUrl { get; set; }
 
-        public UserInfo(string username, int type, int access, string imageUrl)
+        public UserInfo(string username, string name, int type, int access, string imageUrl)
         {
             this.username = username;
+            this.name = name;
             this.type = type;
             this.access = access;
             this.imageUrl = imageUrl;

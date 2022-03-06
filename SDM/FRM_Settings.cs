@@ -1,5 +1,6 @@
 ﻿using SDM.AuthUsers;
 using SDM.Methods;
+using SDM.UsersHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,8 +26,7 @@ namespace SDM
             //  Make the window round
             Region = Region.FromHrgn(ToolsHelper.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
-
-            txt_lastUpdateTime_CompBase.Text = "Last update: " + ToolsHelper.checkLastBaseCompChange();
+            updateInfoFileBaseComp();
         }
 
 
@@ -60,7 +60,7 @@ namespace SDM
                     // Set cursor as default arrow
                     Cursor.Current = Cursors.Default;
 
-                    txt_lastUpdateTime_CompBase.Text = "Last update: " + ToolsHelper.checkLastBaseCompChange();
+                    updateInfoFileBaseComp();
 
                 }
             }
@@ -70,6 +70,12 @@ namespace SDM
                     "Warning code: " + ErrorHelper.ACCESS_DENIEDUPDATE_ADBASE,
                     "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        void updateInfoFileBaseComp()
+        {
+            txt_lastUpdateTime_CompBase.Text = "Last update: " + ToolsHelper.checkLastBaseCompChange();
+            txt_file_size.Text = "Size: " + ToolsHelper.getBaseCompSize();
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -82,6 +88,12 @@ namespace SDM
                 ToolsHelper.ReleaseCapture();
                 ToolsHelper.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void btn_users_Click(object sender, EventArgs e)
+        {
+            FRM_UsersAccess frmUsers = new FRM_UsersAccess();
+            frmUsers.ShowDialog();
         }
     }
 }

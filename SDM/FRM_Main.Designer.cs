@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Main));
             this.container_base_left_main = new System.Windows.Forms.Panel();
             this.PnlNav = new System.Windows.Forms.Panel();
@@ -44,6 +45,7 @@
             this.panel_win_btns_main = new System.Windows.Forms.Panel();
             this.minimize_btn = new System.Windows.Forms.PictureBox();
             this.close_btn = new System.Windows.Forms.PictureBox();
+            this.timer_checkup = new System.Windows.Forms.Timer(this.components);
             this.container_base_left_main.SuspendLayout();
             this.container_user_info_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.user_profile_pic_main)).BeginInit();
@@ -85,7 +87,7 @@
             this.btn_settings_main.FlatAppearance.BorderSize = 0;
             this.btn_settings_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_settings_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_settings_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btn_settings_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_settings_main.Location = new System.Drawing.Point(0, 557);
             this.btn_settings_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_settings_main.Name = "btn_settings_main";
@@ -102,7 +104,7 @@
             this.btn_tiemprest_main.FlatAppearance.BorderSize = 0;
             this.btn_tiemprest_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_tiemprest_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_tiemprest_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btn_tiemprest_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_tiemprest_main.Location = new System.Drawing.Point(0, 282);
             this.btn_tiemprest_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_tiemprest_main.Name = "btn_tiemprest_main";
@@ -120,7 +122,7 @@
             this.btn_printer_main.FlatAppearance.BorderSize = 0;
             this.btn_printer_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_printer_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_printer_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btn_printer_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_printer_main.Location = new System.Drawing.Point(0, 238);
             this.btn_printer_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_printer_main.Name = "btn_printer_main";
@@ -138,7 +140,7 @@
             this.btn_ad_main.FlatAppearance.BorderSize = 0;
             this.btn_ad_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ad_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ad_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btn_ad_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_ad_main.Location = new System.Drawing.Point(0, 194);
             this.btn_ad_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ad_main.Name = "btn_ad_main";
@@ -156,7 +158,7 @@
             this.btn_dash_main.FlatAppearance.BorderSize = 0;
             this.btn_dash_main.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dash_main.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_dash_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btn_dash_main.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_dash_main.Location = new System.Drawing.Point(0, 150);
             this.btn_dash_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_dash_main.Name = "btn_dash_main";
@@ -223,6 +225,7 @@
             // 
             // panel_win_btns_main
             // 
+            this.panel_win_btns_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel_win_btns_main.Controls.Add(this.minimize_btn);
             this.panel_win_btns_main.Controls.Add(this.close_btn);
             this.panel_win_btns_main.Dock = System.Windows.Forms.DockStyle.Top;
@@ -258,6 +261,12 @@
             this.close_btn.TabIndex = 0;
             this.close_btn.TabStop = false;
             this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
+            // 
+            // timer_checkup
+            // 
+            this.timer_checkup.Enabled = true;
+            this.timer_checkup.Interval = 300000;
+            this.timer_checkup.Tick += new System.EventHandler(this.timer_checkup_Tick);
             // 
             // FRM_Main
             // 
@@ -303,5 +312,6 @@
         private System.Windows.Forms.Panel panel_win_btns_main;
         private System.Windows.Forms.PictureBox close_btn;
         private System.Windows.Forms.PictureBox minimize_btn;
+        private System.Windows.Forms.Timer timer_checkup;
     }
 }

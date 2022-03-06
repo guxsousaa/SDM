@@ -34,10 +34,11 @@ namespace SDM.FRMs_AD
             this.btn_search_Computer = new System.Windows.Forms.Button();
             this.btn_create_Computer = new System.Windows.Forms.Button();
             this.main_panel_container_newComp_ad = new System.Windows.Forms.Panel();
-            this.header_panel_newComp_ad = new System.Windows.Forms.Panel();
-            this.close_btn_newComp_AD = new System.Windows.Forms.PictureBox();
             this.list_ou_paths = new System.Windows.Forms.ListView();
             this.txt_comp_desc = new System.Windows.Forms.Label();
+            this.header_panel_newComp_ad = new System.Windows.Forms.Panel();
+            this.close_btn_newComp_AD = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.main_panel_container_newComp_ad.SuspendLayout();
             this.header_panel_newComp_ad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn_newComp_AD)).BeginInit();
@@ -91,9 +92,29 @@ namespace SDM.FRMs_AD
             this.main_panel_container_newComp_ad.Size = new System.Drawing.Size(463, 653);
             this.main_panel_container_newComp_ad.TabIndex = 3;
             // 
+            // list_ou_paths
+            // 
+            this.list_ou_paths.HideSelection = false;
+            this.list_ou_paths.Location = new System.Drawing.Point(0, 152);
+            this.list_ou_paths.Name = "list_ou_paths";
+            this.list_ou_paths.Size = new System.Drawing.Size(463, 498);
+            this.list_ou_paths.TabIndex = 4;
+            this.list_ou_paths.UseCompatibleStateImageBehavior = false;
+            // 
+            // txt_comp_desc
+            // 
+            this.txt_comp_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_comp_desc.ForeColor = System.Drawing.SystemColors.Control;
+            this.txt_comp_desc.Location = new System.Drawing.Point(4, 71);
+            this.txt_comp_desc.Name = "txt_comp_desc";
+            this.txt_comp_desc.Size = new System.Drawing.Size(338, 90);
+            this.txt_comp_desc.TabIndex = 3;
+            this.txt_comp_desc.Text = "Waiting...";
+            // 
             // header_panel_newComp_ad
             // 
             this.header_panel_newComp_ad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(83)))));
+            this.header_panel_newComp_ad.Controls.Add(this.label1);
             this.header_panel_newComp_ad.Controls.Add(this.close_btn_newComp_AD);
             this.header_panel_newComp_ad.Dock = System.Windows.Forms.DockStyle.Top;
             this.header_panel_newComp_ad.Location = new System.Drawing.Point(0, 0);
@@ -116,24 +137,18 @@ namespace SDM.FRMs_AD
             this.close_btn_newComp_AD.TabStop = false;
             this.close_btn_newComp_AD.Click += new System.EventHandler(this.close_btn_newComp_AD_Click);
             // 
-            // list_ou_paths
+            // label1
             // 
-            this.list_ou_paths.HideSelection = false;
-            this.list_ou_paths.Location = new System.Drawing.Point(0, 152);
-            this.list_ou_paths.Name = "list_ou_paths";
-            this.list_ou_paths.Size = new System.Drawing.Size(463, 498);
-            this.list_ou_paths.TabIndex = 4;
-            this.list_ou_paths.UseCompatibleStateImageBehavior = false;
-            // 
-            // txt_comp_desc
-            // 
-            this.txt_comp_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_comp_desc.ForeColor = System.Drawing.SystemColors.Control;
-            this.txt_comp_desc.Location = new System.Drawing.Point(4, 71);
-            this.txt_comp_desc.Name = "txt_comp_desc";
-            this.txt_comp_desc.Size = new System.Drawing.Size(338, 90);
-            this.txt_comp_desc.TabIndex = 3;
-            this.txt_comp_desc.Text = "Waiting...";
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(316, 30);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "AD - Create Computer";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FRM_newComp
             // 
@@ -163,5 +178,6 @@ namespace SDM.FRMs_AD
         private System.Windows.Forms.PictureBox close_btn_newComp_AD;
         private System.Windows.Forms.ListView list_ou_paths;
         private System.Windows.Forms.Label txt_comp_desc;
+        private System.Windows.Forms.Label label1;
     }
 }

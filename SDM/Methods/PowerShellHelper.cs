@@ -44,7 +44,7 @@ namespace SDM.Methods
         /// </summary>
         /// <param name="_ARGUMENT"></param>
         /// <returns></returns>
-        public static Process executeCommand(string _ARGUMENT)
+        public static Process executeCommand(string _ARGUMENT, bool DONT_SHOW_DIALOG)
         {
             //execute powershell cmdlets or scripts using command arguments as process
             ProcessStartInfo processInfo = new ProcessStartInfo();
@@ -54,7 +54,7 @@ namespace SDM.Methods
             processInfo.RedirectStandardError = true;
             processInfo.RedirectStandardOutput = true;
             processInfo.UseShellExecute = false;
-            processInfo.CreateNoWindow = true;
+            processInfo.CreateNoWindow = DONT_SHOW_DIALOG;
 
             //start powershell process using process start info
             Process process = new Process();
