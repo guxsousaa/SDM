@@ -34,9 +34,10 @@ namespace SDM.FRMs_AD
             this.btn_search_Computer = new System.Windows.Forms.Button();
             this.btn_create_Computer = new System.Windows.Forms.Button();
             this.main_panel_container_newComp_ad = new System.Windows.Forms.Panel();
-            this.txt_comp_desc = new System.Windows.Forms.Label();
             this.header_panel_newComp_ad = new System.Windows.Forms.Panel();
             this.close_btn_newComp_AD = new System.Windows.Forms.PictureBox();
+            this.list_ou_paths = new System.Windows.Forms.ListView();
+            this.txt_comp_desc = new System.Windows.Forms.Label();
             this.main_panel_container_newComp_ad.SuspendLayout();
             this.header_panel_newComp_ad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn_newComp_AD)).BeginInit();
@@ -77,6 +78,7 @@ namespace SDM.FRMs_AD
             // main_panel_container_newComp_ad
             // 
             this.main_panel_container_newComp_ad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.main_panel_container_newComp_ad.Controls.Add(this.list_ou_paths);
             this.main_panel_container_newComp_ad.Controls.Add(this.txt_comp_desc);
             this.main_panel_container_newComp_ad.Controls.Add(this.btn_create_Computer);
             this.main_panel_container_newComp_ad.Controls.Add(this.header_panel_newComp_ad);
@@ -86,18 +88,8 @@ namespace SDM.FRMs_AD
             this.main_panel_container_newComp_ad.Location = new System.Drawing.Point(0, 0);
             this.main_panel_container_newComp_ad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.main_panel_container_newComp_ad.Name = "main_panel_container_newComp_ad";
-            this.main_panel_container_newComp_ad.Size = new System.Drawing.Size(463, 453);
+            this.main_panel_container_newComp_ad.Size = new System.Drawing.Size(463, 653);
             this.main_panel_container_newComp_ad.TabIndex = 3;
-            // 
-            // txt_comp_desc
-            // 
-            this.txt_comp_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_comp_desc.ForeColor = System.Drawing.SystemColors.Control;
-            this.txt_comp_desc.Location = new System.Drawing.Point(4, 71);
-            this.txt_comp_desc.Name = "txt_comp_desc";
-            this.txt_comp_desc.Size = new System.Drawing.Size(338, 90);
-            this.txt_comp_desc.TabIndex = 3;
-            this.txt_comp_desc.Text = "Waiting...";
             // 
             // header_panel_newComp_ad
             // 
@@ -124,11 +116,30 @@ namespace SDM.FRMs_AD
             this.close_btn_newComp_AD.TabStop = false;
             this.close_btn_newComp_AD.Click += new System.EventHandler(this.close_btn_newComp_AD_Click);
             // 
+            // list_ou_paths
+            // 
+            this.list_ou_paths.HideSelection = false;
+            this.list_ou_paths.Location = new System.Drawing.Point(0, 152);
+            this.list_ou_paths.Name = "list_ou_paths";
+            this.list_ou_paths.Size = new System.Drawing.Size(463, 498);
+            this.list_ou_paths.TabIndex = 4;
+            this.list_ou_paths.UseCompatibleStateImageBehavior = false;
+            // 
+            // txt_comp_desc
+            // 
+            this.txt_comp_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_comp_desc.ForeColor = System.Drawing.SystemColors.Control;
+            this.txt_comp_desc.Location = new System.Drawing.Point(4, 71);
+            this.txt_comp_desc.Name = "txt_comp_desc";
+            this.txt_comp_desc.Size = new System.Drawing.Size(338, 90);
+            this.txt_comp_desc.TabIndex = 3;
+            this.txt_comp_desc.Text = "Waiting...";
+            // 
             // FRM_newComp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 453);
+            this.ClientSize = new System.Drawing.Size(463, 653);
             this.Controls.Add(this.main_panel_container_newComp_ad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -150,6 +161,7 @@ namespace SDM.FRMs_AD
         private System.Windows.Forms.Panel main_panel_container_newComp_ad;
         private System.Windows.Forms.Panel header_panel_newComp_ad;
         private System.Windows.Forms.PictureBox close_btn_newComp_AD;
+        private System.Windows.Forms.ListView list_ou_paths;
         private System.Windows.Forms.Label txt_comp_desc;
     }
 }

@@ -15,7 +15,7 @@ namespace SDM.Methods
 {
     class AdHelper
     {
-
+        public static List<ADInfo> AD = new List<ADInfo> ();
         private static string AD_NAME = "corporate";
         public static string OU_HOSTNAME_BLOCK = "OU=Bloqueio,OU=Hostname,OU=Quarentena";
         public static string OU_NOTEBOOK_MTZ = "OU=OU Notebook,OU=Matriz";
@@ -33,12 +33,15 @@ namespace SDM.Methods
                 List<ADInfo> allInfo = JsonConvert.DeserializeObject<List<ADInfo>>(r.ReadToEnd());
                 foreach(ADInfo info in allInfo)
                 {
-                    if(info.CN == COMPUTER_NAME)
+                    if(info.CN != null)
                     {
+                        if (info.CN.ToUpper() == COMPUTER_NAME.ToUpper())
+                        {
 
-                        // Set cursor as default arrow
-                        Cursor.Current = Cursors.Default;
-                        return info;
+                            // Set cursor as default arrow
+                            Cursor.Current = Cursors.Default;
+                            return info;
+                        }
                     }
                 }
             }
@@ -81,21 +84,16 @@ namespace SDM.Methods
             // Set cursor as hourglass
             Cursor.Current = Cursors.WaitCursor;
 
-            using (StreamReader r = new StreamReader(mainPath + "AD\\CompBase.json"))
+            foreach (ADInfo info in AD)
             {
-                List<ADInfo> allInfo = JsonConvert.DeserializeObject<List<ADInfo>>(r.ReadToEnd());
-
-                foreach (ADInfo info in allInfo)
+                foreach (string ou in info.OU)
                 {
-                    foreach (string ou in info.OU)
-                    {
-                        if (ou == "Bloqueio") bloked++;
-                        else if (ou == "Realocacao") relocation++;
-                    }
-
-                    if (info.CN != null && info.CN.Length > 8 && info.CN.Contains("TIEMPREST")) TIEMPREST++;
-                    else if (info.CN != null && info.CN.Length > 5 && info.CN.Contains("MTZNTB")) MTZNTB++;
+                    if (ou == "Bloqueio") bloked++;
+                    else if (ou == "Realocacao") relocation++;
                 }
+
+                if (info.CN != null && info.CN.Length > 8 && info.CN.Contains("TIEMPREST")) TIEMPREST++;
+                else if (info.CN != null && info.CN.Length > 5 && info.CN.Contains("MTZNTB")) MTZNTB++;
             }
 
             // Set cursor as default arrow
@@ -120,7 +118,7 @@ namespace SDM.Methods
                 {
                     string compName = info.CN;
                     if (compName != null && compName.Length >= 3 && compName.Contains(input))
-                        allComp.Add(compName);
+                        allComp.Add(compName.ToUpper());
                 }
             }
 
@@ -212,6 +210,19 @@ namespace SDM.Methods
             return ComputerPath;
         }
 
+        public static void initList()
+        {
+            string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
+
+            // Set cursor as hourglass
+            Cursor.Current = Cursors.WaitCursor;
+
+            using (StreamReader r = new StreamReader(mainPath + "AD\\CompBase.json"))
+            {
+                AD = JsonConvert.DeserializeObject<List<ADInfo>>(r.ReadToEnd());
+            }
+        }
+
 
         public static bool updateAdBaseFile()
         {
@@ -266,7 +277,17 @@ namespace SDM.Methods
                         allItems.Add(adItem);
                     }
                 }
-                File.WriteAllText(mainPath + "AD\\CompBase.json", JsonConvert.SerializeObject(allItems));
+
+                List<ADInfo> finalItems = new List<ADInfo>();
+                foreach (ADInfo item in allItems)
+                {
+                    if (item.CN != null)
+                    {
+                        item.CN = item.CN.ToUpper();
+                        finalItems.Add(item);
+                    }
+                }
+                File.WriteAllText(mainPath + "AD\\CompBase.json", JsonConvert.SerializeObject(finalItems));
                 return true;
             }
             catch (Exception ex)

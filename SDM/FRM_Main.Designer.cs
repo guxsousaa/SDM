@@ -231,6 +231,7 @@
             this.panel_win_btns_main.Name = "panel_win_btns_main";
             this.panel_win_btns_main.Size = new System.Drawing.Size(729, 30);
             this.panel_win_btns_main.TabIndex = 0;
+            this.panel_win_btns_main.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_win_btns_main_MouseDown);
             // 
             // minimize_btn
             // 
@@ -267,10 +268,11 @@
             this.Controls.Add(this.panel_container_main);
             this.Controls.Add(this.container_base_left_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FRM_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FRM_Main";
+            this.Text = "SDM";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Main_FormClosing);
             this.Load += new System.EventHandler(this.FRM_Main_Load);
             this.container_base_left_main.ResumeLayout(false);

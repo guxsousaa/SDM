@@ -48,7 +48,7 @@ namespace SDM
             // 
             // input_compName
             // 
-            this.input_compName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.input_compName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.input_compName.Location = new System.Drawing.Point(23, 13);
             this.input_compName.Margin = new System.Windows.Forms.Padding(4);
             this.input_compName.Name = "input_compName";
@@ -113,12 +113,11 @@ namespace SDM
             // 
             // txt_response_currentUser
             // 
-            this.txt_response_currentUser.AutoSize = true;
             this.txt_response_currentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_response_currentUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_response_currentUser.Location = new System.Drawing.Point(350, 43);
             this.txt_response_currentUser.Name = "txt_response_currentUser";
-            this.txt_response_currentUser.Size = new System.Drawing.Size(81, 22);
+            this.txt_response_currentUser.Size = new System.Drawing.Size(223, 22);
             this.txt_response_currentUser.TabIndex = 10;
             this.txt_response_currentUser.Text = "Wating...";
             // 

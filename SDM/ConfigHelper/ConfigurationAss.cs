@@ -51,7 +51,7 @@ namespace SDM.ConfigHelper
                     {
                         version = VERSION.ToString(),
                         CodeBase = CODE_BASE,
-                        SV_operator = ""
+                        SV_operator = Environment.UserName.ToLower()
                     },
                     System = new
                     {

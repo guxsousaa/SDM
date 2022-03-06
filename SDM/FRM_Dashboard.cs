@@ -27,11 +27,17 @@ namespace SDM
             chart_ad_status.Legends.Add("Computers");
 
             //Add a new chart-series
-            string seriesname = "Computers";
-            chart_ad_status.Series.Add(seriesname);
+            string MTZNTB = "MTZNTB";
+            string TIEMPREST = "TIEMPREST";
+            string Bloked = "Bloked";
+            string Relocation = "Relocation";
+            chart_ad_status.Series.Add(MTZNTB);
+            chart_ad_status.Series.Add(TIEMPREST);
+            chart_ad_status.Series.Add(Bloked);
+            chart_ad_status.Series.Add(Relocation);
 
             //set the chart-type to "Column"
-            chart_ad_status.Series[seriesname].ChartType = SeriesChartType.Column;
+            //chart_ad_status.Series[seriesname].ChartType = SeriesChartType.Column;
             chart_ad_status.ChartAreas[0].AxisX.LineColor = Color.White;
             chart_ad_status.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.White;
             chart_ad_status.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
@@ -42,10 +48,10 @@ namespace SDM
 
             long[] statusResult = AdHelper.getStatus();
 
-            chart_ad_status.Series[seriesname].Points.AddXY("MTZNTB", statusResult[0]);
-            chart_ad_status.Series[seriesname].Points.AddXY("TIEMPREST", statusResult[1]);
-            chart_ad_status.Series[seriesname].Points.AddXY("Bloked", statusResult[2]);
-            chart_ad_status.Series[seriesname].Points.AddXY("Relocation", statusResult[3]);
+            chart_ad_status.Series[MTZNTB].Points.AddXY("MTZNTB", statusResult[0]);
+            chart_ad_status.Series[TIEMPREST].Points.AddXY("TIEMPREST", statusResult[1]);
+            chart_ad_status.Series[Bloked].Points.AddXY("Bloked", statusResult[2]);
+            chart_ad_status.Series[Relocation].Points.AddXY("Relocation", statusResult[3]);
         }
     }
 }

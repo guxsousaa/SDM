@@ -23,19 +23,10 @@ namespace SDM
             InitializeComponent();
 
             //  Make the window round
-            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            Region = Region.FromHrgn(ToolsHelper.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
 
-            checkLastBaseCompChange();
-        }
-
-        private void checkLastBaseCompChange()
-        {
-            string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\AD\\CompBase.json";
-
-            DateTime dt = File.GetLastWriteTime(mainPath);
-            dt = File.GetLastWriteTime(mainPath);
-            txt_lastUpdateTime_CompBase.Text = "Last update: " + dt;
+            txt_lastUpdateTime_CompBase.Text = "Last update: " + ToolsHelper.checkLastBaseCompChange();
         }
 
 
@@ -69,7 +60,7 @@ namespace SDM
                     // Set cursor as default arrow
                     Cursor.Current = Cursors.Default;
 
-                    checkLastBaseCompChange();
+                    txt_lastUpdateTime_CompBase.Text = "Last update: " + ToolsHelper.checkLastBaseCompChange();
 
                 }
             }
@@ -81,35 +72,15 @@ namespace SDM
             }
         }
 
-
-        // Method that uses a dll to round the window
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nWidthEllipse,
-            int nHeightEllipse
-        );
-
-
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
 
         private void panel_win_btns_main_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                ToolsHelper.ReleaseCapture();
+                ToolsHelper.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
     }
