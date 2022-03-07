@@ -165,19 +165,23 @@ namespace SDM
         private void btn_shutdown_ti_Click_1(object sender, EventArgs e)
         {
             string input = input_compName.Text.ToString();
-            ToolsHelper.shutdownComputer(input);
+            if (input == null || input.Length <= 0)
+                MessageBox.Show("You need to enter the computer name",
+                    "SDM - Empty search!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                ToolsHelper.shutdownComputer(input);
         }
 
         private void btn_block_tiemprest_Click(object sender, EventArgs e)
         {
             string NTBNAME = input_compName.Text.ToString();
             if(NTBNAME == null || NTBNAME.Length <= 0)
-                MessageBox.Show("You need to enter the machine name",
+                MessageBox.Show("You need to enter the computer name",
                     "SDM - Empty search!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 if (NTBNAME.Length < 9)
-                    MessageBox.Show("Enter the name of a valid loan machine.",
+                    MessageBox.Show("Enter the name of a valid loan computer.",
                         "SDM - Machine name!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
@@ -216,6 +220,51 @@ namespace SDM
             }
         }
 
+        private void btn_UnBlock_Click(object sender, EventArgs e)
+        {
+            string NTBNAME = input_compName.Text.ToString();
+            if (NTBNAME == null || NTBNAME.Length <= 0)
+                MessageBox.Show("You need to enter the computer name",
+                    "SDM - Empty search!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                if (NTBNAME.Length < 9)
+                    MessageBox.Show("Enter the name of a valid loan computer.",
+                        "SDM - Machine name!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    Cursor.Current = Cursors.WaitCursor;
 
+                    //  Get AD path
+                    ADInfo computerInfo = AdHelper.searchComputer(NTBNAME);
+                    if (computerInfo != null)
+                    {
+                        if (!computerInfo.OU.Contains("Bloqueio"))
+                        {
+                            MessageBox.Show("This computer is not blocked!",
+                                "SDM - Computer is not blocked", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            string Argument = $"&{{ Get-ADComputer '{NTBNAME}' |Move-ADObject -TargetPath '{AdHelper.OU_NOTEBOOK_MTZ}' }}";
+                            Process process = PowerShellHelper.executeCommand(Argument, true);
+
+                            var command_result = process.StandardError.ReadToEnd();
+                            if (command_result == null || command_result == "")
+                                    MessageBox.Show("Computer successfully unlocked!",
+                                    "SDM - Computer unlocked", MessageBoxButtons.OK);
+                            else
+                                MessageBox.Show(command_result, "SDM - Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                        MessageBox.Show("The computer informed for the unBlock does not exist, enter the correct name!",
+                            "SDM - NOT FOUND!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    Cursor.Current = Cursors.Default;
+                    doCheckStatus(NTBNAME);
+                }
+            }
+        }
     }
 }

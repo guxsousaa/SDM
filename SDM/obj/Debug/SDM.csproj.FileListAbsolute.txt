@@ -9,7 +9,6 @@ D:\DEVELOPMENT\SDM\SDM\bin\Debug\log4net.xml
 D:\DEVELOPMENT\SDM\SDM\bin\Debug\Newtonsoft.Json.xml
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.csproj.AssemblyReference.cache
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Ad.resources
-D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Auth.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Main.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Splash.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.Properties.Resources.resources
@@ -30,7 +29,6 @@ D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_TiEmprest.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_newComp.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Printer.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Settings.resources
-D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.csproj.SuggestedBindingRedirects.cache
 E:\DEVELOPMENT\SDM\SDM\bin\Debug\SDM.exe.config
 E:\DEVELOPMENT\SDM\SDM\bin\Debug\SDM.exe
 E:\DEVELOPMENT\SDM\SDM\bin\Debug\SDM.pdb
@@ -70,3 +68,10 @@ E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Password.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Move.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.FRM_UsersAccess.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.Actions.FRM_NewUser.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Move.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Password.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Remove.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Search.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Dashboard.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.Actions.FRM_NewUser.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.FRM_UsersAccess.resources

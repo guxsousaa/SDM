@@ -15,37 +15,40 @@ namespace SDM.Methods
     {
         public static void shutdownComputer(string NAME)
         {
-            Cursor.Current = Cursors.WaitCursor;
-
-            string Argument = $"&{{ shutdown -s -t 01 -f -m \\{NAME} }}";
-            try
+            if(NAME != null && NAME.Length > 0)
             {
-                Ping ping = new Ping();
-                PingReply pingresult = ping.Send(NAME);
-                bool pingResult = pingresult.Status.ToString() == "Success";
+                Cursor.Current = Cursors.WaitCursor;
 
-                //  Wait few milliseconds before shutdown
-                Thread.Sleep(500);
-
-                var command_result = PowerShellHelper.executeCommand(Argument, true).StandardError.ReadToEnd();
-                if (command_result != null || command_result != "")
-                    MessageBox.Show(command_result, "SDM - Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
+                string Argument = $"&{{ shutdown -s -t 01 -f -m \\{NAME} }}";
+                try
                 {
-                    MessageBox.Show("Shutdown performed successfully, in a few moments the computer is turned off.",
-                        "SDM - Shutdown performed!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Ping ping = new Ping();
+                    PingReply pingresult = ping.Send(NAME);
+                    bool pingResult = pingresult.Status.ToString() == "Success";
+
+                    //  Wait few milliseconds before shutdown
+                    Thread.Sleep(500);
+
+                    var command_result = PowerShellHelper.executeCommand(Argument, false).StandardError.ReadToEnd();
+                    if (command_result != null || command_result != "")
+                        MessageBox.Show(command_result, "SDM - Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        MessageBox.Show("Shutdown performed successfully, in a few moments the computer is turned off.",
+                            "SDM - Shutdown performed!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+
                 }
+                catch (PingException ex)
+                {
+                    LogHelper.doLog("\nTry ping a computer error\n\n" + ex.ToString() + "\n\n" + "Computer name: " + NAME,
+                        ErrorHelper.PING_OTHER_COMPUTER);
 
-
+                    MessageBox.Show("The computer is currently not turned on!!", "SDM - Turned On!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                Cursor.Current = Cursors.Default;
             }
-            catch (PingException ex)
-            {
-                LogHelper.doLog("\nTry ping a computer error\n\n" + ex.ToString() + "\n\n" + "Computer name: " + NAME,
-                    ErrorHelper.PING_OTHER_COMPUTER);
-
-                MessageBox.Show("The computer is currently not turned on!!", "SDM - Turned On!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            Cursor.Current = Cursors.Default;
         }
 
         public static DateTime checkLastBaseCompChange()

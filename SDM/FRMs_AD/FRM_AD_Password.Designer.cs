@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_AD_Password));
             this.input_password = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.Label();
             this.btn_ok = new System.Windows.Forms.Button();
@@ -36,11 +37,12 @@
             // 
             // input_password
             // 
+            this.input_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.input_password.Location = new System.Drawing.Point(89, 12);
             this.input_password.MaxLength = 25;
             this.input_password.Name = "input_password";
             this.input_password.PasswordChar = '*';
-            this.input_password.Size = new System.Drawing.Size(276, 22);
+            this.input_password.Size = new System.Drawing.Size(276, 27);
             this.input_password.TabIndex = 0;
             this.input_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.input_password_KeyDown);
             // 
@@ -71,6 +73,7 @@
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // FRM_AD_Password
             // 
@@ -81,6 +84,7 @@
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.input_password);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FRM_AD_Password";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Credential Validation";

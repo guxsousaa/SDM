@@ -17,7 +17,6 @@ D:\DEVELOPMENT\SDM\SDM\bin\Release\System.Security.Permissions.xml
 D:\DEVELOPMENT\SDM\SDM\bin\Release\System.Security.Principal.Windows.xml
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_newComp.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Ad.resources
-D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Auth.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Main.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Printer.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Settings.resources
@@ -29,7 +28,6 @@ D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.csproj.CoreCompileInputs.cache
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.csproj.CopyComplete
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.exe
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.pdb
-D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.csproj.AssemblyReference.cache
 E:\DEVELOPMENT\SDM\SDM\bin\Release\SDM.exe.config
 E:\DEVELOPMENT\SDM\SDM\bin\Release\SDM.exe
 E:\DEVELOPMENT\SDM\SDM\bin\Release\SDM.pdb
@@ -51,7 +49,6 @@ E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.csproj.AssemblyReference.cache
 E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.csproj.SuggestedBindingRedirects.cache
 E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_newComp.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Ad.resources
-E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Auth.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Dashboard.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Main.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Printer.resources
@@ -66,3 +63,15 @@ E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.exe
 E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.pdb
 E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Remove.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Search.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Move.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Password.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.UsersHelper.Actions.FRM_NewUser.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.UsersHelper.FRM_UsersAccess.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Move.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Password.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Remove.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Search.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Dashboard.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.UsersHelper.Actions.FRM_NewUser.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.UsersHelper.FRM_UsersAccess.resources
+d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.csproj.AssemblyReference.cache

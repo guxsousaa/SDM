@@ -149,6 +149,7 @@ namespace SDM
             this.btn_UnBlock.TabIndex = 2;
             this.btn_UnBlock.Text = "Un Block";
             this.btn_UnBlock.UseVisualStyleBackColor = true;
+            this.btn_UnBlock.Click += new System.EventHandler(this.btn_UnBlock_Click);
             // 
             // panel_container
             // 

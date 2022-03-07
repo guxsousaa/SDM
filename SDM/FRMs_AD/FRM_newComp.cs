@@ -19,57 +19,13 @@ namespace SDM.FRMs_AD
 {
     public partial class FRM_newComp : Form
     {
+        string OU_PATH = null;
         public FRM_newComp()
         {
             InitializeComponent();
 
             //  Make the window round
             Region = Region.FromHrgn(ToolsHelper.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-
-            //  Need to be checked later
-            //  At work
-            int i = 0;
-            List<string> currentOus = new List<string>();
-            foreach (ADInfo itemAd in AdHelper.AD)
-            {
-                if(i < 6000)
-                {
-                    string[] OUs = itemAd.OU.ToArray();
-                    if(OUs.Count() > 0)
-                    {
-                        Array.Reverse(OUs);
-
-                        StringBuilder generatedOu = new StringBuilder();
-                        foreach (string OU in OUs)
-                        {
-                            if (generatedOu.Length > 0)
-                                generatedOu.Append(",OU= " + OU);
-                            else
-                                generatedOu.Append("OU=" + OU);
-                        }
-
-                        if (!currentOus.Contains(generatedOu.ToString()))
-                        {
-                            currentOus.Add(generatedOu.ToString());
-                            ListViewItem item = new ListViewItem();
-                            item.Text = i + " - " + generatedOu.ToString();
-                            item.SubItems.Add(i.ToString());
-                            item.SubItems.Add(i + " Path");
-                            list_ou_paths.Items.Add(item);
-                            i++;
-                        }
-                    }
-                }
-            }
-            ColumnHeader header = new ColumnHeader();
-            header.Text = "";
-            header.Name = "col1";
-            list_ou_paths.Columns.Add(header);
-            list_ou_paths.Scrollable = true;
-            list_ou_paths.View = View.Details;
-            list_ou_paths.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-
-            list_ou_paths.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void btn_search_Computer_Click(object sender, EventArgs e)
@@ -131,10 +87,9 @@ namespace SDM.FRMs_AD
 
         private void btn_create_Computer_Click(object sender, EventArgs e)
         {
-            string COMPUTER_NAME = input_computerName_ad.Text.ToString();
-            string PATH = "OU=OU Notebook,OU=Matriz,DC=corporate,DC=ad";
+            string COMPUTER_NAME = input_computerName_ad.Text.ToString().ToUpper();
 
-            string Argument = $"&{{ New-ADComputer -Name '{COMPUTER_NAME}' -Path '{PATH}' }}";
+            string Argument = $"&{{ New-ADComputer -Name '{COMPUTER_NAME}' -Path '{OU_PATH}' }}";
 
             if (COMPUTER_NAME.Length <= 0)
                 MessageBox.Show("Cannot create a new computer with empty search field",
@@ -143,6 +98,9 @@ namespace SDM.FRMs_AD
             if(COMPUTER_NAME.Length > 20)
                 MessageBox.Show("The computer name cannot be longer than 20 characters.",
                     "SDM - Max characters!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if(OU_PATH == null || OU_PATH.Length <= 3)
+                MessageBox.Show("Select the OU Path",
+                    "SDM - OU not selected!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 LogHelper.doLog("\nRequest to create a new computer\nCN= " + COMPUTER_NAME, null);
@@ -166,7 +124,10 @@ namespace SDM.FRMs_AD
                     {
                         LogHelper.doLog("\nComputer created successfully", null);
 
-                        MessageBox.Show("Machine created successfully!",
+                        AdHelper.requestUpdateBaseFile();
+
+                        MessageBox.Show("Machine created successfully\n\nIf you perform the search again and it appears that it has not been moved," +
+                        " this happens because the file that the application uses has not yet been updated, but the computer has been moved.!",
                             "SDM - Successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -191,6 +152,11 @@ namespace SDM.FRMs_AD
             }
         }
 
+        void updateOuPath(string ou_get)
+        {
+            OU_PATH = ou_get;
+            txt_create_in.Text = "Create in: " + OU_PATH.Split(',')[0];
+        }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -203,10 +169,44 @@ namespace SDM.FRMs_AD
             }
         }
 
+        private void txt_header_create_computer_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ToolsHelper.ReleaseCapture();
+                ToolsHelper.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
         /// Close window click event
         private void close_btn_newComp_AD_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_ou_wsus_win10_Click(object sender, EventArgs e)
+        {
+            updateOuPath(AdHelper.OU_WSUS_WIN10_MTZ);
+        }
+
+        private void btn_ou_mtz_note_Click(object sender, EventArgs e)
+        {
+            updateOuPath(AdHelper.OU_NOTEBOOK_MTZ);
+        }
+
+        private void btn_ou_mtz_dsk_Click(object sender, EventArgs e)
+        {
+            updateOuPath(AdHelper.OU_COMPUETRS_MTZ);
+        }
+
+        private void btn_ou_smt_note_Click(object sender, EventArgs e)
+        {
+            updateOuPath(AdHelper.OU_NTB_SMT);
+        }
+
+        private void btn_ou_smt_comp_Click(object sender, EventArgs e)
+        {
+            updateOuPath(AdHelper.OU_DSK_SMT);
         }
     }
 }

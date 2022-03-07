@@ -54,7 +54,10 @@ namespace SDM.FRMs_AD
                         var command_result = process.StandardError.ReadToEnd();
                         if (command_result == null || command_result == "")
                         {
-                            MessageBox.Show("Computer successfully deleted!",
+                            AdHelper.requestUpdateBaseFile();
+
+                            MessageBox.Show("Computer successfully deleted!\n\nIf you perform the search again and it appears that it has not been moved," +
+                        " this happens because the file that the application uses has not yet been updated, but the computer has been moved.",
                                 "SDM - Successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }

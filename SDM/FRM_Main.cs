@@ -107,6 +107,10 @@ namespace SDM
             FRM_Settings frm_settings = new FRM_Settings();
             frm_settings.ShowDialog();
         }
+        private void btn_users_Click(object sender, EventArgs e)
+        {
+            changePnlNav(btn_users);
+        }
 
         // ---------- End Click Event ----------
 
@@ -136,6 +140,10 @@ namespace SDM
         {
             leaveClick(btn_settings_main);
         }
+        private void btn_users_Leave(object sender, EventArgs e)
+        {
+            leaveClick(btn_users);
+        }
         //  --------- End Leave event ---------
 
         private void changePnlNav(Button btnClick)
@@ -144,6 +152,7 @@ namespace SDM
             PnlNav.Top = btnClick.Top;
             PnlNav.Left = btnClick.Left;
             btnClick.BackColor = Color.FromArgb(46, 51, 73);
+            Thread.Sleep(45);
         }
 
         private void leaveClick(Button leaveBtn)
@@ -202,6 +211,22 @@ namespace SDM
                 });
                 updateThread.IsBackground = true;
                 updateThread.Start();
+            }
+        }
+
+        public static bool IsNetworkBoxOpen = false;
+        private void timer_network_Tick(object sender, EventArgs e)
+        {
+            //  Validate if user is connected to a internet connection
+            bool networkStatus = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+            if (!networkStatus && !IsNetworkBoxOpen)
+            {
+                IsNetworkBoxOpen = true;
+                MessageBox.Show("You have no internet connection, please connect to a network and reopen the application.\n\n" +
+                        "Warning code: " + ErrorHelper.NO_INTERNET,
+                        "No Internet Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                IsNetworkBoxOpen = false;
+                Environment.Exit(1);
             }
         }
     }

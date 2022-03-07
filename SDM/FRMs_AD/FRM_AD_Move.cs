@@ -89,6 +89,10 @@ namespace SDM.FRMs_AD
             else if (OUS.Contains("OUNotebook") && OUS.Contains("Matriz")) btn_move_mtz_note.Enabled = false;
             else if (OUS.Contains("OUComputers") && OUS.Contains("Matriz")) btn_move_mtz_dsk.Enabled = false;
             else if (OUS.Contains("ValidaWin10") && OUS.Contains("Wsus") && OUS.Contains("Matriz")) btn_move_wsus_win10.Enabled = false;
+            else if (OUS.Contains("Notebook") && OUS.Contains("SEARAALIMENTOS-MATRIZ-SMT")
+                && OUS.Contains("ESCRITORIO") && OUS.Contains("CORPORATIVO")) btn_move_smt_note.Enabled = false;
+            else if (OUS.Contains("Computers") && OUS.Contains("SEARAALIMENTOS-MATRIZ-SMT")
+                && OUS.Contains("ESCRITORIO") && OUS.Contains("CORPORATIVO")) btn_move_smt_comp.Enabled = false;
         }
 
         void moveComputer(string COMPUTER, string OU)
@@ -105,9 +109,12 @@ namespace SDM.FRMs_AD
 
                 var command_result = process.StandardError.ReadToEnd();
                 if (command_result == null || command_result == "")
+                {
+                    AdHelper.requestUpdateBaseFile();
                     MessageBox.Show("Computer successfully moved!!\n\nIf you perform the search again and it appears that it has not been moved," +
                         " this happens because the file that the application uses has not yet been updated, but the computer has been moved.", "SDM - Moved!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 else
                     MessageBox.Show(command_result, "SDM - Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -122,6 +129,8 @@ namespace SDM.FRMs_AD
             btn_move_mtz_note.Enabled = true;
             btn_move_mtz_dsk.Enabled = true;
             btn_move_wsus_win10.Enabled = true;
+            btn_move_smt_note.Enabled = true;
+            btn_move_smt_comp.Enabled = true;
         }
 
         void setWatingStatus()
@@ -157,6 +166,18 @@ namespace SDM.FRMs_AD
         private void close_btn_MoveAd_AD_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_move_smt_note_Click(object sender, EventArgs e)
+        {
+            string COMPUTER = input_computerName_ad.Text.ToString();
+            moveComputer(COMPUTER, AdHelper.OU_NTB_SMT);
+        }
+
+        private void btn_move_smt_comp_Click(object sender, EventArgs e)
+        {
+            string COMPUTER = input_computerName_ad.Text.ToString();
+            moveComputer(COMPUTER, AdHelper.OU_DSK_SMT);
         }
     }
 }

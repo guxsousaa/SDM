@@ -15,13 +15,16 @@ namespace SDM.Methods
 {
     class AdHelper
     {
-        public static List<ADInfo> AD = new List<ADInfo> ();
+        public static List<ADInfo> AD = new List<ADInfo>();
+        public static Thread updateThread;
         private static string AD_NAME = "corporate";
         private static string DC_AD_NAME = "DC=corporate,DC=ad";
         public static string OU_HOSTNAME_BLOCK = "OU=Bloqueio,OU=Hostname,OU=Quarentena" + "," + DC_AD_NAME;
-        public static string OU_NOTEBOOK_MTZ = "OU=OUNotebook,OU=Matriz" + "," + DC_AD_NAME;
-        public static string OU_COMPUETRS_MTZ = "OU=OUComputers,OU=Matriz" + "," + DC_AD_NAME;
-        public static string OU_WSUS_WIN10_MTZ = "OU=ValidaWin10,OU=Wsus,OU=Matriz" + "," + DC_AD_NAME;
+        public static string OU_NOTEBOOK_MTZ = "OU=OU Notebook,OU=Matriz" + "," + DC_AD_NAME;
+        public static string OU_COMPUETRS_MTZ = "OU=OU Computers,OU=Matriz" + "," + DC_AD_NAME;
+        public static string OU_WSUS_WIN10_MTZ = "OU=Valida Win10,OU=Wsus,OU=Matriz" + "," + DC_AD_NAME;
+        public static string OU_NTB_SMT = "OU=Notebook,OU=SEARA ALIMENTOS - MATRIZ - SMT,OU=ESCRITORIO,OU=CORPORATIVO,OU=BR,OU=SEARA ALIMENTOS LTDA" + "," + DC_AD_NAME;
+        public static string OU_DSK_SMT = "OU=Computers,OU=SEARA ALIMENTOS - MATRIZ - SMT,OU=ESCRITORIO,OU=CORPORATIVO,OU=BR,OU=SEARA ALIMENTOS LTDA" + "," + DC_AD_NAME;
 
         public static ADInfo searchComputer(string COMPUTER_NAME)
         {
@@ -34,9 +37,9 @@ namespace SDM.Methods
             using (StreamReader r = new StreamReader(mainPath + "AD\\CompBase.json"))
             {
                 List<ADInfo> allInfo = JsonConvert.DeserializeObject<List<ADInfo>>(r.ReadToEnd());
-                foreach(ADInfo info in allInfo)
+                foreach (ADInfo info in allInfo)
                 {
-                    if(info.CN != null)
+                    if (info.CN != null)
                     {
                         if (info.CN.ToUpper() == COMPUTER_NAME.ToUpper())
                         {
@@ -206,7 +209,8 @@ namespace SDM.Methods
 
                 mySearcher.Dispose();
                 entry.Dispose();
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 LogHelper.doLog("\nError getting all machines from AD\n\n" + ex.ToString(), ErrorHelper.GET_COMPUTER_IN_AD);
 
@@ -257,21 +261,18 @@ namespace SDM.Methods
                 List<ADInfo> allItems = new List<ADInfo>();
                 using (StreamReader r = new StreamReader(mainPath + "AD\\Base-Backup\\" + backBackupFileName))
                 {
-                    string json = r.ReadToEnd();
-                    string[] stringSeparators = new string[] { "\r\n" };
-                    string[] lines = json.Split(stringSeparators, StringSplitOptions.None);
-                    lines = lines.Skip(1).ToArray();
-                    foreach (string s in lines)
+                    List<string> json = JsonConvert.DeserializeObject<List<string>>(r.ReadToEnd());
+                    foreach (string s in json)
                     {
                         string[] comp = s.Replace(@"\", string.Empty).Replace(" ", string.Empty).Split(',');
 
                         ADInfo adItem = new ADInfo();
-                        foreach(string item in comp)
+                        foreach (string item in comp)
                         {
                             if (adItem.OU == null) adItem.OU = new List<string>();
                             if (adItem.DC == null) adItem.DC = new List<string>();
 
-                            if (item.Contains("CN=")) adItem.CN = item.Remove(0, 1).Replace("CN=", "");
+                            if (item.Contains("CN=")) adItem.CN = item.Replace("CN=", "");
                             else if (item.Contains("OU=")) adItem.OU.Add(item.Replace("OU=", ""));
                             else if (item.Contains("DC="))
                             {
@@ -282,7 +283,8 @@ namespace SDM.Methods
                                     adItem.DC.Add(item.Replace(@"\", string.Empty).Replace("DC=", ""));
                             }
                         }
-                        allItems.Add(adItem);
+                        if (adItem.CN != null)
+                            allItems.Add(adItem);
                     }
                 }
 
@@ -304,6 +306,20 @@ namespace SDM.Methods
 
                 MessageBox.Show(ex.Message.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        public static void requestUpdateBaseFile()
+        {
+            if (updateThread == null || !updateThread.IsAlive)
+            {
+                updateThread = new Thread(delegate ()
+                {
+                    AdHelper.updateAdBaseFile();
+                    return;
+                });
+                updateThread.IsBackground = true;
+                updateThread.Start();
             }
         }
     }
