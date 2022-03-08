@@ -153,6 +153,12 @@
     <Compile Include="FRMs_AD\FRM_newComp.Designer.cs">
       <DependentUpon>FRM_newComp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMs_TraumaZero0\FRM_Tr0_ThrowAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMs_TraumaZero0\FRM_Tr0_ThrowAgent.Designer.cs">
+      <DependentUpon>FRM_Tr0_ThrowAgent.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_Ad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,12 @@
     </Compile>
     <Compile Include="FRM_TiEmprest.Designer.cs">
       <DependentUpon>FRM_TiEmprest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_User.Designer.cs">
+      <DependentUpon>FRM_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Methods\AdHelper.cs" />
     <Compile Include="Methods\ToolsHelper.cs" />
@@ -231,6 +243,9 @@
     <EmbeddedResource Include="FRMs_AD\FRM_newComp.resx">
       <DependentUpon>FRM_newComp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FRMs_TraumaZero0\FRM_Tr0_ThrowAgent.resx">
+      <DependentUpon>FRM_Tr0_ThrowAgent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRM_Ad.resx">
       <DependentUpon>FRM_Ad.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_TiEmprest.resx">
       <DependentUpon>FRM_TiEmprest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_User.resx">
+      <DependentUpon>FRM_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

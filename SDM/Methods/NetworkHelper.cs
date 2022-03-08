@@ -8,6 +8,14 @@ using System.Threading.Tasks;
 
 namespace SDM.Methods
 {
+    /**
+     * 
+     *  Copyright (c) 2022 Kauã Vitório
+     *  Official repository https://github.com/Kauavitorio/SDM
+     *  Responsible developer: https://github.com/Kauavitorio
+     *  @author Kaua Vitorio
+     *
+     */
     internal class NetworkHelper
     {
         public static string GetLocalIPAddress()

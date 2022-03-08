@@ -28,6 +28,8 @@ namespace SDM
         {
             InitializeComponent();
 
+            txt_version.Text = "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+
             //  Set the initial width of the progress bar
             progress_splash.Width = 1;
 

@@ -13,6 +13,14 @@ using System.Windows.Forms;
 
 namespace SDM.Methods
 {
+    /**
+     * 
+     *  Copyright (c) 2022 Kauã Vitório
+     *  Official repository https://github.com/Kauavitorio/SDM
+     *  Responsible developer: https://github.com/Kauavitorio
+     *  @author Kaua Vitorio
+     *
+     */
     class AdHelper
     {
         public static List<ADInfo> AD = new List<ADInfo>();

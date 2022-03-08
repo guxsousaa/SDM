@@ -75,3 +75,5 @@ d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_AD.FRM_AD_Search.resources
 d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_Dashboard.resources
 d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.Actions.FRM_NewUser.resources
 d:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.FRM_UsersAccess.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_User.resources
+E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_TraumaZero0.FRM_Tr0_ThrowAgent.resources

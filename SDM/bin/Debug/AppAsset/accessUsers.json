@@ -3,8 +3,8 @@
     "username": "kauav",
     "name": "Kaua Lima",
     "full": true,
-    "op": false,
-    "ti_emprest": false,
+    "op": true,
+    "ti_emprest": true,
     "imageUrl": "https://avatars.githubusercontent.com/u/64799699"
   },
   {

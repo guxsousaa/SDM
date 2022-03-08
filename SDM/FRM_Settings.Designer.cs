@@ -41,6 +41,7 @@ namespace SDM
             this.btn_users = new System.Windows.Forms.Button();
             this.txt_shortcuts_title = new System.Windows.Forms.Label();
             this.panel_container_base_comp = new System.Windows.Forms.Panel();
+            this.btn_verify_permissions = new System.Windows.Forms.Button();
             this.panel_win_btns_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimize_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn)).BeginInit();
@@ -137,13 +138,14 @@ namespace SDM
             // 
             // panel_container_main
             // 
+            this.panel_container_main.Controls.Add(this.btn_verify_permissions);
             this.panel_container_main.Controls.Add(this.btn_users);
             this.panel_container_main.Controls.Add(this.txt_shortcuts_title);
             this.panel_container_main.Controls.Add(this.panel_container_base_comp);
             this.panel_container_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_container_main.Location = new System.Drawing.Point(0, 30);
             this.panel_container_main.Name = "panel_container_main";
-            this.panel_container_main.Size = new System.Drawing.Size(533, 614);
+            this.panel_container_main.Size = new System.Drawing.Size(533, 429);
             this.panel_container_main.TabIndex = 6;
             // 
             // btn_users
@@ -183,12 +185,27 @@ namespace SDM
             this.panel_container_base_comp.Size = new System.Drawing.Size(500, 65);
             this.panel_container_base_comp.TabIndex = 6;
             // 
+            // btn_verify_permissions
+            // 
+            this.btn_verify_permissions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(81)))), ((int)(((byte)(103)))));
+            this.btn_verify_permissions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_verify_permissions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_verify_permissions.ForeColor = System.Drawing.Color.White;
+            this.btn_verify_permissions.Location = new System.Drawing.Point(165, 127);
+            this.btn_verify_permissions.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_verify_permissions.Name = "btn_verify_permissions";
+            this.btn_verify_permissions.Size = new System.Drawing.Size(131, 54);
+            this.btn_verify_permissions.TabIndex = 9;
+            this.btn_verify_permissions.Text = "Verify permissions";
+            this.btn_verify_permissions.UseVisualStyleBackColor = false;
+            this.btn_verify_permissions.Click += new System.EventHandler(this.btn_verify_permissions_Click);
+            // 
             // FRM_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(533, 644);
+            this.ClientSize = new System.Drawing.Size(533, 459);
             this.Controls.Add(this.panel_container_main);
             this.Controls.Add(this.panel_win_btns_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -221,5 +238,6 @@ namespace SDM
         private System.Windows.Forms.Label txt_shortcuts_title;
         private System.Windows.Forms.Panel panel_container_base_comp;
         private System.Windows.Forms.Label txt_title_frm;
+        private System.Windows.Forms.Button btn_verify_permissions;
     }
 }

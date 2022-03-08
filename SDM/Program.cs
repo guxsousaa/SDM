@@ -10,6 +10,14 @@ using System.Windows.Forms;
 
 namespace SDM
 {
+    /**
+     * 
+     *  Copyright (c) 2022 Kauã Vitório
+     *  Official repository https://github.com/Kauavitorio/SDM
+     *  Responsible developer: https://github.com/Kauavitorio
+     *  @author Kaua Vitorio
+     *
+     */
     internal static class Program
     {
         /// <summary>

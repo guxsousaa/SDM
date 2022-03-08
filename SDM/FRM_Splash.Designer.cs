@@ -35,7 +35,7 @@
             this.progress_splash = new System.Windows.Forms.Panel();
             this.timer_splash = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txt_version = new System.Windows.Forms.Label();
             this.container_progress.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             // 
             this.main_text_splash.BackColor = System.Drawing.Color.Transparent;
             this.main_text_splash.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.main_text_splash.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.main_text_splash.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.main_text_splash.ForeColor = System.Drawing.Color.White;
             this.main_text_splash.Location = new System.Drawing.Point(0, 0);
             this.main_text_splash.Name = "main_text_splash";
@@ -85,17 +85,17 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Created by Kauã Vitorio";
             // 
-            // label3
+            // txt_version
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(182)))), ((int)(((byte)(184)))));
-            this.label3.Location = new System.Drawing.Point(4, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 18);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Version 1.1";
+            this.txt_version.AutoSize = true;
+            this.txt_version.BackColor = System.Drawing.Color.Transparent;
+            this.txt_version.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_version.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(182)))), ((int)(((byte)(184)))));
+            this.txt_version.Location = new System.Drawing.Point(4, 25);
+            this.txt_version.Name = "txt_version";
+            this.txt_version.Size = new System.Drawing.Size(58, 18);
+            this.txt_version.TabIndex = 4;
+            this.txt_version.Text = "Version";
             // 
             // FRM_Splash
             // 
@@ -104,7 +104,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(599, 350);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txt_version);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.container_progress);
             this.Controls.Add(this.main_text_splash);
@@ -128,7 +128,7 @@
         private System.Windows.Forms.Panel progress_splash;
         private System.Windows.Forms.Timer timer_splash;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label txt_version;
     }
 }
 

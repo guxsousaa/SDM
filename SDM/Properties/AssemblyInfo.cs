@@ -2,13 +2,22 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+/**
+ * 
+ *  Copyright (c) 2022 Kauã Vitório
+ *  Official repository https://github.com/Kauavitorio/SDM
+ *  Responsible developer: https://github.com/Kauavitorio
+ *  @author Kaua Vitorio
+ *
+ */
+
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SDM")]
 [assembly: AssemblyDescription("Service Desk Manager")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("JBS")]
+[assembly: AssemblyCompany("Kaua Vitorio")]
 [assembly: AssemblyProduct("SDM")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
@@ -32,6 +41,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyVersion("1.2.1.1")]
+[assembly: AssemblyFileVersion("1.2.1.1")]
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "Log4Net.config", Watch = true)]

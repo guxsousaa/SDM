@@ -11,6 +11,14 @@ using Users_DTO;
 
 namespace SDM.AuthUsers
 {
+    /**
+     * 
+     *  Copyright (c) 2022 Kauã Vitório
+     *  Official repository https://github.com/Kauavitorio/SDM
+     *  Responsible developer: https://github.com/Kauavitorio
+     *  @author Kaua Vitorio
+     *
+     */
     internal class AccessUsers
     {
         private static string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SDM\\";

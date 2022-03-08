@@ -13,9 +13,19 @@ using SDM.AuthUsers;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading;
 using System.DirectoryServices;
+using SDM.FRMs_TraumaZero0;
 
 namespace SDM
 {
+    /**
+     * 
+     *  Copyright (c) 2022 Kauã Vitório
+     *  Official repository https://github.com/Kauavitorio/SDM
+     *  Responsible developer: https://github.com/Kauavitorio
+     *  @author Kaua Vitorio
+     *
+     */
+
     public partial class FRM_Main : Form
     {
         private static string currentUser = Environment.UserName.ToLower();
@@ -28,10 +38,10 @@ namespace SDM
             //  Make the window round
             Region = Region.FromHrgn(ToolsHelper.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
+            txt_username_main.Text = AccessUsers.getUser_Name(currentUser);
+
             //  Change nav for the start position
             changePnlNav(btn_dash_main);
-
-            txt_username_main.Text = AccessUsers.getUser_Name(currentUser);
 
             openWindown(new FRM_Dashboard());
 
@@ -110,6 +120,13 @@ namespace SDM
         private void btn_users_Click(object sender, EventArgs e)
         {
             changePnlNav(btn_users);
+            openWindown(new FRM_User());
+        }
+
+        private void btn_traumaZero0_Click(object sender, EventArgs e)
+        {
+            FRM_Tr0_ThrowAgent frm_throwAgent = new FRM_Tr0_ThrowAgent();
+            frm_throwAgent.ShowDialog();
         }
 
         // ---------- End Click Event ----------
@@ -143,6 +160,10 @@ namespace SDM
         private void btn_users_Leave(object sender, EventArgs e)
         {
             leaveClick(btn_users);
+        }
+        private void btn_traumaZero0_Leave(object sender, EventArgs e)
+        {
+            leaveClick(btn_traumaZero0);
         }
         //  --------- End Leave event ---------
 

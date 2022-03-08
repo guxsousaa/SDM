@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -43,22 +44,22 @@ namespace SDM
 
         private void btn_update_BaseComp_Click(object sender, EventArgs e)
         {
-            if (AccessUsers.canUpdateBase.Contains(currentUser))
+            if (AccessUsers.getMyAccess().full)
             {
                 DialogResult result = MessageBox.Show("Updating the database can take a while, you really want to update the database?\n\nEstimated time of 5 - 10 minutes.", "Confirmation", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     // Set cursor as hourglass
+                    btn_update_BaseComp.Enabled = false;
                     Cursor.Current = Cursors.WaitCursor;
 
                     if (AdHelper.updateAdBaseFile())
-                    {
                         MessageBox.Show("Active directory base updated successfully!\n\n",
                             "Updated successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
 
                     // Set cursor as default arrow
                     Cursor.Current = Cursors.Default;
+                    btn_update_BaseComp.Enabled = true;
 
                     updateInfoFileBaseComp();
 
@@ -105,6 +106,19 @@ namespace SDM
                     "Warning code: " + ErrorHelper.ACCESS_DENIED_MANAGE_USER,
                     "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btn_verify_permissions_Click(object sender, EventArgs e)
+        {
+            btn_verify_permissions.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
+
+            AccessUsers.cretateUsersFile();
+
+            Thread.Sleep(1500);
+
+            Cursor.Current = Cursors.Default;
+            btn_verify_permissions.Enabled = true;
         }
     }
 }
