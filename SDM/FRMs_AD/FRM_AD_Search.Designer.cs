@@ -50,7 +50,7 @@
             this.btn_search_Computer.AutoSize = true;
             this.btn_search_Computer.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_search_Computer.Location = new System.Drawing.Point(423, 0);
-            this.btn_search_Computer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_search_Computer.Margin = new System.Windows.Forms.Padding(4);
             this.btn_search_Computer.Name = "btn_search_Computer";
             this.btn_search_Computer.Size = new System.Drawing.Size(100, 62);
             this.btn_search_Computer.TabIndex = 3;
@@ -61,7 +61,7 @@
             // input_computerName_ad
             // 
             this.input_computerName_ad.Location = new System.Drawing.Point(13, 16);
-            this.input_computerName_ad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.input_computerName_ad.Margin = new System.Windows.Forms.Padding(4);
             this.input_computerName_ad.MaxLength = 24;
             this.input_computerName_ad.Name = "input_computerName_ad";
             this.input_computerName_ad.Size = new System.Drawing.Size(220, 22);
@@ -169,6 +169,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FRM_AD_Search";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_AD_Search";
             this.header_panel_SearchComp_ad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.close_btn_SearchAd_AD)).EndInit();

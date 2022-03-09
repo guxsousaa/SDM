@@ -286,6 +286,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FRM_AD_Move";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_AD_Move";
             this.header_panel_MoveComp_ad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.close_btn_MoveAd_AD)).EndInit();

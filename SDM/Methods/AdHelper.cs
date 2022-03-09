@@ -25,6 +25,7 @@ namespace SDM.Methods
     {
         public static List<ADInfo> AD = new List<ADInfo>();
         public static Thread updateThread;
+        public static bool SECTION_LOCKED = false;
         private static string AD_NAME = "corporate";
         private static string DC_AD_NAME = "DC=corporate,DC=ad";
         public static string OU_HOSTNAME_BLOCK = "OU=Bloqueio,OU=Hostname,OU=Quarentena" + "," + DC_AD_NAME;
@@ -223,7 +224,7 @@ namespace SDM.Methods
                 LogHelper.doLog("\nError getting all machines from AD\n\n" + ex.ToString(), ErrorHelper.GET_COMPUTER_IN_AD);
 
                 if (!isTest)
-                    MessageBox.Show(ex.Message.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return ComputerPath;
             }
 
@@ -312,7 +313,7 @@ namespace SDM.Methods
             {
                 LogHelper.doLog("\nError creating AD base file\n\n" + ex.ToString(), ErrorHelper.CREATE_AD_BASE_FILE);
 
-                MessageBox.Show(ex.Message.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Base file AS - \n" +ex.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

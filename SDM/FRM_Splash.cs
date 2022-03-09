@@ -17,6 +17,7 @@ using log4net.Layout;
 using log4net.Repository.Hierarchy;
 using System.IO;
 using SDM.AuthUsers;
+using Microsoft.Win32;
 
 namespace SDM
 {

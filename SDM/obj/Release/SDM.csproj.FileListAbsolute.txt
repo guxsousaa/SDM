@@ -75,3 +75,5 @@ d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_Dashboard.resources
 d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.UsersHelper.Actions.FRM_NewUser.resources
 d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.UsersHelper.FRM_UsersAccess.resources
 d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.csproj.AssemblyReference.cache
+D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_TraumaZero0.FRM_Tr0_ThrowAgent.resources
+D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_User.resources

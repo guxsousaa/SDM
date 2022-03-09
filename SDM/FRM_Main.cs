@@ -14,6 +14,8 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading;
 using System.DirectoryServices;
 using SDM.FRMs_TraumaZero0;
+using Microsoft.Win32;
+using SDM.UsersHelper.Actions;
 
 namespace SDM
 {
@@ -30,6 +32,7 @@ namespace SDM
     {
         private static string currentUser = Environment.UserName.ToLower();
         Thread updateThread;
+        static FRM_Main instance;
 
         public FRM_Main()
         {
@@ -40,15 +43,22 @@ namespace SDM
 
             txt_username_main.Text = AccessUsers.getUser_Name(currentUser);
 
+            //Declaring the event.
+            SystemEvents.SessionSwitch += new SessionSwitchEventHandler(ToolsHelper.SystemEvents_SessionSwitch);
+
+            SystemEvents.PowerModeChanged += new PowerModeChangedEventHandler(ToolsHelper.SystemEvents_PowerModeChanged);
+
             //  Change nav for the start position
             changePnlNav(btn_dash_main);
 
             openWindown(new FRM_Dashboard());
 
             loadUserImage();
+
+            instance = this;
         }
 
-        void loadUserImage()
+        public void loadUserImage()
         {
             //  Make picturebox rounded
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
@@ -58,6 +68,16 @@ namespace SDM
 
             string imgUrl = AccessUsers.getUserImageUrl(currentUser);
             if(imgUrl != null) user_profile_pic_main.ImageLocation = imgUrl;
+        }
+
+        public void updateName(string NAME)
+        {
+            txt_username_main.Text = NAME;
+        }
+
+        public static FRM_Main getInstance()
+        {
+            return instance;
         }
 
         private void FRM_Main_Load(object sender, EventArgs e)
@@ -105,9 +125,9 @@ namespace SDM
             }
             else
             {
-                MessageBox.Show("You do not have access to access TiEmprest section, please contact the system administrator (Kauã Vitorio).\n\n" +
-                    "Warning code: " + ErrorHelper.ACCESS_DENIED_TIEMPREST,
-                    "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Você não tem acesso para acessar a seção TiEmprest, entre em contato com o administrador do sistema (Kauã Vitorio).\n\n" +
+                    "Código de aviso: " + ErrorHelper.ACCESS_DENIED_TIEMPREST,
+                    "Acesso negado!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btn_settings_main_Click(object sender, EventArgs e)
@@ -211,21 +231,27 @@ namespace SDM
 
         private void timer_checkup_Tick(object sender, EventArgs e)
         {
-            //  This will only be called every 5 minutes
+            //  This will only be called every 3 minutes
             if (updateThread == null || !updateThread.IsAlive)
             {
                 updateThread = new Thread(delegate ()
                 {
-                    //  Check if there is connection with AD
-                    if (AdHelper.GetAllComputers(true).Count >= 1)
+                    //  Check if the operating system is locked
+                    if (!AdHelper.SECTION_LOCKED)
                     {
-                        //  Wait before updating the file
-                        //  Wait because if you can't make a conflict
-                        //  Waiting time will be between 50 to 2 minutes
-                        Thread.Sleep(new Random().Next(50000, 120005));
+                        //  Check if there is connection with AD
+                        if (AdHelper.GetAllComputers(true).Count >= 1)
+                        {
+                            //  Wait before updating the file
+                            //  Wait because if you can't make a conflict
+                            //  Waiting time will be between 50 to 2 minutes
+                            Thread.Sleep(new Random().Next(50000, 120005));
 
-                        AdHelper.updateAdBaseFile();
-                        return;
+                            AdHelper.updateAdBaseFile();
+                            return;
+                        }
+                        else
+                            return;
                     }
                     else
                         return;
@@ -249,6 +275,12 @@ namespace SDM
                 IsNetworkBoxOpen = false;
                 Environment.Exit(1);
             }
+        }
+
+        private void user_profile_pic_main_Click(object sender, EventArgs e)
+        {
+            FRM_MyAccount frmAccount = new FRM_MyAccount();
+            frmAccount.ShowDialog();
         }
     }
 }

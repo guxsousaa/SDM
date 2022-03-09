@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace SDM.Methods
      */
     class ToolsHelper
     {
+        public static string NOTIFY_LOAN_FILE_NAME = "notify_loan.json";
         public static void shutdownComputer(string NAME)
         {
             if(NAME != null && NAME.Length > 0)
@@ -115,5 +117,39 @@ namespace SDM.Methods
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern IntPtr OpenInputDesktop(uint dwFlags, bool fInherit, uint dwDesiredAccess);
+
+
+
+        public static void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
+        {
+            MessageBox.Show(e.Mode.ToString());
+        }
+
+        //Event definition
+        public static void SystemEvents_SessionSwitch(object sender, SessionSwitchEventArgs e)
+        {
+            //Use switch case to identify the session switch reason.
+            //Code accordingly.
+            switch (e.Reason)
+            {
+                case SessionSwitchReason.SessionLock:
+                    AdHelper.SECTION_LOCKED = true;
+                    break;
+                case SessionSwitchReason.SessionLogoff:
+                    AdHelper.SECTION_LOCKED = true;
+                    break;
+                case SessionSwitchReason.SessionLogon:
+                    AdHelper.SECTION_LOCKED = false;
+                    break;
+                case SessionSwitchReason.SessionUnlock:
+                    AdHelper.SECTION_LOCKED = false;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SDM.Methods;
+﻿using SDM.FRMs_TiEmprest;
+using SDM.Methods;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,9 +55,11 @@ namespace SDM
 
         private void btn_notify_loan_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Sorry, this page is under development.\n\n" +
-                "If you have any questions, please contact the Administrator(Kauã Vitorio)",
-                "SDM - Under development", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Esta ferramenta ainda está em teste, qualquer dúvida entre em contato com o Administrador.",
+                "SDM - Ferramenta em teste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            FRM_Notify_Loan frm = new FRM_Notify_Loan();
+            frm.ShowDialog();
         }
     }
 }

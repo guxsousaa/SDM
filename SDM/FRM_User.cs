@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SDM.Methods;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,8 @@ namespace SDM
 
         private void btn_search_user_Click(object sender, EventArgs e)
         {
+            string USER = input_user.Text.ToString().ToLower() ;
+            string Argument = $"&{{  }}";
             MessageBox.Show("Sorry, this page is under development.\n\n" +
                 "If you have any questions, please contact the Administrator(Kauã Vitorio)",
                 "SDM - Under development", MessageBoxButtons.OK, MessageBoxIcon.Warning);

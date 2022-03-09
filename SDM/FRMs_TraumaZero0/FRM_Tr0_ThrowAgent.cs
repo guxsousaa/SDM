@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -33,6 +34,7 @@ namespace SDM.FRMs_TraumaZero0
         private void btn_throwAgent_Click(object sender, EventArgs e)
         {
             string COMPUTER_NAME = input_computer_name.Text.ToString();
+
             if (COMPUTER_NAME == null || COMPUTER_NAME.Length <= 0)
                 MessageBox.Show("You need to enter the computer name",
                     "SDM - Empty field!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -78,7 +80,33 @@ namespace SDM.FRMs_TraumaZero0
 
         void throwAgent(string COMPUTER_NAME)
         {
+
+            string Argument = $"&{{ .\\PsExec.exe \\{COMPUTER_NAME} -c c:\\AgenteTz0.exe {NetworkHelper.GetLocalIPAddress()} }}";
             Cursor.Current = Cursors.WaitCursor;
+
+
+            LogHelper.doLog("\nRunning script to throw Traumaer0 Agent\nCN= " + COMPUTER_NAME, null);
+
+            Process process = PowerShellHelper.executeCommand(Argument, false);
+
+            var command_result = process.StandardError.ReadToEnd();
+            if (command_result == null || command_result == "")
+            {
+                LogHelper.doLog("\nComputer created successfully", null);
+
+                AdHelper.requestUpdateBaseFile();
+
+                MessageBox.Show("Machine created successfully\n\nIf you perform the search again and it appears that it has not been moved," +
+                " this happens because the file that the application uses has not yet been updated, but the computer has been moved.!",
+                    "SDM - Successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                LogHelper.doLog("\nError running Trauma Command\n\n" + command_result, ErrorHelper.CREATING_NEW_COMPUTER_AD);
+
+                MessageBox.Show(command_result, "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             Cursor.Current = Cursors.Default;
         }
     }

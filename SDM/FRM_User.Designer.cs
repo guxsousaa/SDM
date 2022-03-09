@@ -33,6 +33,7 @@
             this.input_user = new System.Windows.Forms.TextBox();
             this.panel_top_container_ad = new System.Windows.Forms.Panel();
             this.txt_header_title_users = new System.Windows.Forms.Label();
+            this.txt_result_search = new System.Windows.Forms.Label();
             this.panel_container.SuspendLayout();
             this.panel_top_container_ad.SuspendLayout();
             this.SuspendLayout();
@@ -42,10 +43,11 @@
             this.panel_container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(71)))), ((int)(((byte)(93)))));
             this.panel_container.Controls.Add(this.btn_search_user);
             this.panel_container.Controls.Add(this.input_user);
-            this.panel_container.Location = new System.Drawing.Point(18, 65);
+            this.panel_container.Location = new System.Drawing.Point(19, 65);
+            this.panel_container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_container.Name = "panel_container";
-            this.panel_container.Padding = new System.Windows.Forms.Padding(5);
-            this.panel_container.Size = new System.Drawing.Size(257, 88);
+            this.panel_container.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel_container.Size = new System.Drawing.Size(257, 89);
             this.panel_container.TabIndex = 2;
             // 
             // btn_search_user
@@ -56,7 +58,7 @@
             this.btn_search_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_search_user.Location = new System.Drawing.Point(11, 37);
-            this.btn_search_user.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_search_user.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_search_user.Name = "btn_search_user";
             this.btn_search_user.Size = new System.Drawing.Size(237, 41);
             this.btn_search_user.TabIndex = 2;
@@ -66,9 +68,10 @@
             // 
             // input_user
             // 
-            this.input_user.Location = new System.Drawing.Point(11, 8);
+            this.input_user.Location = new System.Drawing.Point(11, 7);
+            this.input_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.input_user.Name = "input_user";
-            this.input_user.Size = new System.Drawing.Size(238, 22);
+            this.input_user.Size = new System.Drawing.Size(239, 22);
             this.input_user.TabIndex = 1;
             // 
             // panel_top_container_ad
@@ -76,7 +79,7 @@
             this.panel_top_container_ad.Controls.Add(this.txt_header_title_users);
             this.panel_top_container_ad.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_top_container_ad.Location = new System.Drawing.Point(0, 0);
-            this.panel_top_container_ad.Margin = new System.Windows.Forms.Padding(4);
+            this.panel_top_container_ad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_top_container_ad.Name = "panel_top_container_ad";
             this.panel_top_container_ad.Size = new System.Drawing.Size(729, 58);
             this.panel_top_container_ad.TabIndex = 3;
@@ -92,15 +95,27 @@
             this.txt_header_title_users.TabIndex = 4;
             this.txt_header_title_users.Text = "Users";
             // 
+            // txt_result_search
+            // 
+            this.txt_result_search.ForeColor = System.Drawing.Color.White;
+            this.txt_result_search.Location = new System.Drawing.Point(16, 171);
+            this.txt_result_search.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txt_result_search.Name = "txt_result_search";
+            this.txt_result_search.Size = new System.Drawing.Size(667, 304);
+            this.txt_result_search.TabIndex = 4;
+            this.txt_result_search.Text = "Search Result";
+            // 
             // FRM_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(729, 571);
+            this.Controls.Add(this.txt_result_search);
             this.Controls.Add(this.panel_top_container_ad);
             this.Controls.Add(this.panel_container);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FRM_User";
             this.Text = "FRM_User";
             this.panel_container.ResumeLayout(false);
@@ -118,5 +133,6 @@
         private System.Windows.Forms.Panel panel_top_container_ad;
         private System.Windows.Forms.Label txt_header_title_users;
         private System.Windows.Forms.Button btn_search_user;
+        private System.Windows.Forms.Label txt_result_search;
     }
 }

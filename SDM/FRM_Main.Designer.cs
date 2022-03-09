@@ -40,7 +40,9 @@
             this.btn_ad_main = new System.Windows.Forms.Button();
             this.btn_dash_main = new System.Windows.Forms.Button();
             this.container_user_info_main = new System.Windows.Forms.Panel();
+            this.panel_user_name = new System.Windows.Forms.Panel();
             this.txt_username_main = new System.Windows.Forms.Label();
+            this.panel_userImage = new System.Windows.Forms.Panel();
             this.user_profile_pic_main = new System.Windows.Forms.PictureBox();
             this.panel_container_main = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
@@ -49,17 +51,15 @@
             this.close_btn = new System.Windows.Forms.PictureBox();
             this.timer_checkup = new System.Windows.Forms.Timer(this.components);
             this.timer_network = new System.Windows.Forms.Timer(this.components);
-            this.panel_user_name = new System.Windows.Forms.Panel();
-            this.panel_userImage = new System.Windows.Forms.Panel();
             this.container_base_left_main.SuspendLayout();
             this.container_user_info_main.SuspendLayout();
+            this.panel_user_name.SuspendLayout();
+            this.panel_userImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.user_profile_pic_main)).BeginInit();
             this.panel_container_main.SuspendLayout();
             this.panel_win_btns_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimize_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn)).BeginInit();
-            this.panel_user_name.SuspendLayout();
-            this.panel_userImage.SuspendLayout();
             this.SuspendLayout();
             // 
             // container_base_left_main
@@ -228,6 +228,17 @@
             this.container_user_info_main.Size = new System.Drawing.Size(180, 157);
             this.container_user_info_main.TabIndex = 0;
             // 
+            // panel_user_name
+            // 
+            this.panel_user_name.AutoSize = true;
+            this.panel_user_name.Controls.Add(this.txt_username_main);
+            this.panel_user_name.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_user_name.Location = new System.Drawing.Point(0, 122);
+            this.panel_user_name.Name = "panel_user_name";
+            this.panel_user_name.Padding = new System.Windows.Forms.Padding(35, 0, 10, 15);
+            this.panel_user_name.Size = new System.Drawing.Size(180, 35);
+            this.panel_user_name.TabIndex = 2;
+            // 
             // txt_username_main
             // 
             this.txt_username_main.AutoSize = true;
@@ -242,8 +253,19 @@
             this.txt_username_main.Text = "User Name";
             this.txt_username_main.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel_userImage
+            // 
+            this.panel_userImage.Controls.Add(this.user_profile_pic_main);
+            this.panel_userImage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_userImage.Location = new System.Drawing.Point(0, 0);
+            this.panel_userImage.Name = "panel_userImage";
+            this.panel_userImage.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_userImage.Size = new System.Drawing.Size(180, 122);
+            this.panel_userImage.TabIndex = 3;
+            // 
             // user_profile_pic_main
             // 
+            this.user_profile_pic_main.Cursor = System.Windows.Forms.Cursors.Hand;
             this.user_profile_pic_main.Image = ((System.Drawing.Image)(resources.GetObject("user_profile_pic_main.Image")));
             this.user_profile_pic_main.Location = new System.Drawing.Point(46, 30);
             this.user_profile_pic_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -252,6 +274,7 @@
             this.user_profile_pic_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.user_profile_pic_main.TabIndex = 0;
             this.user_profile_pic_main.TabStop = false;
+            this.user_profile_pic_main.Click += new System.EventHandler(this.user_profile_pic_main_Click);
             // 
             // panel_container_main
             // 
@@ -315,7 +338,7 @@
             // timer_checkup
             // 
             this.timer_checkup.Enabled = true;
-            this.timer_checkup.Interval = 300000;
+            this.timer_checkup.Interval = 180000;
             this.timer_checkup.Tick += new System.EventHandler(this.timer_checkup_Tick);
             // 
             // timer_network
@@ -323,27 +346,6 @@
             this.timer_network.Enabled = true;
             this.timer_network.Interval = 10000;
             this.timer_network.Tick += new System.EventHandler(this.timer_network_Tick);
-            // 
-            // panel_user_name
-            // 
-            this.panel_user_name.AutoSize = true;
-            this.panel_user_name.Controls.Add(this.txt_username_main);
-            this.panel_user_name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_user_name.Location = new System.Drawing.Point(0, 122);
-            this.panel_user_name.Name = "panel_user_name";
-            this.panel_user_name.Padding = new System.Windows.Forms.Padding(35, 0, 10, 15);
-            this.panel_user_name.Size = new System.Drawing.Size(180, 35);
-            this.panel_user_name.TabIndex = 2;
-            // 
-            // panel_userImage
-            // 
-            this.panel_userImage.Controls.Add(this.user_profile_pic_main);
-            this.panel_userImage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_userImage.Location = new System.Drawing.Point(0, 0);
-            this.panel_userImage.Name = "panel_userImage";
-            this.panel_userImage.Padding = new System.Windows.Forms.Padding(5);
-            this.panel_userImage.Size = new System.Drawing.Size(180, 122);
-            this.panel_userImage.TabIndex = 3;
             // 
             // FRM_Main
             // 
@@ -365,14 +367,14 @@
             this.container_base_left_main.PerformLayout();
             this.container_user_info_main.ResumeLayout(false);
             this.container_user_info_main.PerformLayout();
+            this.panel_user_name.ResumeLayout(false);
+            this.panel_user_name.PerformLayout();
+            this.panel_userImage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.user_profile_pic_main)).EndInit();
             this.panel_container_main.ResumeLayout(false);
             this.panel_win_btns_main.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.minimize_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.close_btn)).EndInit();
-            this.panel_user_name.ResumeLayout(false);
-            this.panel_user_name.PerformLayout();
-            this.panel_userImage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

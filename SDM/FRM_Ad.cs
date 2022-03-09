@@ -25,9 +25,9 @@ namespace SDM
             DateTime dt = DateTime.Now.Date;
             DateTime dtAD = ToolsHelper.checkLastBaseCompChange();
             if (dt.Day == dtAD.Day)
-                txt_details_from_ad.Text = "Details of " + dtAD.ToString().Split(' ')[1];
+                txt_details_from_ad.Text = "Detalhes de " + dtAD.ToString().Split(' ')[1];
             else
-                txt_details_from_ad.Text = "Details of last " + dtAD.ToString();
+                txt_details_from_ad.Text = "Detalhes do último " + dtAD.ToString();
         }
 
         private void FRM_Ad_Load(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace SDM
             //reset your chart series and legends
             chart_ad_status.Series.Clear();
             chart_ad_status.Legends.Clear();
-            chart_ad_status.Legends.Add("Computers");
+            chart_ad_status.Legends.Add("Computadores");
 
             //Add a new chart-series
             string MTZ = "MTZ";

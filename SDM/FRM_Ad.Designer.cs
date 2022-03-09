@@ -78,9 +78,9 @@
             this.btn_new_computer.Location = new System.Drawing.Point(13, 55);
             this.btn_new_computer.Margin = new System.Windows.Forms.Padding(4);
             this.btn_new_computer.Name = "btn_new_computer";
-            this.btn_new_computer.Size = new System.Drawing.Size(196, 41);
+            this.btn_new_computer.Size = new System.Drawing.Size(220, 41);
             this.btn_new_computer.TabIndex = 0;
-            this.btn_new_computer.Text = "New Computer";
+            this.btn_new_computer.Text = "Novo computador";
             this.btn_new_computer.UseVisualStyleBackColor = true;
             this.btn_new_computer.Click += new System.EventHandler(this.btn_new_computer_Click);
             // 
@@ -129,9 +129,9 @@
             this.txt_question.ForeColor = System.Drawing.Color.Gainsboro;
             this.txt_question.Location = new System.Drawing.Point(3, 11);
             this.txt_question.Name = "txt_question";
-            this.txt_question.Size = new System.Drawing.Size(526, 20);
+            this.txt_question.Size = new System.Drawing.Size(563, 20);
             this.txt_question.TabIndex = 5;
-            this.txt_question.Text = "Any questions about the application, please contact the administrator.\r\n";
+            this.txt_question.Text = "Qualquer dúvida sobre o aplicativo, entre em contato com o administrador.";
             // 
             // button2
             // 
@@ -184,13 +184,13 @@
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.Name = "Legend1";
             this.chart_ad_status.Legends.Add(legend1);
-            this.chart_ad_status.Location = new System.Drawing.Point(258, 184);
+            this.chart_ad_status.Location = new System.Drawing.Point(271, 184);
             this.chart_ad_status.Name = "chart_ad_status";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart_ad_status.Series.Add(series1);
-            this.chart_ad_status.Size = new System.Drawing.Size(457, 257);
+            this.chart_ad_status.Size = new System.Drawing.Size(444, 257);
             this.chart_ad_status.TabIndex = 3;
             this.chart_ad_status.Text = "chart1";
             // 
@@ -204,7 +204,7 @@
             this.panel4.Controls.Add(this.btn_remove);
             this.panel4.Location = new System.Drawing.Point(18, 184);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(221, 257);
+            this.panel4.Size = new System.Drawing.Size(247, 257);
             this.panel4.TabIndex = 2;
             // 
             // label1
@@ -214,9 +214,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 25);
+            this.label1.Size = new System.Drawing.Size(81, 25);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Options";
+            this.label1.Text = "Opções";
             // 
             // btn_move_ad
             // 
@@ -227,9 +227,9 @@
             this.btn_move_ad.Location = new System.Drawing.Point(13, 202);
             this.btn_move_ad.Margin = new System.Windows.Forms.Padding(4);
             this.btn_move_ad.Name = "btn_move_ad";
-            this.btn_move_ad.Size = new System.Drawing.Size(196, 41);
+            this.btn_move_ad.Size = new System.Drawing.Size(220, 41);
             this.btn_move_ad.TabIndex = 3;
-            this.btn_move_ad.Text = "Move";
+            this.btn_move_ad.Text = "Mover";
             this.btn_move_ad.UseVisualStyleBackColor = true;
             this.btn_move_ad.Click += new System.EventHandler(this.btn_move_ad_Click);
             // 
@@ -242,9 +242,9 @@
             this.btn_search_ad.Location = new System.Drawing.Point(13, 104);
             this.btn_search_ad.Margin = new System.Windows.Forms.Padding(4);
             this.btn_search_ad.Name = "btn_search_ad";
-            this.btn_search_ad.Size = new System.Drawing.Size(196, 41);
+            this.btn_search_ad.Size = new System.Drawing.Size(220, 41);
             this.btn_search_ad.TabIndex = 1;
-            this.btn_search_ad.Text = "Search";
+            this.btn_search_ad.Text = "Procurar";
             this.btn_search_ad.UseVisualStyleBackColor = true;
             this.btn_search_ad.Click += new System.EventHandler(this.btn_search_ad_Click);
             // 
@@ -257,9 +257,9 @@
             this.btn_remove.Location = new System.Drawing.Point(13, 153);
             this.btn_remove.Margin = new System.Windows.Forms.Padding(4);
             this.btn_remove.Name = "btn_remove";
-            this.btn_remove.Size = new System.Drawing.Size(196, 41);
+            this.btn_remove.Size = new System.Drawing.Size(220, 41);
             this.btn_remove.TabIndex = 2;
-            this.btn_remove.Text = "Delete";
+            this.btn_remove.Text = "Excluir";
             this.btn_remove.UseVisualStyleBackColor = true;
             this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
@@ -280,7 +280,7 @@
             this.txt_desc_note.Name = "txt_desc_note";
             this.txt_desc_note.Size = new System.Drawing.Size(118, 100);
             this.txt_desc_note.TabIndex = 4;
-            this.txt_desc_note.Text = "This page may present instabilities over the next few days.\r\n";
+            this.txt_desc_note.Text = "Esta página pode apresentar instabilidades nos próximos dias.";
             // 
             // txt_header_notes
             // 
@@ -291,7 +291,7 @@
             this.txt_header_notes.Name = "txt_header_notes";
             this.txt_header_notes.Size = new System.Drawing.Size(63, 25);
             this.txt_header_notes.TabIndex = 1;
-            this.txt_header_notes.Text = "Notes";
+            this.txt_header_notes.Text = "Notas";
             // 
             // panel_container
             // 
@@ -319,9 +319,9 @@
             this.txt_details_from_ad.ForeColor = System.Drawing.Color.Gainsboro;
             this.txt_details_from_ad.Location = new System.Drawing.Point(17, 104);
             this.txt_details_from_ad.Name = "txt_details_from_ad";
-            this.txt_details_from_ad.Size = new System.Drawing.Size(66, 16);
+            this.txt_details_from_ad.Size = new System.Drawing.Size(80, 16);
             this.txt_details_from_ad.TabIndex = 2;
-            this.txt_details_from_ad.Text = "Details of ";
+            this.txt_details_from_ad.Text = "Detalhes de";
             // 
             // txt_allComputer_ad
             // 
@@ -353,9 +353,9 @@
             this.txt_title_computers.ForeColor = System.Drawing.Color.White;
             this.txt_title_computers.Location = new System.Drawing.Point(15, 16);
             this.txt_title_computers.Name = "txt_title_computers";
-            this.txt_title_computers.Size = new System.Drawing.Size(108, 25);
+            this.txt_title_computers.Size = new System.Drawing.Size(141, 25);
             this.txt_title_computers.TabIndex = 0;
-            this.txt_title_computers.Text = "Computers";
+            this.txt_title_computers.Text = "Computadores";
             // 
             // panel_top_container_ad
             // 

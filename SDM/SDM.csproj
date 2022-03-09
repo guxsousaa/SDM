@@ -153,6 +153,12 @@
     <Compile Include="FRMs_AD\FRM_newComp.Designer.cs">
       <DependentUpon>FRM_newComp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMs_TiEmprest\FRM_Notify_Loan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMs_TiEmprest\FRM_Notify_Loan.Designer.cs">
+      <DependentUpon>FRM_Notify_Loan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMs_TraumaZero0\FRM_Tr0_ThrowAgent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,12 @@
     <Compile Include="Methods\PowerShellHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersHelper\Actions\FRM_MyAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersHelper\Actions\FRM_MyAccount.Designer.cs">
+      <DependentUpon>FRM_MyAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersHelper\Actions\FRM_NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMs_AD\FRM_newComp.resx">
       <DependentUpon>FRM_newComp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMs_TiEmprest\FRM_Notify_Loan.resx">
+      <DependentUpon>FRM_Notify_Loan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMs_TraumaZero0\FRM_Tr0_ThrowAgent.resx">
       <DependentUpon>FRM_Tr0_ThrowAgent.cs</DependentUpon>
@@ -279,6 +294,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UsersHelper\Actions\FRM_MyAccount.resx">
+      <DependentUpon>FRM_MyAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsersHelper\Actions\FRM_NewUser.resx">
       <DependentUpon>FRM_NewUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,6 +339,7 @@
     <Content Include="logo.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DTOs\" />
     <Folder Include="FRM_Printer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
