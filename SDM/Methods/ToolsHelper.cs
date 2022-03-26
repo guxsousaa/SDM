@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -28,7 +29,6 @@ namespace SDM.Methods
             if(NAME != null && NAME.Length > 0)
             {
                 Cursor.Current = Cursors.WaitCursor;
-
                 string Argument = $"&{{ shutdown -s -t 01 -f -m \\{NAME} }}";
                 try
                 {
@@ -39,14 +39,20 @@ namespace SDM.Methods
                     //  Wait few milliseconds before shutdown
                     Thread.Sleep(500);
 
-                    var command_result = PowerShellHelper.executeCommand(Argument, false).StandardError.ReadToEnd();
+
+                    var psi = new ProcessStartInfo("shutdown", "-s -t 01 -f -m \\\\" + NAME);
+                    psi.CreateNoWindow = true;
+                    psi.UseShellExecute = false;
+                    Process.Start(psi);
+
+                    /*var command_result = PowerShellHelper.executeCommand(Argument, false).StandardError.ReadToEnd();
                     if (command_result != null || command_result != "")
                         MessageBox.Show(command_result, "SDM - Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
                         MessageBox.Show("Shutdown performed successfully, in a few moments the computer is turned off.",
                             "SDM - Shutdown performed!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    }*/
 
 
                 }
@@ -61,6 +67,15 @@ namespace SDM.Methods
             }
         }
 
+        public static void convertToUpter(object sender)
+        {
+            TextBox currentContainer = ((TextBox)sender);
+            int caretPosition = currentContainer.SelectionStart;
+
+            currentContainer.Text = currentContainer.Text.ToUpper();
+            currentContainer.SelectionStart = caretPosition++;
+        }
+
         public static DateTime checkLastBaseCompChange()
         {
             return File.GetLastWriteTime(AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\AD\\CompBase.json");
@@ -68,7 +83,15 @@ namespace SDM.Methods
 
         public static string getBaseCompSize()
         {
-            return SizeSuffix(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\AD\\CompBase.json").Length);
+            try
+            {
+                return SizeSuffix(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\AD\\CompBase.json").Length);
+            }catch (Exception ex)
+            {
+                LogHelper.doLog("\nGet CompBase.json size \n\n" + ex.ToString(),
+                    ErrorHelper.GET_FILE_SIZE);
+                return "";
+            }
         }
 
         static readonly string[] SizeSuffixes =

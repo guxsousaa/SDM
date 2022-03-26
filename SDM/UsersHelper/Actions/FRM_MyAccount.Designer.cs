@@ -68,6 +68,7 @@
             this.header_panel_MyAccount.Name = "header_panel_MyAccount";
             this.header_panel_MyAccount.Size = new System.Drawing.Size(289, 36);
             this.header_panel_MyAccount.TabIndex = 6;
+            this.header_panel_MyAccount.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_panel_MyAccount_MouseDown);
             // 
             // txt_header_title_myAccount
             // 
@@ -79,8 +80,9 @@
             this.txt_header_title_myAccount.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.txt_header_title_myAccount.Size = new System.Drawing.Size(189, 36);
             this.txt_header_title_myAccount.TabIndex = 3;
-            this.txt_header_title_myAccount.Text = "SDM - My Account";
+            this.txt_header_title_myAccount.Text = "SDM - Minha Conta";
             this.txt_header_title_myAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_header_title_myAccount.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txt_header_title_myAccount_MouseDown);
             // 
             // btn_close
             // 

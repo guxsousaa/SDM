@@ -11,8 +11,8 @@
         "username": "43333349850-otimtz",
         "name": "Kaua Lima",
         "full": true,
-        "op": false,
-        "ti_emprest": false,
+        "op": true,
+        "ti_emprest": true,
         "imageUrl": "https://avatars.githubusercontent.com/u/64799699"
     },
     {
@@ -29,7 +29,7 @@
         "full": false,
         "op": true,
         "ti_emprest": false,
-        "imageUrl": "https://uspery.com/url/vamp"
+        "imageUrl": "https://kauavitorio.com/host-itens/SDM/indio_emo.jpg"
     },
     {
         "username": "48908043829-otimtz",
@@ -53,7 +53,7 @@
         "full": true,
         "op": true,
         "ti_emprest": true,
-        "imageUrl": "https://uspery.com/url/vamp"
+        "imageUrl": "https://kauavitorio.com/host-itens/SDM/profile_fabio.jpg"
     },
     {
         "username": "11971516724-otimtz",
@@ -61,7 +61,7 @@
         "full": true,
         "op": true,
         "ti_emprest": true,
-        "imageUrl": "https://cdna.artstation.com/p/assets/images/images/028/709/276/large/wander-vinhal-beuty-02.jpg"
+        "imageUrl": "https://kauavitorio.com/host-itens/SDM/uel_big_smoke.gif"
     },
     {
         "username": "43105019820-otimtz",

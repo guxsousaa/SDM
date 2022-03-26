@@ -18,6 +18,9 @@ namespace SDM.UsersHelper.Actions
 {
     public partial class FRM_MyAccount : Form
     {
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
         private static string currentUser = Environment.UserName.ToLower();
 
         public FRM_MyAccount()
@@ -196,6 +199,24 @@ namespace SDM.UsersHelper.Actions
         {
             hideAllContainer();
             panel_container_newName.Visible = true;
+        }
+
+        private void txt_header_title_myAccount_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ToolsHelper.ReleaseCapture();
+                ToolsHelper.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void header_panel_MyAccount_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ToolsHelper.ReleaseCapture();
+                ToolsHelper.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 }

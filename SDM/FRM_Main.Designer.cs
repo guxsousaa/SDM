@@ -120,7 +120,7 @@
             this.btn_users.Name = "btn_users";
             this.btn_users.Size = new System.Drawing.Size(180, 44);
             this.btn_users.TabIndex = 8;
-            this.btn_users.Text = "Users";
+            this.btn_users.Text = "Usuários";
             this.btn_users.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_users.UseVisualStyleBackColor = true;
             this.btn_users.Click += new System.EventHandler(this.btn_users_Click);
@@ -138,7 +138,7 @@
             this.btn_settings_main.Name = "btn_settings_main";
             this.btn_settings_main.Size = new System.Drawing.Size(180, 44);
             this.btn_settings_main.TabIndex = 6;
-            this.btn_settings_main.Text = "Settings";
+            this.btn_settings_main.Text = "Configurações";
             this.btn_settings_main.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_settings_main.UseVisualStyleBackColor = true;
             this.btn_settings_main.Click += new System.EventHandler(this.btn_settings_main_Click);
@@ -174,7 +174,7 @@
             this.btn_printer_main.Name = "btn_printer_main";
             this.btn_printer_main.Size = new System.Drawing.Size(180, 44);
             this.btn_printer_main.TabIndex = 4;
-            this.btn_printer_main.Text = "Printer";
+            this.btn_printer_main.Text = "Impressora";
             this.btn_printer_main.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_printer_main.UseVisualStyleBackColor = true;
             this.btn_printer_main.Click += new System.EventHandler(this.btn_printer_main_Click);

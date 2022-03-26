@@ -37,11 +37,11 @@ namespace SDM
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(134, 242);
+            this.label1.Location = new System.Drawing.Point(126, 244);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(448, 54);
+            this.label1.Size = new System.Drawing.Size(475, 54);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Under development";
+            this.label1.Text = "Em desenvolvimento";
             // 
             // FRM_Printer
             // 
@@ -51,7 +51,7 @@ namespace SDM
             this.ClientSize = new System.Drawing.Size(708, 523);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FRM_Printer";
             this.Text = "SDM - Printer";
             this.ResumeLayout(false);

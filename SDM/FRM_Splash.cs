@@ -42,9 +42,9 @@ namespace SDM
                 timer_splash.Stop();
                 if (!AccessUsers.canAccess(currentUser))
                 {
-                    MessageBox.Show("You do not have access to use this application, please contact the system administrator (Kauã Vitorio).\n\n" +
-                        "Warning code: " + ErrorHelper.ACCESS_DENIED,
-                        "Access denied!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Você não tem acesso para usar este aplicativo, entre em contato com o administrador do sistema (Kauã Vitorio).\n\n" +
+                        "Código de aviso: " + ErrorHelper.ACCESS_DENIED,
+                        "Acesso negado!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Environment.Exit(1);
 
                 }
@@ -53,39 +53,37 @@ namespace SDM
             }
             else
             {
-                MessageBox.Show("You have no internet connection, please connect to a network and reopen the application.\n\n" +
-                        "Warning code: " + ErrorHelper.NO_INTERNET,
-                        "No Internet Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Você não tem conexão com a Internet, conecte-se a uma rede e reabra o aplicativo.\n\n" +
+                        "Código de aviso: " + ErrorHelper.NO_INTERNET,
+                        "Sem conexão com a Internet!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Environment.Exit(1);
             }
         }
 
         private void timer_splash_Tick(object sender, EventArgs e)
         {
+            if(Cursor.Current != Cursors.AppStarting) Cursor.Current = Cursors.AppStarting;
 
             if(progress_splash.Width <= 100)
-                progress_splash.Width += 2;
+                progress_splash.Width += 4;
             else if (progress_splash.Width <= 200)
             {
                 //  Init ad list
                 if (AdHelper.AD.Count <= 0)
                     AdHelper.initList();
 
-                progress_splash.Width += 6;
+                progress_splash.Width += 8;
             }
             else if (progress_splash.Width <= 400)
-                progress_splash.Width += 20;
+                progress_splash.Width += 30;
             else
-                progress_splash.Width += 35;
+                progress_splash.Width += 40;
 
             if (progress_splash.Width >= 600)
             {
+                Cursor.Current = Cursors.Default;
                 timer_splash.Stop();
-                FRM_Main fRM_Main = new FRM_Main();
-
-                //OpenPowerShell();
-
-                fRM_Main.Show();
+                new FRM_Main().Show();
                 this.Hide();
             }
         }

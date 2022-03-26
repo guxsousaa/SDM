@@ -45,6 +45,7 @@ namespace SDM
             this.txt_status_ntb = new System.Windows.Forms.Label();
             this.txt_response_currentUser = new System.Windows.Forms.Label();
             this.txt_response_online = new System.Windows.Forms.Label();
+            this.btn_check_new_loans = new System.Windows.Forms.Button();
             this.main_panel_tiemprest.SuspendLayout();
             this.panel_top_container_tiemprest.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -64,6 +65,7 @@ namespace SDM
             // 
             // main_panel_tiemprest
             // 
+            this.main_panel_tiemprest.Controls.Add(this.btn_check_new_loans);
             this.main_panel_tiemprest.Controls.Add(this.panel_top_container_tiemprest);
             this.main_panel_tiemprest.Controls.Add(this.panel1);
             this.main_panel_tiemprest.Controls.Add(this.panel_container);
@@ -90,7 +92,7 @@ namespace SDM
             this.txt_tiemprest.ForeColor = System.Drawing.Color.White;
             this.txt_tiemprest.Location = new System.Drawing.Point(12, 9);
             this.txt_tiemprest.Name = "txt_tiemprest";
-            this.txt_tiemprest.Size = new System.Drawing.Size(174, 32);
+            this.txt_tiemprest.Size = new System.Drawing.Size(175, 32);
             this.txt_tiemprest.TabIndex = 4;
             this.txt_tiemprest.Text = "TIEMPREST";
             // 
@@ -103,34 +105,36 @@ namespace SDM
             this.panel1.Controls.Add(this.btn_UnBlock);
             this.panel1.Location = new System.Drawing.Point(18, 164);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.panel1.Size = new System.Drawing.Size(446, 54);
+            this.panel1.Padding = new System.Windows.Forms.Padding(7);
+            this.panel1.Size = new System.Drawing.Size(458, 54);
             this.panel1.TabIndex = 13;
             // 
             // btn_block_tiemprest
             // 
+            this.btn_block_tiemprest.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_block_tiemprest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_block_tiemprest.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_block_tiemprest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_block_tiemprest.Location = new System.Drawing.Point(9, 9);
+            this.btn_block_tiemprest.Location = new System.Drawing.Point(7, 7);
             this.btn_block_tiemprest.Margin = new System.Windows.Forms.Padding(4);
             this.btn_block_tiemprest.Name = "btn_block_tiemprest";
-            this.btn_block_tiemprest.Size = new System.Drawing.Size(138, 36);
+            this.btn_block_tiemprest.Size = new System.Drawing.Size(138, 40);
             this.btn_block_tiemprest.TabIndex = 1;
-            this.btn_block_tiemprest.Text = "Do Block";
+            this.btn_block_tiemprest.Text = "Bloquear";
             this.btn_block_tiemprest.UseVisualStyleBackColor = true;
             this.btn_block_tiemprest.Click += new System.EventHandler(this.btn_block_tiemprest_Click);
             // 
             // btn_shutdown_ti
             // 
             this.btn_shutdown_ti.AutoSize = true;
+            this.btn_shutdown_ti.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_shutdown_ti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_shutdown_ti.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_shutdown_ti.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_shutdown_ti.Location = new System.Drawing.Point(299, 9);
+            this.btn_shutdown_ti.Location = new System.Drawing.Point(315, 7);
             this.btn_shutdown_ti.Margin = new System.Windows.Forms.Padding(4);
             this.btn_shutdown_ti.Name = "btn_shutdown_ti";
-            this.btn_shutdown_ti.Size = new System.Drawing.Size(136, 36);
+            this.btn_shutdown_ti.Size = new System.Drawing.Size(136, 40);
             this.btn_shutdown_ti.TabIndex = 12;
             this.btn_shutdown_ti.Text = "Shutdown";
             this.btn_shutdown_ti.UseVisualStyleBackColor = true;
@@ -138,16 +142,19 @@ namespace SDM
             // 
             // btn_UnBlock
             // 
+            this.btn_UnBlock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_UnBlock.AutoSize = true;
             this.btn_UnBlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_UnBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_UnBlock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_UnBlock.Location = new System.Drawing.Point(155, 9);
+            this.btn_UnBlock.Location = new System.Drawing.Point(153, 7);
             this.btn_UnBlock.Margin = new System.Windows.Forms.Padding(4);
             this.btn_UnBlock.Name = "btn_UnBlock";
-            this.btn_UnBlock.Size = new System.Drawing.Size(136, 36);
+            this.btn_UnBlock.Size = new System.Drawing.Size(154, 40);
             this.btn_UnBlock.TabIndex = 2;
-            this.btn_UnBlock.Text = "Un Block";
+            this.btn_UnBlock.Text = "Desbloquear";
             this.btn_UnBlock.UseVisualStyleBackColor = true;
             this.btn_UnBlock.Click += new System.EventHandler(this.btn_UnBlock_Click);
             // 
@@ -166,7 +173,7 @@ namespace SDM
             this.panel_container.Location = new System.Drawing.Point(18, 65);
             this.panel_container.Name = "panel_container";
             this.panel_container.Padding = new System.Windows.Forms.Padding(5);
-            this.panel_container.Size = new System.Drawing.Size(446, 93);
+            this.panel_container.Size = new System.Drawing.Size(458, 93);
             this.panel_container.TabIndex = 7;
             // 
             // btn_check_status
@@ -184,7 +191,7 @@ namespace SDM
             this.btn_check_status.Name = "btn_check_status";
             this.btn_check_status.Size = new System.Drawing.Size(209, 41);
             this.btn_check_status.TabIndex = 5;
-            this.btn_check_status.Text = "Check Status";
+            this.btn_check_status.Text = "Verificar Status";
             this.btn_check_status.UseVisualStyleBackColor = false;
             this.btn_check_status.Click += new System.EventHandler(this.btn_check_statusClick);
             // 
@@ -195,7 +202,7 @@ namespace SDM
             this.txt_status_online.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_status_online.Location = new System.Drawing.Point(225, 9);
             this.txt_status_online.Name = "txt_status_online";
-            this.txt_status_online.Size = new System.Drawing.Size(85, 22);
+            this.txt_status_online.Size = new System.Drawing.Size(89, 24);
             this.txt_status_online.TabIndex = 6;
             this.txt_status_online.Text = "Is Online:";
             // 
@@ -206,7 +213,7 @@ namespace SDM
             this.txt_status_currentUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_status_currentUser.Location = new System.Drawing.Point(225, 31);
             this.txt_status_currentUser.Name = "txt_status_currentUser";
-            this.txt_status_currentUser.Size = new System.Drawing.Size(118, 22);
+            this.txt_status_currentUser.Size = new System.Drawing.Size(121, 24);
             this.txt_status_currentUser.TabIndex = 7;
             this.txt_status_currentUser.Text = "Current User:";
             // 
@@ -217,7 +224,7 @@ namespace SDM
             this.txt_response_status.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_response_status.Location = new System.Drawing.Point(297, 53);
             this.txt_response_status.Name = "txt_response_status";
-            this.txt_response_status.Size = new System.Drawing.Size(81, 22);
+            this.txt_response_status.Size = new System.Drawing.Size(83, 24);
             this.txt_response_status.TabIndex = 11;
             this.txt_response_status.Text = "Wating...";
             // 
@@ -228,7 +235,7 @@ namespace SDM
             this.txt_status_ntb.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_status_ntb.Location = new System.Drawing.Point(225, 50);
             this.txt_status_ntb.Name = "txt_status_ntb";
-            this.txt_status_ntb.Size = new System.Drawing.Size(66, 22);
+            this.txt_status_ntb.Size = new System.Drawing.Size(65, 24);
             this.txt_status_ntb.TabIndex = 8;
             this.txt_status_ntb.Text = "Status:";
             // 
@@ -239,7 +246,7 @@ namespace SDM
             this.txt_response_currentUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_response_currentUser.Location = new System.Drawing.Point(349, 31);
             this.txt_response_currentUser.Name = "txt_response_currentUser";
-            this.txt_response_currentUser.Size = new System.Drawing.Size(81, 22);
+            this.txt_response_currentUser.Size = new System.Drawing.Size(83, 24);
             this.txt_response_currentUser.TabIndex = 10;
             this.txt_response_currentUser.Text = "Wating...";
             // 
@@ -250,9 +257,28 @@ namespace SDM
             this.txt_response_online.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_response_online.Location = new System.Drawing.Point(316, 9);
             this.txt_response_online.Name = "txt_response_online";
-            this.txt_response_online.Size = new System.Drawing.Size(81, 22);
+            this.txt_response_online.Size = new System.Drawing.Size(83, 24);
             this.txt_response_online.TabIndex = 9;
             this.txt_response_online.Text = "Wating...";
+            // 
+            // btn_check_new_loans
+            // 
+            this.btn_check_new_loans.BackColor = System.Drawing.Color.Transparent;
+            this.btn_check_new_loans.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_check_new_loans.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_check_new_loans.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(121)))), ((int)(((byte)(143)))));
+            this.btn_check_new_loans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(71)))), ((int)(((byte)(93)))));
+            this.btn_check_new_loans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_check_new_loans.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_check_new_loans.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_check_new_loans.Location = new System.Drawing.Point(25, 237);
+            this.btn_check_new_loans.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_check_new_loans.Name = "btn_check_new_loans";
+            this.btn_check_new_loans.Size = new System.Drawing.Size(348, 41);
+            this.btn_check_new_loans.TabIndex = 15;
+            this.btn_check_new_loans.Text = "Verificar Novos Emprestimos";
+            this.btn_check_new_loans.UseVisualStyleBackColor = false;
+            this.btn_check_new_loans.Click += new System.EventHandler(this.btn_check_new_loans_Click);
             // 
             // FRM_TiEmprest
             // 
@@ -296,5 +322,6 @@ namespace SDM
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel_top_container_tiemprest;
         private System.Windows.Forms.Label txt_tiemprest;
+        private System.Windows.Forms.Button btn_check_new_loans;
     }
 }

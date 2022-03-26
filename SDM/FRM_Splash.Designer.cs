@@ -34,7 +34,7 @@
             this.container_progress = new System.Windows.Forms.Panel();
             this.progress_splash = new System.Windows.Forms.Panel();
             this.timer_splash = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
+            this.txt_created_by = new System.Windows.Forms.Label();
             this.txt_version = new System.Windows.Forms.Label();
             this.container_progress.SuspendLayout();
             this.SuspendLayout();
@@ -73,17 +73,17 @@
             this.timer_splash.Interval = 15;
             this.timer_splash.Tick += new System.EventHandler(this.timer_splash_Tick);
             // 
-            // label2
+            // txt_created_by
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(182)))), ((int)(((byte)(184)))));
-            this.label2.Location = new System.Drawing.Point(4, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 18);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Created by Kauã Vitorio";
+            this.txt_created_by.AutoSize = true;
+            this.txt_created_by.BackColor = System.Drawing.Color.Transparent;
+            this.txt_created_by.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_created_by.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(182)))), ((int)(((byte)(184)))));
+            this.txt_created_by.Location = new System.Drawing.Point(4, 9);
+            this.txt_created_by.Name = "txt_created_by";
+            this.txt_created_by.Size = new System.Drawing.Size(148, 16);
+            this.txt_created_by.TabIndex = 3;
+            this.txt_created_by.Text = "Created by Kauã Vitorio";
             // 
             // txt_version
             // 
@@ -105,7 +105,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(599, 350);
             this.Controls.Add(this.txt_version);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txt_created_by);
             this.Controls.Add(this.container_progress);
             this.Controls.Add(this.main_text_splash);
             this.DoubleBuffered = true;
@@ -127,7 +127,7 @@
         private System.Windows.Forms.Panel container_progress;
         private System.Windows.Forms.Panel progress_splash;
         private System.Windows.Forms.Timer timer_splash;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label txt_created_by;
         private System.Windows.Forms.Label txt_version;
     }
 }

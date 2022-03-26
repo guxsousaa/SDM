@@ -81,3 +81,7 @@ D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_TraumaZero0.FRM_Tr0_ThrowAgent.resourc
 D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRM_User.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_TiEmprest.FRM_Notify_Loan.resources
 E:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.Actions.FRM_MyAccount.resources
+D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_TiEmprest.FRM_Notify_Loan.resources
+D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.UsersHelper.Actions.FRM_MyAccount.resources
+D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.csproj.SuggestedBindingRedirects.cache
+D:\DEVELOPMENT\SDM\SDM\obj\Debug\SDM.FRMs_TiEmprest.FRM_NewLoans.resources

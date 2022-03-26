@@ -1,5 +1,7 @@
 ﻿using DTO_AD;
 using SDM.AuthUsers;
+using SDM.DTOs;
+using SDM.FRMs_TiEmprest;
 using SDM.Methods;
 using System;
 using System.Collections.Generic;
@@ -246,25 +248,39 @@ namespace SDM
                         }
                         else
                         {
-                            string Argument = $"&{{ Get-ADComputer '{NTBNAME}' |Move-ADObject -TargetPath '{AdHelper.OU_NOTEBOOK_MTZ}' }}";
+                            string Argument = $"&{{ Get-ADComputer '{NTBNAME}' |Move-ADObject -TargetPath '{AdHelper.OU_NOTEBOOK_EMPREST}' }}";
                             Process process = PowerShellHelper.executeCommand(Argument, true);
 
                             var command_result = process.StandardError.ReadToEnd();
                             if (command_result == null || command_result == "")
-                                    MessageBox.Show("Computer successfully unlocked!",
-                                    "SDM - Computer unlocked", MessageBoxButtons.OK);
+                                    MessageBox.Show("Computador desbloqueado com sucesso!",
+                                    "SDM - Computador desbloqueado", MessageBoxButtons.OK);
                             else
                                 MessageBox.Show(command_result, "SDM - Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
-                        MessageBox.Show("The computer informed for the unBlock does not exist, enter the correct name!",
+                        MessageBox.Show("O computador informado para o desbloqueio não existe, digite o nome correto!",
                             "SDM - NOT FOUND!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     Cursor.Current = Cursors.Default;
                     doCheckStatus(NTBNAME);
                 }
             }
+        }
+
+        private void btn_check_new_loans_Click(object sender, EventArgs e)
+        {
+            List<DTO_Loan> allLoan = TiEmprestHelper.VerifyCurrentFile();
+            if(allLoan == null || allLoan.Count <= 0)
+                MessageBox.Show("Nenhum novo empréstimo a ser visualizado.",
+                    "SDM - No new loan!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                FRM_NewLoans fRM_NewLoans = new FRM_NewLoans();
+                fRM_NewLoans.ShowDialog();
+            }
+
         }
     }
 }

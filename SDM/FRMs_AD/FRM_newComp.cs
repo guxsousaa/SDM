@@ -32,11 +32,11 @@ namespace SDM.FRMs_AD
         {
             string computerName = input_computerName_ad.Text.ToString();
             if (computerName.Length <= 0)
-                MessageBox.Show("Cannot search for a computer with empty search field",
-                    "SDM - Empty search!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Não é possível procurar um computador com campo de pesquisa vazio",
+                    "SDM - Pesquisa vazia!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (computerName.Length <= 3)
-                MessageBox.Show("Need to further specify the computer name.\n\nEx: " + "\"MTZ\" - Unit + " + "\"NTB\" - Computer Type",
-                    "SDM - Specify name!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Precisa especificar ainda mais o nome do computador.\n\nEx: " + "\"MTZ\" - Unidade + " + "\"NTB\" - Tipo de computador",
+                    "SDM - Especifique o nome!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 ADInfo computerInfo = AdHelper.searchComputer(computerName.ToUpper());
@@ -53,9 +53,9 @@ namespace SDM.FRMs_AD
 
                     LogHelper.doLog("\nComputer suggestion\nCN= " + suggestionMachine, null);
 
-                    DialogResult result = MessageBox.Show($"{{ The computer with the following name \"{suggestionMachine}\" is available.\n" +
-                        $"Would you like to accept the suggestion? }}",
-                    "SDM - Name suggestion!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult result = MessageBox.Show($"{{ O computador com o seguinte nome \"{suggestionMachine}\" está disponível.\n" +
+                        $"Gostaria de aceitar a sugestão? }}",
+                    "SDM - Sugestão de nome!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
                     {
                         input_computerName_ad.Text = suggestionMachine;
@@ -66,19 +66,22 @@ namespace SDM.FRMs_AD
                     {
                         LogHelper.doLog("\nSuggestion declined\nCN= " + suggestionMachine, null);
 
-                        MessageBox.Show("Please inform the number available for the creation of the machine",
-                            "SDM - Waiting for number!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Informe um número disponível para a criação da máquina",
+                            "SDM - Aguardando o número!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    if (computerName.Where(c => char.IsNumber(c)).Count() > 0 || computerInfo != null)
+                    if (computerName.Where(c => char.IsNumber(c)).Count() > 0 && computerInfo != null)
                     {
                         txt_comp_desc.Text = AdHelper.buildOu(computerInfo);
+
+                        MessageBox.Show("Maquina ja existe!!",
+                            "SDM - Maquina encontrada!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        MessageBox.Show("Name available for creation",
+                        MessageBox.Show("Nome disponivel para a criacao",
                             "SDM - OK!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
@@ -92,15 +95,15 @@ namespace SDM.FRMs_AD
             string Argument = $"&{{ New-ADComputer -Name '{COMPUTER_NAME}' -Path '{OU_PATH}' }}";
 
             if (COMPUTER_NAME.Length <= 0)
-                MessageBox.Show("Cannot create a new computer with empty search field",
-                    "SDM - Empty search!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Não é possível criar um novo computador com campo de pesquisa vazio",
+                    "SDM - Pesquisa vazia!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             if(COMPUTER_NAME.Length > 20)
-                MessageBox.Show("The computer name cannot be longer than 20 characters.",
-                    "SDM - Max characters!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("O nome do computador não pode ter mais de 20 caracteres.",
+                    "SDM - Caracteres máximos!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if(OU_PATH == null || OU_PATH.Length <= 3)
-                MessageBox.Show("Select the OU Path",
-                    "SDM - OU not selected!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione o caminho da UO",
+                    "SDM - UO não selecionada!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 LogHelper.doLog("\nRequest to create a new computer\nCN= " + COMPUTER_NAME, null);
@@ -110,8 +113,8 @@ namespace SDM.FRMs_AD
                 {
                     LogHelper.doLog("\nComputer already exists\nCN= " + COMPUTER_NAME, null);
 
-                    MessageBox.Show("The informed computer already exists!!",
-                        "SDM - Already exists!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("O computador informado já existe!!",
+                        "SDM - Já existe!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -126,9 +129,9 @@ namespace SDM.FRMs_AD
 
                         AdHelper.requestUpdateBaseFile();
 
-                        MessageBox.Show("Machine created successfully\n\nIf you perform the search again and it appears that it has not been moved," +
-                        " this happens because the file that the application uses has not yet been updated, but the computer has been moved.!",
-                            "SDM - Successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Máquina criada com sucesso\n\nSe você realizar a pesquisa novamente e parecer que ela não foi movida," +
+                         " isso acontece porque o arquivo que o aplicativo usa ainda não foi atualizado, mas o computador foi criado.!",
+                            "SDM - Sucessi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -142,20 +145,20 @@ namespace SDM.FRMs_AD
 
         private void input_computerName_ad_TextChanged(object sender, EventArgs e)
         {
+            input_computerName_ad.Text = string.Concat(input_computerName_ad.Text.Where(char.IsLetterOrDigit));
+
+            ToolsHelper.convertToUpter(sender);
+
             string COMPUTER_NAME = input_computerName_ad.Text.ToString();
             txt_comp_desc.Text = "Typing: " + COMPUTER_NAME;
 
             if (COMPUTER_NAME.Length <= 0) txt_comp_desc.Text = "Waiting...";
-            else
-            {
-                
-            }
         }
 
         void updateOuPath(string ou_get)
         {
             OU_PATH = ou_get;
-            txt_create_in.Text = "Create in: " + OU_PATH.Split(',')[0];
+            txt_create_in.Text = "Criar em: " + OU_PATH.Split(',')[0];
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -207,6 +210,11 @@ namespace SDM.FRMs_AD
         private void btn_ou_smt_comp_Click(object sender, EventArgs e)
         {
             updateOuPath(AdHelper.OU_DSK_SMT);
+        }
+
+        private void btn_ou_mtz_ti_Click(object sender, EventArgs e)
+        {
+            updateOuPath(AdHelper.OU_NOTEBOOK_EMPREST);
         }
     }
 }

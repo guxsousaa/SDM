@@ -153,12 +153,19 @@
     <Compile Include="FRMs_AD\FRM_newComp.Designer.cs">
       <DependentUpon>FRM_newComp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMs_TiEmprest\FRM_NewLoans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMs_TiEmprest\FRM_NewLoans.Designer.cs">
+      <DependentUpon>FRM_NewLoans.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMs_TiEmprest\FRM_Notify_Loan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FRMs_TiEmprest\FRM_Notify_Loan.Designer.cs">
       <DependentUpon>FRM_Notify_Loan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMs_TiEmprest\TiEmprestHelper.cs" />
     <Compile Include="FRMs_TraumaZero0\FRM_Tr0_ThrowAgent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMs_AD\FRM_newComp.resx">
       <DependentUpon>FRM_newComp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMs_TiEmprest\FRM_NewLoans.resx">
+      <DependentUpon>FRM_NewLoans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMs_TiEmprest\FRM_Notify_Loan.resx">
       <DependentUpon>FRM_Notify_Loan.cs</DependentUpon>

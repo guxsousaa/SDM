@@ -1,15 +1,8 @@
 ﻿using SDM.FRMs_TiEmprest;
 using SDM.Methods;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SDM
 {
@@ -55,11 +48,11 @@ namespace SDM
 
         private void btn_notify_loan_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Esta ferramenta ainda está em teste, qualquer dúvida entre em contato com o Administrador.",
+            MessageBox.Show("Esta ferramenta ainda está em teste, qualquer dúvida entre em contato com o Administrador.\n\n" +
+                "Por favor, considere notificar Kauã sobre o empréstimo feito, pois esta operação está armazenando apenas um dado por vez",
                 "SDM - Ferramenta em teste", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            FRM_Notify_Loan frm = new FRM_Notify_Loan();
-            frm.ShowDialog();
+            new FRM_Notify_Loan().ShowDialog();
         }
     }
 }

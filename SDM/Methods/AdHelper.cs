@@ -30,6 +30,7 @@ namespace SDM.Methods
         private static string DC_AD_NAME = "DC=corporate,DC=ad";
         public static string OU_HOSTNAME_BLOCK = "OU=Bloqueio,OU=Hostname,OU=Quarentena" + "," + DC_AD_NAME;
         public static string OU_NOTEBOOK_MTZ = "OU=OU Notebook,OU=Matriz" + "," + DC_AD_NAME;
+        public static string OU_NOTEBOOK_EMPREST = "OU=OU TI,OU=Matriz" + "," + DC_AD_NAME;
         public static string OU_COMPUETRS_MTZ = "OU=OU Computers,OU=Matriz" + "," + DC_AD_NAME;
         public static string OU_WSUS_WIN10_MTZ = "OU=Valida Win10,OU=Wsus,OU=Matriz" + "," + DC_AD_NAME;
         public static string OU_NTB_SMT = "OU=Notebook,OU=SEARA ALIMENTOS - MATRIZ - SMT,OU=ESCRITORIO,OU=CORPORATIVO,OU=BR,OU=SEARA ALIMENTOS LTDA" + "," + DC_AD_NAME;
@@ -238,9 +239,16 @@ namespace SDM.Methods
             // Set cursor as hourglass
             Cursor.Current = Cursors.WaitCursor;
 
-            using (StreamReader r = new StreamReader(mainPath + "AD\\CompBase.json"))
+            try
             {
-                AD = JsonConvert.DeserializeObject<List<ADInfo>>(r.ReadToEnd());
+                using (StreamReader r = new StreamReader(mainPath + "AD\\CompBase.json"))
+                {
+                    var json = r.ReadToEnd();
+                    AD = JsonConvert.DeserializeObject<List<ADInfo>>(json.Replace("=", ":"));
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -313,7 +321,7 @@ namespace SDM.Methods
             {
                 LogHelper.doLog("\nError creating AD base file\n\n" + ex.ToString(), ErrorHelper.CREATE_AD_BASE_FILE);
 
-                MessageBox.Show("Base file AS - \n" +ex.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Base file AS - \n" +ex.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

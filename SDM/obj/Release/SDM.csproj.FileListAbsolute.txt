@@ -77,3 +77,5 @@ d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.UsersHelper.FRM_UsersAccess.resources
 d:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.csproj.AssemblyReference.cache
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_TraumaZero0.FRM_Tr0_ThrowAgent.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_User.resources
+D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_TiEmprest.FRM_Notify_Loan.resources
+D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.UsersHelper.Actions.FRM_MyAccount.resources

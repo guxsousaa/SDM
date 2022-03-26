@@ -1,6 +1,7 @@
 ﻿using SDM.AuthUsers;
 using SDM.Methods;
 using SDM.UsersHelper;
+using SDM.UsersHelper.Actions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,8 +76,8 @@ namespace SDM
 
         void updateInfoFileBaseComp()
         {
-            txt_lastUpdateTime_CompBase.Text = "Last update: " + ToolsHelper.checkLastBaseCompChange();
-            txt_file_size.Text = "Size: " + ToolsHelper.getBaseCompSize();
+            txt_lastUpdateTime_CompBase.Text = "Última atualização: " + ToolsHelper.checkLastBaseCompChange();
+            txt_file_size.Text = "Tamanho: " + ToolsHelper.getBaseCompSize();
 
             
         }
@@ -119,6 +120,21 @@ namespace SDM
 
             Cursor.Current = Cursors.Default;
             btn_verify_permissions.Enabled = true;
+        }
+
+        private void btn_manage_my_account_Click(object sender, EventArgs e)
+        {
+            FRM_MyAccount frmAccount = new FRM_MyAccount();
+            frmAccount.ShowDialog();
+        }
+
+        private void txt_title_frm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ToolsHelper.ReleaseCapture();
+                ToolsHelper.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 }

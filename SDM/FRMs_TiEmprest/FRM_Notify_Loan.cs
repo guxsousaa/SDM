@@ -45,9 +45,9 @@ namespace SDM.FRMs_TiEmprest
                 else if(AdHelper.searchComputer(COMPUTER_NAME) == null)
                     MessageBox.Show("A máquina informada não existe!",
                         "SDM - Máquina inexistente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else if (int.Parse(LOAN_DAYS) > 60 && OBS.Length <= 0
+                else if (int.Parse(LOAN_DAYS) > 31 && OBS.Length <= 0
                     && BUY_REQUEST.Length <= 0)
-                    MessageBox.Show("Para empréstimos com duração superior a 60 dias, é necessário fornecer a requisição de compra ou observação",
+                    MessageBox.Show("Para empréstimos com duração superior a 31 dias, é necessário fornecer a requisição de compra ou uma observação",
                         "SDM - Tempo de empréstimo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
@@ -57,43 +57,26 @@ namespace SDM.FRMs_TiEmprest
                     if (BUY_REQUEST == "") BUY_REQUEST = "0";
 
                     DTO_Loan newLoan = new DTO_Loan(COMPUTER_NAME, int.Parse(REQUEST_NUMBER),
-                        int.Parse(LOAN_DAYS), USER_LOGIN, CONTACT_NUMBER, int.Parse(BUY_REQUEST), OBS);
+                        long.Parse(LOAN_DAYS), USER_LOGIN, CONTACT_NUMBER, long.Parse(BUY_REQUEST), OBS,
+                        Environment.UserName, DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt"));
 
-                    List<DTO_Loan> allLoan = verifyCurrentFile();
+                    List<DTO_Loan> allLoan = TiEmprestHelper.VerifyCurrentFile();
                     allLoan.Add(newLoan);
 
                     Directory.CreateDirectory(Path.Combine(mainPath, "TIEMPREST"));
 
                     Directory.CreateDirectory(Path.Combine(mainPath, "TIEMPREST\\Notify"));
 
-                    var jsonData = JsonConvert.SerializeObject(newLoan);
+                    var jsonData = JsonConvert.SerializeObject(allLoan);
 
                     File.WriteAllText(mainPath + "TIEMPREST\\Notify\\" + ToolsHelper.NOTIFY_LOAN_FILE_NAME, jsonData);
+
+                    MessageBox.Show("Empréstimo registrado com sucesso!!\n\n" +
+                        "Por favor, considere notificar o responsavel pelos empréstimos sobre o empréstimo feito, pois esta operação está armazenando apenas um dado por vez",
+                        "SDM - Empréstimo registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
 
-            }
-        }
-
-        List<DTO_Loan> verifyCurrentFile()
-        {
-            string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
-            try
-            {
-                using (StreamReader r = new StreamReader(mainPath + "TIEMPREST\\Notify\\" + ToolsHelper.NOTIFY_LOAN_FILE_NAME))
-                {
-                    LogHelper.doLog("\nReading notify loan json file.", null);
-                    return JsonConvert.DeserializeObject<List<DTO_Loan>>(r.ReadToEnd());
-                }
-            }
-            catch (Exception ex)
-            {
-                if(ex.ToString().Contains("Could not find a part of the path"))
-                {
-                    Directory.CreateDirectory(Path.Combine(mainPath, "TIEMPREST"));
-
-                    Directory.CreateDirectory(Path.Combine(mainPath, "TIEMPREST\\Notify"));
-                }
-                return new List<DTO_Loan>();
             }
         }
 
@@ -162,22 +145,46 @@ namespace SDM.FRMs_TiEmprest
             }
         }
 
+        private void input_computer_name_TextChanged(object sender, EventArgs e)
+        {
+            ToolsHelper.convertToUpter(sender);
+        }
     }
 }
 namespace SDM.DTOs
 {
     public class DTO_Loan
     {
+
+        [DisplayName("Nome da Maquina")]
         public string computer_name { get; set; }
+
+        [DisplayName("Número do Chamado")]
         public int request_number { get; set; }
+
+        [DisplayName("Dias de Empréstimo")]
         public long loan_days { get; set; }
+
+        [DisplayName("Login do Usuário")]
         public string user_login { get; set; }
+
+        [DisplayName("Numéro de Contato")]
         public string contact_number { get; set; }
-        public int buy_request { get; set; }
+
+        [DisplayName("Requisição de compra")]
+        public long buy_request { get; set; }
+
+        [DisplayName("Observação")]
         public string obs { get; set; }
 
+        [DisplayName("Emprestado por")]
+        public string loan_by { get; set; }
+
+        [DisplayName("Data e Hora")]
+        public string date_time { get; set; }
+
         public DTO_Loan(string computer_name, int request_number, long loan_days,
-            string user_login, string contact_number, int buy_request, string obs)
+            string user_login, string contact_number, long buy_request, string obs, string loan_by, string date_time)
         {
             this.computer_name = computer_name;
             this.request_number = request_number;
@@ -186,6 +193,8 @@ namespace SDM.DTOs
             this.contact_number = contact_number;
             this.buy_request = buy_request;
             this.obs = obs;
+            this.loan_by = loan_by;
+            this.date_time = date_time;
         }
 
         public DTO_Loan() { }

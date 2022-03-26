@@ -110,9 +110,11 @@
             // input_computer_name
             // 
             this.input_computer_name.Location = new System.Drawing.Point(16, 74);
+            this.input_computer_name.MaxLength = 20;
             this.input_computer_name.Name = "input_computer_name";
             this.input_computer_name.Size = new System.Drawing.Size(214, 22);
             this.input_computer_name.TabIndex = 1;
+            this.input_computer_name.TextChanged += new System.EventHandler(this.input_computer_name_TextChanged);
             // 
             // input_request_number
             // 
@@ -210,9 +212,10 @@
             // input_obs
             // 
             this.input_obs.Location = new System.Drawing.Point(240, 74);
+            this.input_obs.MaxLength = 155;
             this.input_obs.Multiline = true;
             this.input_obs.Name = "input_obs";
-            this.input_obs.Size = new System.Drawing.Size(254, 56);
+            this.input_obs.Size = new System.Drawing.Size(254, 69);
             this.input_obs.TabIndex = 7;
             // 
             // label6
@@ -233,7 +236,7 @@
             this.btn_send_nofity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_send_nofity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_send_nofity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_send_nofity.Location = new System.Drawing.Point(240, 134);
+            this.btn_send_nofity.Location = new System.Drawing.Point(242, 150);
             this.btn_send_nofity.Margin = new System.Windows.Forms.Padding(4);
             this.btn_send_nofity.Name = "btn_send_nofity";
             this.btn_send_nofity.Size = new System.Drawing.Size(252, 41);

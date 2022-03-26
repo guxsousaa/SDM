@@ -39,5 +39,7 @@ namespace SDM.Methods
         public static string CREATE_CONFIG_FILE = "CCF";
 
         public static string PING_OTHER_COMPUTER = "POC";
+
+        public static string GET_FILE_SIZE = "GFL";
     }
 }
