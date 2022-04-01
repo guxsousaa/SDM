@@ -35,6 +35,7 @@ namespace SDM.FRMs_AD
             this.btn_create_Computer = new System.Windows.Forms.Button();
             this.main_panel_container_newComp_ad = new System.Windows.Forms.Panel();
             this.panel_container_ou_btns = new System.Windows.Forms.Panel();
+            this.btn_ou_mtz_ti = new System.Windows.Forms.Button();
             this.btn_ou_smt_comp = new System.Windows.Forms.Button();
             this.btn_ou_smt_note = new System.Windows.Forms.Button();
             this.btn_ou_mtz_dsk = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@ namespace SDM.FRMs_AD
             this.header_panel_newComp_ad = new System.Windows.Forms.Panel();
             this.txt_header_create_computer = new System.Windows.Forms.Label();
             this.close_btn_newComp_AD = new System.Windows.Forms.PictureBox();
-            this.btn_ou_mtz_ti = new System.Windows.Forms.Button();
             this.main_panel_container_newComp_ad.SuspendLayout();
             this.panel_container_ou_btns.SuspendLayout();
             this.panel_container_main_funcions.SuspendLayout();
@@ -60,7 +60,7 @@ namespace SDM.FRMs_AD
             // input_computerName_ad
             // 
             this.input_computerName_ad.Location = new System.Drawing.Point(4, 4);
-            this.input_computerName_ad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.input_computerName_ad.Margin = new System.Windows.Forms.Padding(4);
             this.input_computerName_ad.MaxLength = 24;
             this.input_computerName_ad.Name = "input_computerName_ad";
             this.input_computerName_ad.Size = new System.Drawing.Size(220, 22);
@@ -70,22 +70,22 @@ namespace SDM.FRMs_AD
             // btn_search_Computer
             // 
             this.btn_search_Computer.Location = new System.Drawing.Point(4, 4);
-            this.btn_search_Computer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_search_Computer.Margin = new System.Windows.Forms.Padding(4);
             this.btn_search_Computer.Name = "btn_search_Computer";
             this.btn_search_Computer.Size = new System.Drawing.Size(100, 38);
             this.btn_search_Computer.TabIndex = 1;
-            this.btn_search_Computer.Text = "Search";
+            this.btn_search_Computer.Text = "Pesquisar";
             this.btn_search_Computer.UseVisualStyleBackColor = true;
             this.btn_search_Computer.Click += new System.EventHandler(this.btn_search_Computer_Click);
             // 
             // btn_create_Computer
             // 
             this.btn_create_Computer.Location = new System.Drawing.Point(4, 46);
-            this.btn_create_Computer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_create_Computer.Margin = new System.Windows.Forms.Padding(4);
             this.btn_create_Computer.Name = "btn_create_Computer";
             this.btn_create_Computer.Size = new System.Drawing.Size(100, 38);
             this.btn_create_Computer.TabIndex = 2;
-            this.btn_create_Computer.Text = "Create";
+            this.btn_create_Computer.Text = "Criar";
             this.btn_create_Computer.UseVisualStyleBackColor = true;
             this.btn_create_Computer.Click += new System.EventHandler(this.btn_create_Computer_Click);
             // 
@@ -113,11 +113,27 @@ namespace SDM.FRMs_AD
             this.panel_container_ou_btns.Controls.Add(this.btn_ou_mtz_note);
             this.panel_container_ou_btns.Controls.Add(this.btn_ou_wsus_win10);
             this.panel_container_ou_btns.Location = new System.Drawing.Point(8, 144);
-            this.panel_container_ou_btns.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel_container_ou_btns.Margin = new System.Windows.Forms.Padding(4);
             this.panel_container_ou_btns.Name = "panel_container_ou_btns";
             this.panel_container_ou_btns.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.panel_container_ou_btns.Size = new System.Drawing.Size(440, 81);
             this.panel_container_ou_btns.TabIndex = 8;
+            // 
+            // btn_ou_mtz_ti
+            // 
+            this.btn_ou_mtz_ti.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ou_mtz_ti.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
+            this.btn_ou_mtz_ti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ou_mtz_ti.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ou_mtz_ti.ForeColor = System.Drawing.Color.White;
+            this.btn_ou_mtz_ti.Location = new System.Drawing.Point(308, 43);
+            this.btn_ou_mtz_ti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_ou_mtz_ti.Name = "btn_ou_mtz_ti";
+            this.btn_ou_mtz_ti.Size = new System.Drawing.Size(122, 30);
+            this.btn_ou_mtz_ti.TabIndex = 16;
+            this.btn_ou_mtz_ti.Text = "TIEMPREST";
+            this.btn_ou_mtz_ti.UseVisualStyleBackColor = true;
+            this.btn_ou_mtz_ti.Click += new System.EventHandler(this.btn_ou_mtz_ti_Click);
             // 
             // btn_ou_smt_comp
             // 
@@ -214,7 +230,7 @@ namespace SDM.FRMs_AD
             this.panel_container_main_funcions.Controls.Add(this.txt_comp_desc);
             this.panel_container_main_funcions.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_container_main_funcions.Location = new System.Drawing.Point(0, 30);
-            this.panel_container_main_funcions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel_container_main_funcions.Margin = new System.Windows.Forms.Padding(4);
             this.panel_container_main_funcions.Name = "panel_container_main_funcions";
             this.panel_container_main_funcions.Size = new System.Drawing.Size(463, 89);
             this.panel_container_main_funcions.TabIndex = 6;
@@ -225,7 +241,7 @@ namespace SDM.FRMs_AD
             this.panel_container_btns_actions.Controls.Add(this.btn_create_Computer);
             this.panel_container_btns_actions.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel_container_btns_actions.Location = new System.Drawing.Point(347, 0);
-            this.panel_container_btns_actions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel_container_btns_actions.Margin = new System.Windows.Forms.Padding(4);
             this.panel_container_btns_actions.Name = "panel_container_btns_actions";
             this.panel_container_btns_actions.Size = new System.Drawing.Size(116, 89);
             this.panel_container_btns_actions.TabIndex = 7;
@@ -292,22 +308,6 @@ namespace SDM.FRMs_AD
             this.close_btn_newComp_AD.TabStop = false;
             this.close_btn_newComp_AD.Click += new System.EventHandler(this.close_btn_newComp_AD_Click);
             // 
-            // btn_ou_mtz_ti
-            // 
-            this.btn_ou_mtz_ti.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ou_mtz_ti.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
-            this.btn_ou_mtz_ti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ou_mtz_ti.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ou_mtz_ti.ForeColor = System.Drawing.Color.White;
-            this.btn_ou_mtz_ti.Location = new System.Drawing.Point(308, 43);
-            this.btn_ou_mtz_ti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_ou_mtz_ti.Name = "btn_ou_mtz_ti";
-            this.btn_ou_mtz_ti.Size = new System.Drawing.Size(122, 30);
-            this.btn_ou_mtz_ti.TabIndex = 16;
-            this.btn_ou_mtz_ti.Text = "TIEMPREST";
-            this.btn_ou_mtz_ti.UseVisualStyleBackColor = true;
-            this.btn_ou_mtz_ti.Click += new System.EventHandler(this.btn_ou_mtz_ti_Click);
-            // 
             // FRM_newComp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -317,7 +317,7 @@ namespace SDM.FRMs_AD
             this.Controls.Add(this.main_panel_container_newComp_ad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FRM_newComp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create new computer";

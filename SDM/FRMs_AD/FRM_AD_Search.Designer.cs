@@ -49,12 +49,12 @@
             // 
             this.btn_search_Computer.AutoSize = true;
             this.btn_search_Computer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_search_Computer.Location = new System.Drawing.Point(423, 0);
+            this.btn_search_Computer.Location = new System.Drawing.Point(400, 0);
             this.btn_search_Computer.Margin = new System.Windows.Forms.Padding(4);
             this.btn_search_Computer.Name = "btn_search_Computer";
             this.btn_search_Computer.Size = new System.Drawing.Size(100, 62);
             this.btn_search_Computer.TabIndex = 3;
-            this.btn_search_Computer.Text = "Search";
+            this.btn_search_Computer.Text = "Procurar";
             this.btn_search_Computer.UseVisualStyleBackColor = true;
             this.btn_search_Computer.Click += new System.EventHandler(this.btn_search_Computer_Click);
             // 
@@ -77,7 +77,7 @@
             this.header_panel_SearchComp_ad.Location = new System.Drawing.Point(0, 0);
             this.header_panel_SearchComp_ad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.header_panel_SearchComp_ad.Name = "header_panel_SearchComp_ad";
-            this.header_panel_SearchComp_ad.Size = new System.Drawing.Size(523, 30);
+            this.header_panel_SearchComp_ad.Size = new System.Drawing.Size(522, 30);
             this.header_panel_SearchComp_ad.TabIndex = 4;
             this.header_panel_SearchComp_ad.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_panel_SearchComp_ad_MouseDown);
             // 
@@ -110,16 +110,16 @@
             // 
             // txt_compResult
             // 
-            this.txt_compResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_compResult.AutoSize = true;
+            this.txt_compResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_compResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_compResult.ForeColor = System.Drawing.Color.White;
-            this.txt_compResult.Location = new System.Drawing.Point(12, 14);
+            this.txt_compResult.Location = new System.Drawing.Point(0, 0);
             this.txt_compResult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_compResult.MaximumSize = new System.Drawing.Size(500, 0);
+            this.txt_compResult.MinimumSize = new System.Drawing.Size(500, 0);
             this.txt_compResult.Name = "txt_compResult";
-            this.txt_compResult.Size = new System.Drawing.Size(89, 25);
+            this.txt_compResult.Size = new System.Drawing.Size(500, 25);
             this.txt_compResult.TabIndex = 5;
             this.txt_compResult.Text = "Wating...";
             // 
@@ -128,22 +128,23 @@
             this.panel_container.AutoSize = true;
             this.panel_container.Controls.Add(this.panel_container_result);
             this.panel_container.Controls.Add(this.panel_container_search);
-            this.panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_container.Location = new System.Drawing.Point(0, 30);
             this.panel_container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_container.MaximumSize = new System.Drawing.Size(500, 0);
+            this.panel_container.MinimumSize = new System.Drawing.Size(500, 0);
             this.panel_container.Name = "panel_container";
-            this.panel_container.Size = new System.Drawing.Size(523, 244);
+            this.panel_container.Size = new System.Drawing.Size(500, 89);
             this.panel_container.TabIndex = 6;
             // 
             // panel_container_result
             // 
             this.panel_container_result.AutoSize = true;
             this.panel_container_result.Controls.Add(this.txt_compResult);
-            this.panel_container_result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_container_result.Location = new System.Drawing.Point(0, 62);
             this.panel_container_result.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_container_result.MaximumSize = new System.Drawing.Size(500, 0);
             this.panel_container_result.Name = "panel_container_result";
-            this.panel_container_result.Size = new System.Drawing.Size(523, 182);
+            this.panel_container_result.Size = new System.Drawing.Size(500, 25);
             this.panel_container_result.TabIndex = 7;
             // 
             // panel_container_search
@@ -154,7 +155,7 @@
             this.panel_container_search.Location = new System.Drawing.Point(0, 0);
             this.panel_container_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_container_search.Name = "panel_container_search";
-            this.panel_container_search.Size = new System.Drawing.Size(523, 62);
+            this.panel_container_search.Size = new System.Drawing.Size(500, 62);
             this.panel_container_search.TabIndex = 6;
             // 
             // FRM_AD_Search
@@ -163,11 +164,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(523, 274);
+            this.ClientSize = new System.Drawing.Size(522, 250);
             this.Controls.Add(this.panel_container);
             this.Controls.Add(this.header_panel_SearchComp_ad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(500, 200);
             this.Name = "FRM_AD_Search";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_AD_Search";

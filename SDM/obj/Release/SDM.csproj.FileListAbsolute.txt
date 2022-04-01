@@ -79,3 +79,47 @@ D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_TraumaZero0.FRM_Tr0_ThrowAgent.resou
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRM_User.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_TiEmprest.FRM_Notify_Loan.resources
 D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.UsersHelper.Actions.FRM_MyAccount.resources
+D:\DEVELOPMENT\SDM\SDM\obj\Release\SDM.FRMs_TiEmprest.FRM_NewLoans.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\SDM.exe.config
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\SDM.exe
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\SDM.pdb
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\Json.Net.dll
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\log4net.dll
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\Newtonsoft.Json.dll
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\SplashScreen.dll
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\System.IO.FileSystem.AccessControl.dll
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\System.Security.AccessControl.dll
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\System.Security.Permissions.dll
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\System.Security.Principal.Windows.dll
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\log4net.xml
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\Newtonsoft.Json.xml
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\System.IO.FileSystem.AccessControl.xml
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\System.Security.AccessControl.xml
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\System.Security.Permissions.xml
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\bin\Release\System.Security.Principal.Windows.xml
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.csproj.AssemblyReference.cache
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Move.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Password.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Remove.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_AD_Search.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRMs_AD.FRM_newComp.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRMs_TiEmprest.FRM_NewLoans.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRMs_TiEmprest.FRM_Notify_Loan.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRMs_TraumaZero0.FRM_Tr0_ThrowAgent.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRM_Ad.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRM_Dashboard.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRM_Main.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRM_Printer.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRM_Settings.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRM_Splash.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRM_TiEmprest.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.FRM_User.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.Properties.Resources.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.UsersHelper.Actions.FRM_MyAccount.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.UsersHelper.Actions.FRM_NewUser.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.UsersHelper.FRM_UsersAccess.resources
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.csproj.GenerateResource.cache
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.csproj.CoreCompileInputs.cache
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.csproj.CopyComplete
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.exe
+C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Release\SDM.pdb

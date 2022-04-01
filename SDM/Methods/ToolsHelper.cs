@@ -23,7 +23,9 @@ namespace SDM.Methods
      */
     class ToolsHelper
     {
-        public static string NOTIFY_LOAN_FILE_NAME = "notify_loan.json";
+        public static string NOTIFY_LOAN_FILE_NAME = "new_loans.json";
+        public static string RETURN_LOAN_FILE_NAME = "return_loans.json";
+
         public static void shutdownComputer(string NAME)
         {
             if(NAME != null && NAME.Length > 0)
@@ -45,14 +47,8 @@ namespace SDM.Methods
                     psi.UseShellExecute = false;
                     Process.Start(psi);
 
-                    /*var command_result = PowerShellHelper.executeCommand(Argument, false).StandardError.ReadToEnd();
-                    if (command_result != null || command_result != "")
-                        MessageBox.Show(command_result, "SDM - Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
-                    {
-                        MessageBox.Show("Shutdown performed successfully, in a few moments the computer is turned off.",
-                            "SDM - Shutdown performed!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }*/
+                    MessageBox.Show("Desligamento realizado com sucesso, em poucos instantes o computador é desligado.",
+                        "SDM - Desligamento realizado!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 }
@@ -61,7 +57,7 @@ namespace SDM.Methods
                     LogHelper.doLog("\nTry ping a computer error\n\n" + ex.ToString() + "\n\n" + "Computer name: " + NAME,
                         ErrorHelper.PING_OTHER_COMPUTER);
 
-                    MessageBox.Show("The computer is currently not turned on!!", "SDM - Turned On!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("O computador não está ligado no momento!!", "SDM - Ligados!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 Cursor.Current = Cursors.Default;
             }
@@ -92,6 +88,17 @@ namespace SDM.Methods
                     ErrorHelper.GET_FILE_SIZE);
                 return "";
             }
+        }
+
+        public static string FirstLetterToUpper(string str)
+        {
+            if (str == null)
+                return null;
+
+            if (str.Length > 1)
+                return char.ToUpper(str[0]) + str.Substring(1);
+
+            return str.ToUpper();
         }
 
         static readonly string[] SizeSuffixes =
@@ -145,10 +152,10 @@ namespace SDM.Methods
         public static extern IntPtr OpenInputDesktop(uint dwFlags, bool fInherit, uint dwDesiredAccess);
 
 
-
         public static void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
         {
-            MessageBox.Show(e.Mode.ToString());
+            LogHelper.doLog("\nComputer PowerMode Change: " + e.Mode.ToString() + "\nType: " 
+                + e.Mode.GetType() + "\n", null);
         }
 
         //Event definition

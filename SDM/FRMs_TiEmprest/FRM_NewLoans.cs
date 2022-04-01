@@ -17,7 +17,7 @@ namespace SDM.FRMs_TiEmprest
 {
     public partial class FRM_NewLoans : Form
     {
-        public List<DTO_Loan> loans = null;
+        public List<DTO_Loans> loans = null;
         string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
 
         public FRM_NewLoans()

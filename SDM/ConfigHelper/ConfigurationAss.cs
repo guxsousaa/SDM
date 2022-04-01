@@ -34,10 +34,10 @@ namespace SDM.ConfigHelper
                     LogHelper.doLog("\nReading Config Json file...", null);
 
                     jsonObj = JsonConvert.DeserializeObject(r.ReadToEnd());
-
-                    string output = JsonConvert.SerializeObject(jsonObj, Formatting.Indented);
-                    File.WriteAllText(filePath + ConfigFile, output);
                 }
+
+                string output = JsonConvert.SerializeObject(jsonObj, Formatting.Indented);
+                File.WriteAllText(filePath + ConfigFile, output);
             }
             catch (Exception ex)
             {

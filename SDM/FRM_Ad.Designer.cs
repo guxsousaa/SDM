@@ -57,12 +57,14 @@
             this.txt_title_computers = new System.Windows.Forms.Label();
             this.panel_top_container_ad = new System.Windows.Forms.Panel();
             this.txt_active_directory = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel_cotainer_main_ad.SuspendLayout();
             this.panel_list_container_ad.SuspendLayout();
             this.panel_question.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ad_status)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel_container_notes.SuspendLayout();
+            this.panel_container.SuspendLayout();
             this.panel_container_computers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_top_container_ad.SuspendLayout();
@@ -296,6 +298,7 @@
             // panel_container
             // 
             this.panel_container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(71)))), ((int)(((byte)(93)))));
+            this.panel_container.Controls.Add(this.label2);
             this.panel_container.Location = new System.Drawing.Point(335, 21);
             this.panel_container.Name = "panel_container";
             this.panel_container.Size = new System.Drawing.Size(211, 143);
@@ -319,7 +322,7 @@
             this.txt_details_from_ad.ForeColor = System.Drawing.Color.Gainsboro;
             this.txt_details_from_ad.Location = new System.Drawing.Point(17, 104);
             this.txt_details_from_ad.Name = "txt_details_from_ad";
-            this.txt_details_from_ad.Size = new System.Drawing.Size(80, 16);
+            this.txt_details_from_ad.Size = new System.Drawing.Size(84, 17);
             this.txt_details_from_ad.TabIndex = 2;
             this.txt_details_from_ad.Text = "Detalhes de";
             // 
@@ -374,9 +377,18 @@
             this.txt_active_directory.ForeColor = System.Drawing.Color.White;
             this.txt_active_directory.Location = new System.Drawing.Point(12, 9);
             this.txt_active_directory.Name = "txt_active_directory";
-            this.txt_active_directory.Size = new System.Drawing.Size(212, 32);
+            this.txt_active_directory.Size = new System.Drawing.Size(213, 32);
             this.txt_active_directory.TabIndex = 4;
             this.txt_active_directory.Text = "Active Directory";
+            // 
+            // label2
+            // 
+            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.Location = new System.Drawing.Point(16, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(177, 122);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "O base de dados está sendo atualizado a cada 1 minuto e meio.";
             // 
             // FRM_Ad
             // 
@@ -399,6 +411,7 @@
             this.panel4.PerformLayout();
             this.panel_container_notes.ResumeLayout(false);
             this.panel_container_notes.PerformLayout();
+            this.panel_container.ResumeLayout(false);
             this.panel_container_computers.ResumeLayout(false);
             this.panel_container_computers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -435,5 +448,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label txt_question;
+        private System.Windows.Forms.Label label2;
     }
 }

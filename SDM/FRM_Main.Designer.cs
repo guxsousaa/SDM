@@ -338,7 +338,7 @@
             // timer_checkup
             // 
             this.timer_checkup.Enabled = true;
-            this.timer_checkup.Interval = 180000;
+            this.timer_checkup.Interval = 60500;
             this.timer_checkup.Tick += new System.EventHandler(this.timer_checkup_Tick);
             // 
             // timer_network

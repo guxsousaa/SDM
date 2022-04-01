@@ -197,6 +197,47 @@ namespace SDM.Methods
             return generatedOu.ToString();
         }
 
+        public static List<string> GetAllUsers(bool isTest)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            List<string> ComputerPath = new List<string>();
+
+            try
+            {
+                LogHelper.doLog("\nGetting all Users from AD", null);
+
+                DirectoryEntry entry = new DirectoryEntry("LDAP://corporate.ad");
+                DirectorySearcher mySearcher = new DirectorySearcher(entry);
+                mySearcher.Filter = ("(&(objectCategory=person)(objectClass=user)((userAccountControl:1.2.840.113556.1.4.803:=2)))");
+                mySearcher.SizeLimit = int.MaxValue;
+                mySearcher.PageSize = int.MaxValue;
+
+                foreach (SearchResult resEnt in mySearcher.FindAll())
+                {
+                    string ComputerName = resEnt.Path;
+                    if (ComputerName.ToLower().Contains("Fernanda da Silva de Oliveira".ToLower()))
+                    {
+                        
+                        ComputerPath.Add(ComputerName.Replace("LDAP://corporate.ad/", ""));
+                    }
+                }
+
+                mySearcher.Dispose();
+                entry.Dispose();
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                LogHelper.doLog("\nError getting all machines from AD\n\n" + ex.ToString(), ErrorHelper.GET_COMPUTER_IN_AD);
+
+                if (!isTest)
+                    MessageBox.Show(ex.ToString(), "Fatal Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return ComputerPath;
+            }
+
+            return ComputerPath;
+        }
         public static List<string> GetAllComputers(bool isTest)
         {
             List<string> ComputerPath = new List<string>();

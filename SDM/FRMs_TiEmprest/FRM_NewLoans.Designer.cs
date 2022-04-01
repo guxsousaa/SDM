@@ -32,6 +32,7 @@
             this.loans_dataView = new System.Windows.Forms.DataGridView();
             this.panel_container_loans_list = new System.Windows.Forms.Panel();
             this.panel_loan_actions = new System.Windows.Forms.Panel();
+            this.btn_loan_accounted = new System.Windows.Forms.Button();
             this.txt_date_and_time = new System.Windows.Forms.Label();
             this.txt_loan_by = new System.Windows.Forms.Label();
             this.txt_obs = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.title_user_login = new System.Windows.Forms.Label();
             this.title_request_number = new System.Windows.Forms.Label();
             this.title_machine_name = new System.Windows.Forms.Label();
-            this.btn_loan_accounted = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.loans_dataView)).BeginInit();
             this.panel_container_loans_list.SuspendLayout();
             this.panel_loan_actions.SuspendLayout();
@@ -116,8 +116,24 @@
             this.panel_loan_actions.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_loan_actions.Location = new System.Drawing.Point(0, 200);
             this.panel_loan_actions.Name = "panel_loan_actions";
-            this.panel_loan_actions.Size = new System.Drawing.Size(357, 353);
+            this.panel_loan_actions.Size = new System.Drawing.Size(357, 333);
             this.panel_loan_actions.TabIndex = 2;
+            // 
+            // btn_loan_accounted
+            // 
+            this.btn_loan_accounted.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btn_loan_accounted.FlatAppearance.BorderSize = 0;
+            this.btn_loan_accounted.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_loan_accounted.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_loan_accounted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_loan_accounted.Location = new System.Drawing.Point(15, 279);
+            this.btn_loan_accounted.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_loan_accounted.Name = "btn_loan_accounted";
+            this.btn_loan_accounted.Size = new System.Drawing.Size(334, 41);
+            this.btn_loan_accounted.TabIndex = 18;
+            this.btn_loan_accounted.Text = "Empréstimo contabilizado";
+            this.btn_loan_accounted.UseVisualStyleBackColor = true;
+            this.btn_loan_accounted.Click += new System.EventHandler(this.btn_loan_accounted_Click);
             // 
             // txt_date_and_time
             // 
@@ -317,32 +333,17 @@
             this.title_machine_name.TabIndex = 0;
             this.title_machine_name.Text = "Nome da maquina:";
             // 
-            // btn_loan_accounted
-            // 
-            this.btn_loan_accounted.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btn_loan_accounted.FlatAppearance.BorderSize = 0;
-            this.btn_loan_accounted.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_loan_accounted.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_loan_accounted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_loan_accounted.Location = new System.Drawing.Point(15, 279);
-            this.btn_loan_accounted.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_loan_accounted.Name = "btn_loan_accounted";
-            this.btn_loan_accounted.Size = new System.Drawing.Size(334, 41);
-            this.btn_loan_accounted.TabIndex = 18;
-            this.btn_loan_accounted.Text = "Empréstimo contabilizado";
-            this.btn_loan_accounted.UseVisualStyleBackColor = true;
-            this.btn_loan_accounted.Click += new System.EventHandler(this.btn_loan_accounted_Click);
-            // 
             // FRM_NewLoans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.ClientSize = new System.Drawing.Size(1182, 533);
             this.Controls.Add(this.panel_loan_actions);
             this.Controls.Add(this.panel_container_loans_list);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(800, 580);
             this.Name = "FRM_NewLoans";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novos Emprestimos";

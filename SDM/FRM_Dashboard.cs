@@ -54,5 +54,15 @@ namespace SDM
 
             new FRM_Notify_Loan().ShowDialog();
         }
+
+        private void btn_return_loan_Click(object sender, EventArgs e)
+        {
+
+            /*MessageBox.Show("Esta ferramenta ainda está em teste, qualquer dúvida entre em contato com o Administrador.\n\n" +
+                "Por favor, considere notificar Kauã sobre o empréstimo feito, pois esta operação está armazenando apenas um dado por vez",
+                "SDM - Ferramenta em teste", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+
+            new FRM_ReturnLoan().ShowDialog();
+        }
     }
 }

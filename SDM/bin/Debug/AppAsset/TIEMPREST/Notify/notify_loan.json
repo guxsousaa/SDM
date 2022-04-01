@@ -1,1 +1,25 @@
-[{"computer_name":"MTZTIEMPREST88","request_number":1313,"loan_days":33,"user_login":"kaualima-mtz","contact_number":"5553","buy_request":20222980934,"obs":"c/ Carregador Até maquina nova chegar","loan_by":"kauav","date_time":"2022-03-26 6:25:10 PM"}]
+[
+  {
+    "computer_name": "MTZTIEMPREST88",
+    "request_number": 1313,
+    "loan_days": 33,
+    "user_login": "kaualima-mtz",
+    "contact_number": "5553",
+    "buy_request": 20222980934,
+    "obs": "c/ Carregador Até maquina nova chegar",
+    "loan_by": "kauav",
+    "date_time": "2022-03-26 6:25:10 PM"
+  },
+  {
+    "computer_name": "MTZTIEMPREST28",
+    "request_number": 123334,
+    "loan_days": 21,
+    "user_login": "idondc",
+    "contact_number": "23434",
+    "buy_request": 0,
+    "obs": "",
+    "loan_by": "43333349850-OTIMTZ",
+    "date_time": "2022-03-28 12:52:17",
+    "isReturn": true
+  }
+]

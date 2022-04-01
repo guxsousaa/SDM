@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SDM.DTOs.DTO_Loans;
 
 namespace SDM.FRMs_TiEmprest
 {
@@ -56,11 +57,11 @@ namespace SDM.FRMs_TiEmprest
 
                     if (BUY_REQUEST == "") BUY_REQUEST = "0";
 
-                    DTO_Loan newLoan = new DTO_Loan(COMPUTER_NAME, int.Parse(REQUEST_NUMBER),
+                    DTO_Loans newLoan = new DTO_Loans(COMPUTER_NAME, int.Parse(REQUEST_NUMBER),
                         long.Parse(LOAN_DAYS), USER_LOGIN, CONTACT_NUMBER, long.Parse(BUY_REQUEST), OBS,
                         Environment.UserName, DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt"));
 
-                    List<DTO_Loan> allLoan = TiEmprestHelper.VerifyCurrentFile();
+                    List<DTO_Loans> allLoan = TiEmprestHelper.VerifyCurrentFile();
                     allLoan.Add(newLoan);
 
                     Directory.CreateDirectory(Path.Combine(mainPath, "TIEMPREST"));
@@ -149,58 +150,5 @@ namespace SDM.FRMs_TiEmprest
         {
             ToolsHelper.convertToUpter(sender);
         }
-    }
-}
-namespace SDM.DTOs
-{
-    public class DTO_Loan
-    {
-
-        [DisplayName("Nome da Maquina")]
-        public string computer_name { get; set; }
-
-        [DisplayName("Número do Chamado")]
-        public int request_number { get; set; }
-
-        [DisplayName("Dias de Empréstimo")]
-        public long loan_days { get; set; }
-
-        [DisplayName("Login do Usuário")]
-        public string user_login { get; set; }
-
-        [DisplayName("Numéro de Contato")]
-        public string contact_number { get; set; }
-
-        [DisplayName("Requisição de compra")]
-        public long buy_request { get; set; }
-
-        [DisplayName("Observação")]
-        public string obs { get; set; }
-
-        [DisplayName("Emprestado por")]
-        public string loan_by { get; set; }
-
-        [DisplayName("Data e Hora")]
-        public string date_time { get; set; }
-
-        public DTO_Loan(string computer_name, int request_number, long loan_days,
-            string user_login, string contact_number, long buy_request, string obs, string loan_by, string date_time)
-        {
-            this.computer_name = computer_name;
-            this.request_number = request_number;
-            this.loan_days = loan_days;
-            this.user_login = user_login;
-            this.contact_number = contact_number;
-            this.buy_request = buy_request;
-            this.obs = obs;
-            this.loan_by = loan_by;
-            this.date_time = date_time;
-        }
-
-        public DTO_Loan() { }
-    }
-    public class RootObject
-    {
-        public List<DTO_Loan> itens { get; set; }
     }
 }

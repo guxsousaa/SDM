@@ -231,33 +231,39 @@ namespace SDM
 
         private void timer_checkup_Tick(object sender, EventArgs e)
         {
-            //  This will only be called every 3 minutes
+            //  This will only be called every 1.5 minutes
             if (updateThread == null || !updateThread.IsAlive)
             {
-                updateThread = new Thread(delegate ()
+                try
                 {
-                    //  Check if the operating system is locked
-                    if (!AdHelper.SECTION_LOCKED)
+                    updateThread = new Thread(delegate ()
                     {
-                        //  Check if there is connection with AD
-                        if (AdHelper.GetAllComputers(true).Count >= 1)
+                        //  Check if the operating system is locked
+                        if (!AdHelper.SECTION_LOCKED)
                         {
-                            //  Wait before updating the file
-                            //  Wait because if you can't make a conflict
-                            //  Waiting time will be between 50 to 2 minutes
-                            Thread.Sleep(new Random().Next(50000, 120005));
+                            //  Check if there is connection with AD
+                            if (AdHelper.GetAllComputers(true).Count >= 1)
+                            {
+                                //  Wait before updating the file
+                                //  Wait because if you can't make a conflict
+                                //  Waiting time will be between 10 seconds to 40 seconds
+                                Thread.Sleep(new Random().Next(10000, 40000));
 
-                            AdHelper.updateAdBaseFile();
-                            return;
+                                AdHelper.updateAdBaseFile();
+                                return;
+                            }
+                            else
+                                return;
                         }
                         else
                             return;
-                    }
-                    else
-                        return;
-                });
-                updateThread.IsBackground = true;
-                updateThread.Start();
+                    });
+                    updateThread.IsBackground = true;
+                    updateThread.Start();
+                }catch (Exception ex)
+                {
+                    LogHelper.doLog(ex.ToString(), null);
+                }
             }
         }
 
@@ -279,8 +285,7 @@ namespace SDM
 
         private void user_profile_pic_main_Click(object sender, EventArgs e)
         {
-            FRM_MyAccount frmAccount = new FRM_MyAccount();
-            frmAccount.ShowDialog();
+            new FRM_MyAccount().ShowDialog();
         }
     }
 }

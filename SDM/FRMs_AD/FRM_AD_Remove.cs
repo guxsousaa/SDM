@@ -56,8 +56,8 @@ namespace SDM.FRMs_AD
                         {
                             AdHelper.requestUpdateBaseFile();
 
-                            MessageBox.Show("Computer successfully deleted!\n\nIf you perform the search again and it appears that it has not been moved," +
-                        " this happens because the file that the application uses has not yet been updated, but the computer has been moved.",
+                            MessageBox.Show("Computador excluído com sucesso!\n\nSe você realizar a pesquisa novamente e parecer que ela não foi excluida," +
+                        " isso acontece porque o arquivo que o aplicativo usa ainda não foi atualizado, mas o computador foi excluido.",
                                 "SDM - Successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }

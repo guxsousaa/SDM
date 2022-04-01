@@ -253,7 +253,7 @@ namespace SDM
 
                             var command_result = process.StandardError.ReadToEnd();
                             if (command_result == null || command_result == "")
-                                    MessageBox.Show("Computador desbloqueado com sucesso!",
+                                    MessageBox.Show("Computador desbloqueado com sucesso!\nConsidere abrir o cmd e usar o comando gpupdate \\force",
                                     "SDM - Computador desbloqueado", MessageBoxButtons.OK);
                             else
                                 MessageBox.Show(command_result, "SDM - Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -271,7 +271,7 @@ namespace SDM
 
         private void btn_check_new_loans_Click(object sender, EventArgs e)
         {
-            List<DTO_Loan> allLoan = TiEmprestHelper.VerifyCurrentFile();
+            List<DTO_Loans> allLoan = TiEmprestHelper.VerifyCurrentFile();
             if(allLoan == null || allLoan.Count <= 0)
                 MessageBox.Show("Nenhum novo empréstimo a ser visualizado.",
                     "SDM - No new loan!!", MessageBoxButtons.OK, MessageBoxIcon.Information);

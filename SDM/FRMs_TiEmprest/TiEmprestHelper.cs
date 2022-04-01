@@ -8,13 +8,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SDM.DTOs.DTO_Loans;
 
 namespace SDM.FRMs_TiEmprest
 {
     internal class TiEmprestHelper
     {
 
-        public static List<DTO_Loan> VerifyCurrentFile()
+        public static List<DTO_Loans> VerifyCurrentFile()
         {
             string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
             try
@@ -22,7 +23,7 @@ namespace SDM.FRMs_TiEmprest
                 using (StreamReader r = new StreamReader(mainPath + "TIEMPREST\\Notify\\" + ToolsHelper.NOTIFY_LOAN_FILE_NAME))
                 {
                     LogHelper.doLog("\nReading notify loan json file.", null);
-                    List<DTO_Loan> loans = JsonConvert.DeserializeObject<List<DTO_Loan>>(r.ReadToEnd());
+                    List<DTO_Loans> loans = JsonConvert.DeserializeObject<List<DTO_Loans>>(r.ReadToEnd());
 
                     for(int i = 0; i < loans.Count; i++)
                     {
@@ -47,7 +48,7 @@ namespace SDM.FRMs_TiEmprest
 
                     Directory.CreateDirectory(Path.Combine(mainPath, "TIEMPREST\\Notify"));
                 }
-                return new List<DTO_Loan>();
+                return new List<DTO_Loans>();
             }
         }
     }
