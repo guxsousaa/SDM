@@ -23,6 +23,7 @@ namespace SDM.Methods
      */
     internal class LogHelper
     {
+        private static string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
         private static string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SDM\\Logs\\";
         private static string MARK = "\n=============================================\n";
 
@@ -30,24 +31,37 @@ namespace SDM.Methods
         {
             //  Get current day and time
             DateTime today = DateTime.Today;
-            string Date = today.ToString("dd-MM-yyyy");
-            string Time = MARK + string.Format("{0:HH:mm:ss tt}", DateTime.Now) + " - IP: " + NetworkHelper.GetLocalIPAddress() + "\n";
+            string _date = today.ToString("dd-MM-yyyy");
+            string _time = MARK + string.Format("{0:HH:mm:ss tt}", DateTime.Now) + " - IP: " + NetworkHelper.GetLocalIPAddress() + "\n";
 
             Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SDM\\Logs"));
 
             StringBuilder sb = new StringBuilder();
-            sb.Append(Time);
+            sb.Append(_time);
             sb.Append("User: " + Environment.UserName);
             sb.Append(msg);
 
             if(ERROR_CODE != null)
                 sb.Append("\nError code: " + ERROR_CODE);
+
             sb.Append(MARK);
 
-            // flush every 20 seconds as you do it
-            File.AppendAllText(filePath + Date + ".log", sb.ToString());
+            CreateLogInMain(_date, sb.ToString());
+
+            File.AppendAllText(filePath + _date + ".log", sb.ToString());
 
             sb.Clear();
+        }
+
+        static void CreateLogInMain(string _date, string log)
+        {
+            string _user = Environment.UserName.ToUpper();
+
+            Directory.CreateDirectory(Path.Combine(mainPath, "Logs"));
+            Directory.CreateDirectory(Path.Combine(mainPath + "Logs\\", _user));
+
+
+            File.AppendAllText(mainPath + "Logs\\" + _user + "\\" + _date + ".log", log);
         }
     }
 }

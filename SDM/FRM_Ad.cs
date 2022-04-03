@@ -20,7 +20,9 @@ namespace SDM
         {
             InitializeComponent();
 
-            txt_allComputer_ad.Text = AdHelper.AD.Count.ToString().Insert(2, "."); ;
+            if (AdHelper.AD.Count > 0)
+                txt_allComputer_ad.Text = AdHelper.AD.Count.ToString().Insert(2, ".");
+            else txt_allComputer_ad.Text = "0";
 
             DateTime dt = DateTime.Now.Date;
             DateTime dtAD = ToolsHelper.checkLastBaseCompChange();

@@ -1,18 +1,10 @@
 ﻿using DTO_AD;
 using SDM.Methods;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.DirectoryServices;
-using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SDM.FRMs_AD
@@ -106,7 +98,8 @@ namespace SDM.FRMs_AD
                     "SDM - UO não selecionada!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                LogHelper.doLog("\nRequest to create a new computer\nCN= " + COMPUTER_NAME, null);
+                LogHelper.doLog("\nRequest to create a new computer\nCN= " + COMPUTER_NAME +
+                    "\nOU= " + OU_PATH + "\n", null);
 
                 ADInfo computerInfo = AdHelper.searchComputer(COMPUTER_NAME);
                 if(computerInfo != null)
@@ -118,7 +111,8 @@ namespace SDM.FRMs_AD
                 }
                 else
                 {
-                    LogHelper.doLog("\nRunning create new computer\nCN= " + COMPUTER_NAME, null);
+                    LogHelper.doLog("\nRunning create new computer\nCN= " + COMPUTER_NAME +
+                    "\nOU= " + OU_PATH + "\n", null);
 
                     Process process = PowerShellHelper.executeCommand(Argument, true);
 

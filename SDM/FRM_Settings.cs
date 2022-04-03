@@ -28,6 +28,9 @@ namespace SDM
             //  Make the window round
             Region = Region.FromHrgn(ToolsHelper.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
+            lbl_app_version.Text = "Versão: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            lbl_Copyright.Text = "Copyright © " + System.DateTime.Now.Year + " Kauã Lima & JBS S.A. All Rights Reserved";
+
             updateInfoFileBaseComp();
         }
 
@@ -54,7 +57,7 @@ namespace SDM
                     btn_update_BaseComp.Enabled = false;
                     Cursor.Current = Cursors.WaitCursor;
 
-                    if (AdHelper.updateAdBaseFile())
+                    if (AdHelper.updateAdBaseFile(false))
                         MessageBox.Show("Active directory base updated successfully!\n\n",
                             "Updated successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

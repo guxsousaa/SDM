@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Main));
             this.container_base_left_main = new System.Windows.Forms.Panel();
+            this.btn_docs = new System.Windows.Forms.Button();
             this.PnlNav = new System.Windows.Forms.Panel();
             this.btn_traumaZero0 = new System.Windows.Forms.Button();
             this.btn_users = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.close_btn = new System.Windows.Forms.PictureBox();
             this.timer_checkup = new System.Windows.Forms.Timer(this.components);
             this.timer_network = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.container_base_left_main.SuspendLayout();
             this.container_user_info_main.SuspendLayout();
             this.panel_user_name.SuspendLayout();
@@ -66,7 +66,7 @@
             // container_base_left_main
             // 
             this.container_base_left_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.container_base_left_main.Controls.Add(this.button1);
+            this.container_base_left_main.Controls.Add(this.btn_docs);
             this.container_base_left_main.Controls.Add(this.PnlNav);
             this.container_base_left_main.Controls.Add(this.btn_traumaZero0);
             this.container_base_left_main.Controls.Add(this.btn_users);
@@ -82,6 +82,23 @@
             this.container_base_left_main.Name = "container_base_left_main";
             this.container_base_left_main.Size = new System.Drawing.Size(180, 601);
             this.container_base_left_main.TabIndex = 0;
+            // 
+            // btn_docs
+            // 
+            this.btn_docs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_docs.FlatAppearance.BorderSize = 0;
+            this.btn_docs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_docs.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_docs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_docs.Location = new System.Drawing.Point(0, 421);
+            this.btn_docs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_docs.Name = "btn_docs";
+            this.btn_docs.Size = new System.Drawing.Size(180, 44);
+            this.btn_docs.TabIndex = 10;
+            this.btn_docs.Text = "Documentação";
+            this.btn_docs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_docs.UseVisualStyleBackColor = true;
+            this.btn_docs.Click += new System.EventHandler(this.btn_docs_Click);
             // 
             // PnlNav
             // 
@@ -349,22 +366,6 @@
             this.timer_network.Interval = 10000;
             this.timer_network.Tick += new System.EventHandler(this.timer_network_Tick);
             // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.Location = new System.Drawing.Point(0, 421);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 44);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "TraumaZer0";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -420,6 +421,6 @@
         private System.Windows.Forms.Button btn_traumaZero0;
         private System.Windows.Forms.Panel panel_user_name;
         private System.Windows.Forms.Panel panel_userImage;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_docs;
     }
 }

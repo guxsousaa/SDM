@@ -16,6 +16,8 @@ using System.DirectoryServices;
 using SDM.FRMs_TraumaZero0;
 using Microsoft.Win32;
 using SDM.UsersHelper.Actions;
+using System.Diagnostics;
+using System.IO;
 
 namespace SDM
 {
@@ -249,7 +251,7 @@ namespace SDM
                                 //  Waiting time will be between 10 seconds to 40 seconds
                                 Thread.Sleep(new Random().Next(10000, 40000));
 
-                                AdHelper.updateAdBaseFile();
+                                AdHelper.updateAdBaseFile(false);
                                 return;
                             }
                             else
@@ -286,6 +288,15 @@ namespace SDM
         private void user_profile_pic_main_Click(object sender, EventArgs e)
         {
             new FRM_MyAccount().ShowDialog();
+        }
+
+        private void btn_docs_Click(object sender, EventArgs e)
+        {
+            string path = "file://mtzdskti/web/SDM/index.html";
+            if (File.Exists(path)) Process.Start(path);
+            else
+                MessageBox.Show("Nao foi possivel localizar os arquivos da pagina web", "SDM - Pagina nao encontrada!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -129,3 +129,4 @@ C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Debug\SDM.csproj.CopyComp
 C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Debug\SDM.exe
 C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Debug\SDM.pdb
 C:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Debug\SDM.FRMs_TiEmprest.FRM_ReturnLoan.resources
+c:\Users\kaualima-mtz\Desktop\Service Desk\SDM\SDM\obj\Debug\SDM.FRMs_TiEmprest.Dialogs.FRM_Notify_Options.resources

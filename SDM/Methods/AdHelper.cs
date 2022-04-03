@@ -273,7 +273,7 @@ namespace SDM.Methods
             return ComputerPath;
         }
 
-        public static void initList()
+        public static void InitList()
         {
             string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
 
@@ -289,30 +289,37 @@ namespace SDM.Methods
                 }
             }catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                LogHelper.doLog("\nInitList baseComp - " + ex.ToString(), null);
+
+                updateAdBaseFile(true);
+
+                Thread.Sleep(100);
+
+                InitList();
             }
         }
 
 
-        public static bool updateAdBaseFile()
+        public static bool updateAdBaseFile(bool _emergency)
         {
-            DateTime today = DateTime.Today;
-            string Date = today.ToString("dd-MM-yyyy");
             string mainPath = AppDomain.CurrentDomain.BaseDirectory + "AppAsset\\";
-
+            string backBackupFileName = "CompBase-" + DateTime.Today.ToString("dd-MM-yyyy") + ".json";
 
             Directory.CreateDirectory(Path.Combine(mainPath, "AD"));
 
             Directory.CreateDirectory(Path.Combine(mainPath, "AD\\Base-Backup"));
 
 
-            List<string> adList = GetAllComputers(false);
+            List<string> adList = new List<string>();
+            if (!_emergency)
+            {
+                adList = GetAllComputers(false);
 
-            //  If it returns, there is an error communicating with the server
-            if (adList.Count <= 0) return false;
+                //  If it returns, there is an error communicating with the server
+                if (adList.Count <= 0) return false;
 
-            string backBackupFileName = "CompBase-" + Date + ".json";
-            File.WriteAllText(mainPath + "AD\\Base-Backup\\" + backBackupFileName, JsonConvert.SerializeObject(adList));
+                File.WriteAllText(mainPath + "AD\\Base-Backup\\" + backBackupFileName, JsonConvert.SerializeObject(adList));
+            }
 
             try
             {
@@ -373,7 +380,7 @@ namespace SDM.Methods
             {
                 updateThread = new Thread(delegate ()
                 {
-                    AdHelper.updateAdBaseFile();
+                    AdHelper.updateAdBaseFile(false);
                     return;
                 });
                 updateThread.IsBackground = true;

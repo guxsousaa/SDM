@@ -81,7 +81,7 @@ namespace SDM.FRMs_TraumaZero0
         void throwAgent(string COMPUTER_NAME)
         {
 
-            string Argument = $"&{{ .\\PsExec.exe \\{COMPUTER_NAME} -c c:\\AgenteTz0.exe {NetworkHelper.GetLocalIPAddress()} }}";
+            string Argument = $"&{{ Set-Location -Path C:\\ | .\\PsExec.exe \\{COMPUTER_NAME} -c c:\\AgenteTz0.exe {NetworkHelper.GetLocalIPAddress()} }}";
             Cursor.Current = Cursors.WaitCursor;
 
 

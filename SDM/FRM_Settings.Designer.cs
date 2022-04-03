@@ -45,6 +45,9 @@ namespace SDM
             this.txt_shortcuts_title = new System.Windows.Forms.Label();
             this.panel_container_base_comp = new System.Windows.Forms.Panel();
             this.panel_contaioner_base_info = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_app_version = new System.Windows.Forms.Label();
+            this.lbl_Copyright = new System.Windows.Forms.Label();
             this.panel_win_btns_main.SuspendLayout();
             this.panel_actions_btns.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimize_btn)).BeginInit();
@@ -52,6 +55,7 @@ namespace SDM
             this.panel_container_main.SuspendLayout();
             this.panel_container_base_comp.SuspendLayout();
             this.panel_contaioner_base_info.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_win_btns_main
@@ -141,7 +145,7 @@ namespace SDM
             this.txt_lastUpdateTime_CompBase.Location = new System.Drawing.Point(4, 10);
             this.txt_lastUpdateTime_CompBase.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txt_lastUpdateTime_CompBase.Name = "txt_lastUpdateTime_CompBase";
-            this.txt_lastUpdateTime_CompBase.Size = new System.Drawing.Size(120, 16);
+            this.txt_lastUpdateTime_CompBase.Size = new System.Drawing.Size(127, 17);
             this.txt_lastUpdateTime_CompBase.TabIndex = 3;
             this.txt_lastUpdateTime_CompBase.Text = "Última atualização:";
             // 
@@ -152,13 +156,14 @@ namespace SDM
             this.txt_file_size.Location = new System.Drawing.Point(4, 26);
             this.txt_file_size.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txt_file_size.Name = "txt_file_size";
-            this.txt_file_size.Size = new System.Drawing.Size(68, 16);
+            this.txt_file_size.Size = new System.Drawing.Size(72, 17);
             this.txt_file_size.TabIndex = 4;
             this.txt_file_size.Text = "Tamanho:";
             // 
             // panel_container_main
             // 
             this.panel_container_main.AutoSize = true;
+            this.panel_container_main.Controls.Add(this.panel1);
             this.panel_container_main.Controls.Add(this.btn_manage_my_account);
             this.panel_container_main.Controls.Add(this.btn_verify_permissions);
             this.panel_container_main.Controls.Add(this.btn_users);
@@ -222,7 +227,7 @@ namespace SDM
             this.txt_shortcuts_title.ForeColor = System.Drawing.Color.White;
             this.txt_shortcuts_title.Location = new System.Drawing.Point(15, 11);
             this.txt_shortcuts_title.Name = "txt_shortcuts_title";
-            this.txt_shortcuts_title.Size = new System.Drawing.Size(77, 22);
+            this.txt_shortcuts_title.Size = new System.Drawing.Size(79, 24);
             this.txt_shortcuts_title.TabIndex = 8;
             this.txt_shortcuts_title.Text = "Atalhos";
             // 
@@ -246,8 +251,46 @@ namespace SDM
             this.panel_contaioner_base_info.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_contaioner_base_info.Location = new System.Drawing.Point(136, 5);
             this.panel_contaioner_base_info.Name = "panel_contaioner_base_info";
-            this.panel_contaioner_base_info.Size = new System.Drawing.Size(128, 55);
+            this.panel_contaioner_base_info.Size = new System.Drawing.Size(135, 55);
             this.panel_contaioner_base_info.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(81)))), ((int)(((byte)(103)))));
+            this.panel1.Controls.Add(this.lbl_Copyright);
+            this.panel1.Controls.Add(this.lbl_app_version);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 374);
+            this.panel1.MinimumSize = new System.Drawing.Size(0, 55);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(5);
+            this.panel1.Size = new System.Drawing.Size(457, 55);
+            this.panel1.TabIndex = 13;
+            // 
+            // lbl_app_version
+            // 
+            this.lbl_app_version.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_app_version.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_app_version.ForeColor = System.Drawing.Color.White;
+            this.lbl_app_version.Location = new System.Drawing.Point(5, 5);
+            this.lbl_app_version.Name = "lbl_app_version";
+            this.lbl_app_version.Size = new System.Drawing.Size(447, 18);
+            this.lbl_app_version.TabIndex = 0;
+            this.lbl_app_version.Text = "Versão";
+            this.lbl_app_version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_Copyright
+            // 
+            this.lbl_Copyright.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_Copyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Copyright.ForeColor = System.Drawing.Color.White;
+            this.lbl_Copyright.Location = new System.Drawing.Point(5, 32);
+            this.lbl_Copyright.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lbl_Copyright.Name = "lbl_Copyright";
+            this.lbl_Copyright.Size = new System.Drawing.Size(447, 18);
+            this.lbl_Copyright.TabIndex = 1;
+            this.lbl_Copyright.Text = "Copyright © Kauã Lima & JBS S.A. All Rights Reserved";
+            this.lbl_Copyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FRM_Settings
             // 
@@ -275,6 +318,7 @@ namespace SDM
             this.panel_container_base_comp.PerformLayout();
             this.panel_contaioner_base_info.ResumeLayout(false);
             this.panel_contaioner_base_info.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +341,8 @@ namespace SDM
         private System.Windows.Forms.Button btn_manage_my_account;
         private System.Windows.Forms.Panel panel_actions_btns;
         private System.Windows.Forms.Panel panel_contaioner_base_info;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbl_app_version;
+        private System.Windows.Forms.Label lbl_Copyright;
     }
 }

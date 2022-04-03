@@ -18,10 +18,16 @@ namespace SDM.Methods
      */
     internal class PowerShellHelper
     {
-        static void OpenPowerShell()
+
+        /// <summary>
+        /// Nao utiliar esse metodo
+        /// Esse metodo é apenas para testes e backup
+        /// </summary>
+        private static void OpenPowerShell()
         {
             //execute powershell cmdlets or scripts using command arguments as process
             ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.WorkingDirectory = @"C:";
             processInfo.FileName = @"powershell.exe";
             //execute powershell script using script file
             //processInfo.Arguments = @"& {c:\temp\Get-EventLog.ps1}";
@@ -47,26 +53,29 @@ namespace SDM.Methods
             Console.Read();
         }
 
+
         /// <summary>
-        /// 
+        /// Executa commandos via PowerShell
+        /// Sempre como ADM
         /// </summary>
         /// <param name="_ARGUMENT"></param>
         /// <returns></returns>
         public static Process executeCommand(string _ARGUMENT, bool DONT_SHOW_DIALOG)
         {
             //execute powershell cmdlets or scripts using command arguments as process
-            ProcessStartInfo processInfo = new ProcessStartInfo();
-            processInfo.FileName = @"powershell.exe";
-            processInfo.Arguments = _ARGUMENT;
-            processInfo.Verb = "runas";
-            processInfo.RedirectStandardError = true;
-            processInfo.RedirectStandardOutput = true;
-            processInfo.UseShellExecute = false;
-            processInfo.CreateNoWindow = DONT_SHOW_DIALOG;
+            ProcessStartInfo _processInfo = new ProcessStartInfo();
+            //_processInfo.WorkingDirectory = @"C:";
+            _processInfo.FileName = @"powershell.exe";
+            _processInfo.Arguments = _ARGUMENT;
+            _processInfo.Verb = "runas";
+            _processInfo.RedirectStandardError = true;
+            _processInfo.RedirectStandardOutput = true;
+            _processInfo.UseShellExecute = false;
+            _processInfo.CreateNoWindow = DONT_SHOW_DIALOG;
 
             //start powershell process using process start info
             Process process = new Process();
-            process.StartInfo = processInfo;
+            process.StartInfo = _processInfo;
             process.Start();
 
             return process;
